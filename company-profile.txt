@@ -1,0 +1,42 @@
+# TriVenta Tech Ltd - Company Profile Text Content
+
+## Company Overview
+TriVenta Tech Ltd is a next-generation technology company founded in Kenya by two visionary computer scientists. We specialize in delivering intelligent, secure, and scalable digital solutions that empower businesses, organizations, and communities across the globe. Our services span across web development, AI-driven systems, cybersecurity, cloud solutions, and digital branding — making us a one-stop hub for innovation and progress.
+
+Tagline: "Engineering Intelligence, Powering Progress."
+
+## Our Mission
+To engineer intelligent and secure digital solutions that drive innovation, foster growth, and create meaningful impact globally.
+
+## Our Vision
+To be Africa's leading technology powerhouse recognized worldwide for innovation, security, and transformative digital solutions.
+
+## Our Core Values
+• Innovation – Constantly exploring cutting-edge technology.
+• Integrity – Building trust through transparency and reliability.
+• Excellence – Delivering world-class solutions with precision.
+• Collaboration – Growing stronger together with clients and partners.
+• Impact – Using technology to solve real-world challenges.
+
+## Our Services
+• Web Development & Hosting: Custom websites, e-commerce, hosting & maintenance.
+• Artificial Intelligence & Data Science: AI chatbots, predictive analytics, data visualization, machine learning.
+• Cybersecurity & Ethical Hacking: Penetration testing, IT security audits, cyber defense training.
+• Cloud & Networking Solutions: Cloud deployment, SaaS, infrastructure support.
+• Software & Mobile App Development: Android/iOS apps, custom systems, enterprise automation.
+• Digital Branding & Design: UI/UX design, graphics, digital marketing support.
+
+## Why Choose TriVenta Tech Ltd?
+• Holistic Services: From websites to AI to cybersecurity — all under one roof.
+• Global Outlook: Based in Kenya, built for the world.
+• Young & Dynamic: Driven by passion, creativity, and cutting-edge skills.
+• Custom Solutions: Tailored systems that fit unique client needs.
+
+## Founders
+• Bilford Bwire – Lead, AI, Data Science & Cybersecurity
+• Kevin – Lead, Web Development, Cloud & Design
+
+## Contact Us
+📍 Nairobi, Kenya
+📧 info@triventatech.com
+🌐 www.triventatech.com (Coming Soon)

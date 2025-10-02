@@ -1,0 +1,65 @@
+<!-- TriVenta Tech Header Logo - Hexagonal Version -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 70" width="280" height="70">
+  <defs>
+    <!-- Premium Gold Gradient -->
+    <linearGradient id="headerGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F4D03F;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F1C40F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4AC0D;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="headerDarkGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4AC0D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B7950B;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="headerGlow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Hexagonal Symbol -->
+  <g transform="translate(35,35)">
+    <!-- Container -->
+    <rect x="-25" y="-25" width="50" height="50" rx="10" ry="10" 
+          fill="none" stroke="url(#headerDarkGold)" stroke-width="2" filter="url(#headerGlow)"/>
+    
+    <!-- Four Hexagons -->
+    <g transform="translate(-10,-10)">
+      <polygon points="0,-5 4,-2.5 4,2.5 0,5 -4,2.5 -4,-2.5" 
+               fill="url(#headerGold)" stroke="url(#headerDarkGold)" stroke-width="1"/>
+    </g>
+    <g transform="translate(10,-10)">
+      <polygon points="0,-5 4,-2.5 4,2.5 0,5 -4,2.5 -4,-2.5" 
+               fill="url(#headerGold)" stroke="url(#headerDarkGold)" stroke-width="1"/>
+    </g>
+    <g transform="translate(-10,10)">
+      <polygon points="0,-5 4,-2.5 4,2.5 0,5 -4,2.5 -4,-2.5" 
+               fill="url(#headerGold)" stroke="url(#headerDarkGold)" stroke-width="1"/>
+    </g>
+    <g transform="translate(10,10)">
+      <polygon points="0,-5 4,-2.5 4,2.5 0,5 -4,2.5 -4,-2.5" 
+               fill="url(#headerGold)" stroke="url(#headerDarkGold)" stroke-width="1"/>
+    </g>
+    
+    <!-- Connection lines -->
+    <path d="M -6,-10 L 6,-10 M -10,-6 L -10,6 M 10,-6 L 10,6 M -6,10 L 6,10" 
+          stroke="url(#headerGold)" stroke-width="1.5" opacity="0.7"/>
+  </g>
+  
+  <!-- TriVenta Text -->
+  <text x="75" y="35" font-family="'Times New Roman', serif" font-size="26" font-weight="normal" 
+        fill="url(#headerGold)" letter-spacing="1px">TriVenta</text>
+  
+  <!-- Tagline -->
+  <text x="75" y="50" font-family="'Arial', sans-serif" font-size="7" font-weight="normal" 
+        fill="url(#headerDarkGold)" letter-spacing="2px" opacity="0.9">
+    ENGINEERING INTELLIGENCE, POWERING PROGRESS</text>
+  
+  <!-- Decorative line -->
+  <path d="M 75,40 L 260,40" stroke="url(#headerGold)" stroke-width="0.5" opacity="0.4"/>
+</svg>

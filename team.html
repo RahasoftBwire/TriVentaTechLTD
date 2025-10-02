@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the TriVenta Tech team - Bilford Bwire (AI & Cybersecurity) and Kevin (Web Development & Cloud). Expert founders driving innovation.">
+    <meta name="keywords" content="TriVenta Tech team, founders, Bilford Bwire, Kevin, leadership, AI expert, web development expert">
+    <link rel="canonical" href="https://www.triventatech.com/team.html">
+            <link rel="icon" type="image/svg+xml" href="favicon-hexagon.svg">
+    <title>Our Team - TriVenta Tech Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            background: rgba(0,0,0,0.1);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+        
+        .header-main {
+            padding: 20px 0;
+        }
+        
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo h1 {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+        
+        .logo .tagline {
+            font-size: 0.9em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 0;
+        }
+        
+        .main-nav a:hover, .main-nav a.active {
+            color: #667eea;
+        }
+        
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #5a6fd8;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .page-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .page-hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .section-alt {
+            background: #f8f9fa;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5em;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+        }
+        
+        .team-member {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .team-member .avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+        }
+        
+        .team-member h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #1e3c72;
+        }
+        
+        .team-member .role {
+            font-size: 1.1em;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .team-member .bio {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .team-member .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .skill-tag {
+            background: #e3f2fd;
+            color: #1e3c72;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .team-member .contact {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .contact a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        
+        .contact a:hover {
+            color: #1e3c72;
+        }
+        
+        .leadership-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .leadership-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .leadership-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .leadership-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .values-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .value-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #1e3c72;
+        }
+        
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Footer Styles */
+        .main-footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin: 10px 0;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #667eea;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #ccc;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" style="display: none;">
+        <span>↑</span>
+    </button>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="contact-info">
+                    <span>📧 info@triventatech.com</span>
+                    <span>📍 Nairobi, Kenya</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <img src="logo-header-hexagon.svg" alt="TriVenta - Engineering Intelligence, Powering Progress">
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="why-us.html">Why Us</a></li>
+                        <li><a href="team.html" class="active">Team</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <a href="contact.html" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Team</h1>
+            <p>Meet the visionary minds behind TriVenta Tech's innovative solutions</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Team Members Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Leadership Team</h2>
+                    <p>The founders and visionaries driving our mission forward</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="avatar">BB</div>
+                        <h3>Bilford Bwire</h3>
+                        <div class="role">Co-Founder & Lead, AI, Data Science & Cybersecurity</div>
+                        <div class="bio">
+                            Visionary computer scientist with extensive expertise in artificial intelligence, data science, and cybersecurity. 
+                            Bilford leads our AI initiatives and ensures robust security across all our solutions. His passion for innovation 
+                            drives the development of cutting-edge technologies that solve real-world problems.
+                        </div>
+                        <div class="skills">
+                            <span class="skill-tag">Artificial Intelligence</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Cybersecurity</span>
+                            <span class="skill-tag">Data Science</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Ethical Hacking</span>
+                        </div>
+                        <div class="contact">
+                            <a href="mailto:bilford@triventatech.com" title="Email">📧</a>
+                            <a href="#" title="LinkedIn">💼</a>
+                            <a href="#" title="GitHub">🔧</a>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="avatar">KE</div>
+                        <h3>Kevin</h3>
+                        <div class="role">Co-Founder & Lead, Web Development, Cloud & Design</div>
+                        <div class="bio">
+                            Expert in web development, cloud solutions, and digital design with a passion for creating innovative user experiences. 
+                            Leads our development teams and ensures that every solution we deliver meets the highest standards of quality, 
+                            performance, and user experience.
+                        </div>
+                        <div class="skills">
+                            <span class="skill-tag">Web Development</span>
+                            <span class="skill-tag">Cloud Computing</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">AWS</span>
+                        </div>
+                        <div class="contact">
+                            <a href="mailto:kevin@triventatech.com" title="Email">📧</a>
+                            <a href="#" title="LinkedIn">💼</a>
+                            <a href="#" title="GitHub">🔧</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Leadership Philosophy Section -->
+        <section class="leadership-section">
+            <div class="container">
+                <div class="leadership-content">
+                    <h2>Our Leadership Philosophy</h2>
+                    <p>
+                        At TriVenta Tech, we believe that great technology comes from great teams. Our leadership approach 
+                        is built on collaboration, innovation, and empowerment. We foster an environment where creativity 
+                        thrives, where every team member's voice is heard, and where we collectively push the boundaries 
+                        of what's possible.
+                    </p>
+                    <p>
+                        Our founders bring together complementary expertise in AI, cybersecurity, web development, and design, 
+                        creating a well-rounded leadership team that understands both the technical complexities and business 
+                        needs of our clients.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Drives Our Team</h2>
+                    <p>The core values that unite us and guide our work</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="icon">🚀</div>
+                        <h4>Innovation First</h4>
+                        <p>We constantly explore new technologies and methodologies to deliver cutting-edge solutions that give our clients a competitive advantage.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="icon">🤝</div>
+                        <h4>Collaborative Spirit</h4>
+                        <p>We believe that the best solutions come from diverse perspectives working together towards a common goal.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="icon">🎓</div>
+                        <h4>Continuous Learning</h4>
+                        <p>Technology evolves rapidly, and so do we. Our team is committed to staying ahead of the curve through continuous education and skill development.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="icon">🌍</div>
+                        <h4>Global Impact</h4>
+                        <p>We're not just building technology—we're creating solutions that make a positive difference in communities around the world.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Join Our Team Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Join Our Growing Team</h2>
+                    <p>We're always looking for talented individuals who share our passion for technology and innovation</p>
+                </div>
+                
+                <div style="text-align: center; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 40px; border-radius: 15px; margin: 40px 0;">
+                    <h3 style="color: #1e3c72; margin-bottom: 20px;">Ready to Make an Impact?</h3>
+                    <p style="font-size: 1.1em; margin-bottom: 30px; color: #666;">
+                        Whether you're a seasoned professional or a recent graduate with a passion for technology, 
+                        we'd love to hear from you. Join us in shaping the future of technology in Africa and beyond.
+                    </p>
+                    <a href="contact.html" style="display: inline-block; background: #667eea; color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; transition: background 0.3s;">
+                        Contact Us About Opportunities
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TriVenta Tech Ltd</h3>
+                    <p>"Engineering Intelligence, Powering Progress."</p>
+                    <p>Next-generation technology company delivering intelligent, secure, and scalable digital solutions globally.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">AI & Data Science</a></li>
+                        <li><a href="services.html">Cybersecurity</a></li>
+                        <li><a href="services.html">Cloud Solutions</a></li>
+                        <li><a href="services.html">Mobile Development</a></li>
+                        <li><a href="services.html">Digital Design</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="why-us.html">Why Choose Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><strong>📍 Location:</strong><br>Nairobi, Kenya</p>
+                    <p><strong>📧 Email:</strong><br><a href="mailto:info@triventatech.com">info@triventatech.com</a></p>
+                    <p><strong>🌐 Website:</strong><br>www.triventatech.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 TriVenta Tech Ltd. All rights reserved. | Designed with ❤️ in Kenya</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+// Back to Top Button Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.style.display = 'block';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+    
+    // Smooth scroll to top when clicked
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>

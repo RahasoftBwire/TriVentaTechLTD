@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Allow all crawlers to access all content
+# This helps with SEO and search engine indexing
+
+# Sitemap location
+Sitemap: https://www.triventatech.com/sitemap.xml
+
+# Crawl delay (optional, in seconds)
+Crawl-delay: 1
+
+# Block access to certain files/directories if needed
+# Disallow: /admin/
+# Disallow: /private/
+# Disallow: *.pdf$
+
+# Allow specific important pages
+Allow: /index.html
+Allow: /about.html
+Allow: /services.html
+Allow: /team.html
+Allow: /blog.html
+Allow: /contact.html
+Allow: /why-us.html
+
+# Block common spam/hack attempts
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /administrator/
+Disallow: /admin/
+Disallow: /login/
+Disallow: /wp-login.php

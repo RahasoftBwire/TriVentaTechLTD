@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why choose TriVenta Tech? Comprehensive solutions, expert team, proven results, and innovative approach to technology challenges. See our advantages.">
+    <meta name="keywords" content="why choose TriVenta Tech, technology advantages, expert solutions, innovation, proven results">
+    <link rel="canonical" href="https://www.triventatech.com/why-us.html">
+            <link rel="icon" type="image/svg+xml" href="favicon-hexagon.svg">
+    <title>Why Choose Us - TriVenta Tech Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            background: rgba(0,0,0,0.1);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+        
+        .header-main {
+            padding: 20px 0;
+        }
+        
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo h1 {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+        
+        .logo .tagline {
+            font-size: 0.9em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 0;
+        }
+        
+        .main-nav a:hover, .main-nav a.active {
+            color: #667eea;
+        }
+        
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #5a6fd8;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .page-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .page-hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .section-alt {
+            background: #f8f9fa;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5em;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .advantage-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+        
+        .advantage-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .advantage-card .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .advantage-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #1e3c72;
+        }
+        
+        .advantage-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-item .number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat-item .label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .testimonial-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial p {
+            font-size: 1.2em;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .testimonial .author {
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        
+        /* Footer Styles */
+        .main-footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin: 10px 0;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #667eea;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #ccc;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" style="display: none;">
+        <span>↑</span>
+    </button>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="contact-info">
+                    <span>📧 info@triventatech.com</span>
+                    <span>📍 Nairobi, Kenya</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <img src="logo-header-hexagon.svg" alt="TriVenta - Engineering Intelligence, Powering Progress">
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="why-us.html" class="active">Why Us</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <a href="contact.html" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Why Choose TriVenta Tech?</h1>
+            <p>Discover what makes us the preferred technology partner for businesses across Africa and beyond</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Advantages Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Competitive Advantages</h2>
+                    <p>What sets us apart in the competitive technology landscape</p>
+                </div>
+                
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="icon">🏢</div>
+                        <h3>Holistic Services</h3>
+                        <p>From websites to AI to cybersecurity — all under one roof. No need to juggle multiple vendors or worry about integration issues. We provide comprehensive solutions that work seamlessly together.</p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="icon">🌍</div>
+                        <h3>Global Outlook</h3>
+                        <p>Based in Kenya, built for the world. We combine deep local market understanding with international best practices and global technology standards to deliver world-class solutions.</p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="icon">⚡</div>
+                        <h3>Young & Dynamic</h3>
+                        <p>Driven by passion, creativity, and cutting-edge skills. Our young team stays ahead of technology trends and brings fresh perspectives to solve complex challenges with innovative approaches.</p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="icon">🎯</div>
+                        <h3>Custom Solutions</h3>
+                        <p>Tailored systems that fit your unique needs. We don't believe in one-size-fits-all. Every solution is carefully crafted to address your specific business requirements and goals.</p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="icon">🔒</div>
+                        <h3>Security First</h3>
+                        <p>Every solution built with robust security from the ground up. In an increasingly connected world, we prioritize security in every aspect of our development process.</p>
+                    </div>
+                    
+                    <div class="advantage-card">
+                        <div class="icon">🚀</div>
+                        <h3>Innovation Leaders</h3>
+                        <p>We don't just follow trends—we help create them. Our team continuously explores emerging technologies to deliver tomorrow's solutions today.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <h2 style="margin-bottom: 20px;">Our Track Record</h2>
+                <p style="font-size: 1.2em; opacity: 0.9; margin-bottom: 40px;">Numbers that speak for themselves</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="number">100%</div>
+                        <div class="label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">50+</div>
+                        <div class="label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">24/7</div>
+                        <div class="label">Support Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">5★</div>
+                        <div class="label">Average Rating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Benefits Section -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What You Get When You Choose Us</h2>
+                    <p>The benefits of partnering with TriVenta Tech</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px 0;">
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <h3 style="color: #1e3c72; margin-bottom: 15px;">✅ Reduced Complexity</h3>
+                        <p>One point of contact for all your technology needs. Simplified communication, streamlined processes, and integrated solutions.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <h3 style="color: #1e3c72; margin-bottom: 15px;">💰 Cost Efficiency</h3>
+                        <p>Bundled services mean better value for money. No markup from multiple vendors, transparent pricing, and optimized resource allocation.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <h3 style="color: #1e3c72; margin-bottom: 15px;">⏱️ Faster Delivery</h3>
+                        <p>Streamlined workflows and integrated teams mean quicker project completion. No delays from inter-vendor coordination issues.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <h3 style="color: #1e3c72; margin-bottom: 15px;">🛡️ Better Security</h3>
+                        <p>Integrated security across all solutions. No gaps between different vendors' security implementations.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <h3 style="color: #1e3c72; margin-bottom: 15px;">📈 Scalable Growth</h3>
+                        <p>Solutions designed to grow with your business. Easy to expand and modify as your needs evolve.</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <h3 style="color: #1e3c72; margin-bottom: 15px;">🎓 Knowledge Transfer</h3>
+                        <p>We don't just deliver solutions—we empower your team with training and documentation for long-term success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonial Section -->
+        <section class="testimonial-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our Clients Say</h2>
+                    <p>Real feedback from businesses that trust TriVenta Tech</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"TriVenta Tech transformed our business with their comprehensive digital solutions. From our website to our data analytics platform, everything works seamlessly together. Their team's expertise in AI and cybersecurity gave us the confidence to fully embrace digital transformation."</p>
+                    <div class="author">— Sarah Kamau, CEO, East Africa Logistics</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TriVenta Tech Ltd</h3>
+                    <p>"Engineering Intelligence, Powering Progress."</p>
+                    <p>Next-generation technology company delivering intelligent, secure, and scalable digital solutions globally.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">AI & Data Science</a></li>
+                        <li><a href="services.html">Cybersecurity</a></li>
+                        <li><a href="services.html">Cloud Solutions</a></li>
+                        <li><a href="services.html">Mobile Development</a></li>
+                        <li><a href="services.html">Digital Design</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="why-us.html">Why Choose Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><strong>📍 Location:</strong><br>Nairobi, Kenya</p>
+                    <p><strong>📧 Email:</strong><br><a href="mailto:info@triventatech.com">info@triventatech.com</a></p>
+                    <p><strong>🌐 Website:</strong><br>www.triventatech.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 TriVenta Tech Ltd. All rights reserved. | Designed with ❤️ in Kenya</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+// Back to Top Button Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.style.display = 'block';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+    
+    // Smooth scroll to top when clicked
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>

@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TriVenta Tech Blog - Latest insights on AI, cybersecurity, web development, cloud solutions, and technology trends from our expert team.">
+    <meta name="keywords" content="technology blog, AI insights, cybersecurity tips, web development trends, cloud solutions, tech news">
+    <link rel="canonical" href="https://www.triventatech.com/blog.html">
+            <link rel="icon" type="image/svg+xml" href="favicon-hexagon.svg">
+    <title>Blog - TriVenta Tech Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            background: rgba(0,0,0,0.1);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: opacity 0.3s;
+        }
+        
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+        
+        .header-main {
+            padding: 20px 0;
+        }
+        
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo h1 {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+        
+        .logo .tagline {
+            font-size: 0.9em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 0;
+        }
+        
+        .main-nav a:hover, .main-nav a.active {
+            color: #667eea;
+        }
+        
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #5a6fd8;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .page-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .page-hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .section-alt {
+            background: #f8f9fa;
+        }
+        
+        /* Blog Specific Styles */
+        .blog-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: white;
+            color: #1e3c72;
+            border: 2px solid #1e3c72;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #1e3c72;
+            color: white;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .blog-image {
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+        }
+        
+        .blog-content {
+            padding: 30px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .blog-category {
+            background: #e3f2fd;
+            color: #1e3c72;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+        
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .blog-card h3 {
+            font-size: 1.5em;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: #1e3c72;
+        }
+        
+        .read-time {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .read-more {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        
+        .read-more:hover {
+            color: #1e3c72;
+        }
+        
+        .featured-post {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 400px;
+        }
+        
+        .featured-image {
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+            color: white;
+        }
+        
+        .featured-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            background: #FF6B6B;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+        
+        .featured-content h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .newsletter-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .newsletter-content p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            outline: none;
+        }
+        
+        .newsletter-form button {
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background: #ff5252;
+        }
+        
+        /* Footer Styles */
+        .main-footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin: 10px 0;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #667eea;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #ccc;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-post {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-image {
+                min-height: 250px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .blog-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" style="display: none;">
+        <span>↑</span>
+    </button>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="contact-info">
+                    <span>📧 info@triventatech.com</span>
+                    <span>📍 Nairobi, Kenya</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <img src="logo-header-hexagon.svg" alt="TriVenta - Engineering Intelligence, Powering Progress">
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="why-us.html">Why Us</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <a href="contact.html" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Tech Blog</h1>
+            <p>Insights, innovations, and industry trends from the TriVenta Tech team</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Blog Filters -->
+        <section class="section">
+            <div class="container">
+                <div class="blog-filters">
+                    <button class="filter-btn active" data-filter="all">All Posts</button>
+                    <button class="filter-btn" data-filter="ai">AI & Data Science</button>
+                    <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
+                    <button class="filter-btn" data-filter="web-dev">Web Development</button>
+                    <button class="filter-btn" data-filter="cloud">Cloud Solutions</button>
+                    <button class="filter-btn" data-filter="trends">Tech Trends</button>
+                </div>
+                
+                <!-- Blog Grid -->
+                <div class="blog-grid">
+                    <!-- Featured Post -->
+                    <article class="blog-card featured-post" data-category="ai">
+                        <div class="featured-image">🤖</div>
+                        <div class="featured-content">
+                            <div class="featured-badge">Featured</div>
+                            <h3>The Future of AI in African Businesses</h3>
+                            <div class="blog-meta">
+                                <span class="blog-category">AI & Data Science</span>
+                                <span class="blog-date">📅 September 28, 2025</span>
+                            </div>
+                            <p class="blog-excerpt">
+                                Discover how artificial intelligence is revolutionizing African businesses and creating unprecedented opportunities for growth, efficiency, and innovation across the continent.
+                            </p>
+                            <div class="blog-author">
+                                <div class="author-avatar">BB</div>
+                                <div class="author-info">
+                                    <div class="author-name">Bilford Bwire</div>
+                                    <div class="read-time">8 min read</div>
+                                </div>
+                                <a href="#" class="read-more">Read Full Article →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Regular Blog Posts -->
+                    <article class="blog-card" data-category="cybersecurity">
+                        <div class="blog-image">🔒</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Cybersecurity</span>
+                                <span class="blog-date">📅 September 25, 2025</span>
+                            </div>
+                            <h3>Essential Cybersecurity Practices for Small Businesses</h3>
+                            <p class="blog-excerpt">
+                                Learn the fundamental cybersecurity measures every small business should implement to protect against evolving digital threats and data breaches.
+                            </p>
+                            <div class="blog-author">
+                                <div class="author-avatar">BB</div>
+                                <div class="author-info">
+                                    <div class="author-name">Bilford Bwire</div>
+                                    <div class="read-time">6 min read</div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card" data-category="web-dev">
+                        <div class="blog-image">🌐</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Web Development</span>
+                                <span class="blog-date">📅 September 22, 2025</span>
+                            </div>
+                            <h3>Building Responsive Websites with Modern CSS</h3>
+                            <p class="blog-excerpt">
+                                Explore the latest CSS techniques and frameworks for creating beautiful, responsive websites that work seamlessly across all devices and screen sizes.
+                            </p>
+                            <div class="blog-author">
+                                <div class="author-avatar">KE</div>
+                                <div class="author-info">
+                                    <div class="author-name">Kevin</div>
+                                    <div class="read-time">5 min read</div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card" data-category="cloud">
+                        <div class="blog-image">☁️</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Cloud Solutions</span>
+                                <span class="blog-date">📅 September 20, 2025</span>
+                            </div>
+                            <h3>Cloud Migration Strategies for Growing Companies</h3>
+                            <p class="blog-excerpt">
+                                A comprehensive guide to planning and executing successful cloud migration projects, including best practices and common pitfalls to avoid.
+                            </p>
+                            <div class="blog-author">
+                                <div class="author-avatar">KE</div>
+                                <div class="author-info">
+                                    <div class="author-name">Kevin</div>
+                                    <div class="read-time">7 min read</div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card" data-category="trends">
+                        <div class="blog-image">📱</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Tech Trends</span>
+                                <span class="blog-date">📅 September 18, 2025</span>
+                            </div>
+                            <h3>Mobile-First Development: Why It Matters in 2025</h3>
+                            <p class="blog-excerpt">
+                                Understanding the importance of mobile-first design principles and how they impact user experience, SEO, and business success in today's digital landscape.
+                            </p>
+                            <div class="blog-author">
+                                <div class="author-avatar">KE</div>
+                                <div class="author-info">
+                                    <div class="author-name">Kevin</div>
+                                    <div class="read-time">4 min read</div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card" data-category="ai">
+                        <div class="blog-image">📊</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">AI & Data Science</span>
+                                <span class="blog-date">📅 September 15, 2025</span>
+                            </div>
+                            <h3>Data Analytics: Turning Information into Business Intelligence</h3>
+                            <p class="blog-excerpt">
+                                Learn how to leverage data analytics tools and techniques to gain valuable insights that drive informed business decisions and competitive advantages.
+                            </p>
+                            <div class="blog-author">
+                                <div class="author-avatar">BB</div>
+                                <div class="author-info">
+                                    <div class="author-name">Bilford Bwire</div>
+                                    <div class="read-time">6 min read</div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card" data-category="cybersecurity">
+                        <div class="blog-image">🛡️</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Cybersecurity</span>
+                                <span class="blog-date">📅 September 12, 2025</span>
+                            </div>
+                            <h3>Ethical Hacking: Strengthening Security Through Penetration Testing</h3>
+                            <p class="blog-excerpt">
+                                Explore the world of ethical hacking and how penetration testing helps organizations identify vulnerabilities before malicious actors do.
+                            </p>
+                            <div class="blog-author">
+                                <div class="author-avatar">BB</div>
+                                <div class="author-info">
+                                    <div class="author-name">Bilford Bwire</div>
+                                    <div class="read-time">9 min read</div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card" data-category="web-dev">
+                        <div class="blog-image">⚡</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Web Development</span>
+                                <span class="blog-date">📅 September 10, 2025</span>
+                            </div>
+                            <h3>Optimizing Website Performance for Better User Experience</h3>
+                            <p class="blog-excerpt">
+                                Discover proven techniques for improving website speed, reducing load times, and creating smoother user experiences that boost conversions.
+                            </p>
+                            <div class="blog-author">
+                                <div class="author-avatar">KE</div>
+                                <div class="author-info">
+                                    <div class="author-name">Kevin</div>
+                                    <div class="read-time">5 min read</div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card" data-category="trends">
+                        <div class="blog-image">🚀</div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Tech Trends</span>
+                                <span class="blog-date">📅 September 8, 2025</span>
+                            </div>
+                            <h3>Emerging Technologies Shaping the Future of Business</h3>
+                            <p class="blog-excerpt">
+                                Stay ahead of the curve with insights into the latest technological innovations that are transforming industries and creating new opportunities.
+                            </p>
+                            <div class="blog-author">
+                                <div class="author-avatar">BB</div>
+                                <div class="author-info">
+                                    <div class="author-name">Bilford Bwire</div>
+                                    <div class="read-time">7 min read</div>
+                                </div>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated with Tech Insights</h2>
+                    <p>Subscribe to our newsletter for the latest articles, industry trends, and exclusive insights from our experts</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TriVenta Tech Ltd</h3>
+                    <p>"Engineering Intelligence, Powering Progress."</p>
+                    <p>Next-generation technology company delivering intelligent, secure, and scalable digital solutions globally.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">AI & Data Science</a></li>
+                        <li><a href="services.html">Cybersecurity</a></li>
+                        <li><a href="services.html">Cloud Solutions</a></li>
+                        <li><a href="services.html">Mobile Development</a></li>
+                        <li><a href="services.html">Digital Design</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="why-us.html">Why Choose Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><strong>📍 Location:</strong><br>Nairobi, Kenya</p>
+                    <p><strong>📧 Email:</strong><br><a href="mailto:info@triventatech.com">info@triventatech.com</a></p>
+                    <p><strong>🌐 Website:</strong><br>www.triventatech.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 TriVenta Tech Ltd. All rights reserved. | Designed with ❤️ in Kenya</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Blog Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    blogCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Newsletter Form
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    alert('Thank you for subscribing! We\'ll keep you updated with our latest insights.');
+                    this.reset();
+                });
+            }
+        });
+        
+        // Enhanced newsletter form validation
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]');
+                const button = this.querySelector('button');
+                
+                // Basic email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email.value)) {
+                    alert('Please enter a valid email address.');
+                    email.focus();
+                    return;
+                }
+                
+                // Show loading state
+                button.innerHTML = 'Subscribing...';
+                button.disabled = true;
+                
+                // Simulate subscription (replace with actual API call)
+                setTimeout(() => {
+                    alert('Thank you for subscribing! We\'ll keep you updated with our latest insights.');
+                    this.reset();
+                    button.innerHTML = 'Subscribe';
+                    button.disabled = false;
+                }, 1500);
+            });
+        }
+    </script>
+</body>
+</html>

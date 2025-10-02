@@ -1,0 +1,101 @@
+{
+  "company": {
+    "name": "TriVenta Tech Ltd",
+    "tagline": "Engineering Intelligence, Powering Progress.",
+    "location": "Nairobi, Kenya",
+    "email": "info@triventatech.com",
+    "website": "www.triventatech.com",
+    "status": "Coming Soon"
+  },
+  "mission": "To engineer intelligent and secure digital solutions that drive innovation, foster growth, and create meaningful impact globally.",
+  "vision": "To be Africa's leading technology powerhouse recognized worldwide for innovation, security, and transformative digital solutions.",
+  "coreValues": [
+    {
+      "name": "Innovation",
+      "description": "Constantly exploring cutting-edge technology"
+    },
+    {
+      "name": "Integrity", 
+      "description": "Building trust through transparency and reliability"
+    },
+    {
+      "name": "Excellence",
+      "description": "Delivering world-class solutions with precision"
+    },
+    {
+      "name": "Collaboration",
+      "description": "Growing stronger together with clients and partners"
+    },
+    {
+      "name": "Impact",
+      "description": "Using technology to solve real-world challenges"
+    }
+  ],
+  "services": [
+    {
+      "category": "Web Development & Hosting",
+      "offerings": [
+        "Custom websites",
+        "E-commerce solutions", 
+        "Hosting & maintenance"
+      ]
+    },
+    {
+      "category": "Artificial Intelligence & Data Science",
+      "offerings": [
+        "AI chatbots",
+        "Predictive analytics",
+        "Data visualization",
+        "Machine learning"
+      ]
+    },
+    {
+      "category": "Cybersecurity & Ethical Hacking",
+      "offerings": [
+        "Penetration testing",
+        "IT security audits",
+        "Cyber defense training"
+      ]
+    },
+    {
+      "category": "Cloud & Networking Solutions",
+      "offerings": [
+        "Cloud deployment",
+        "SaaS solutions",
+        "Infrastructure support"
+      ]
+    },
+    {
+      "category": "Software & Mobile App Development",
+      "offerings": [
+        "Android/iOS apps",
+        "Custom systems",
+        "Enterprise automation"
+      ]
+    },
+    {
+      "category": "Digital Branding & Design",
+      "offerings": [
+        "UI/UX design",
+        "Graphics",
+        "Digital marketing support"
+      ]
+    }
+  ],
+  "whyChooseUs": [
+    "Holistic Services: From websites to AI to cybersecurity — all under one roof",
+    "Global Outlook: Based in Kenya, built for the world",
+    "Young & Dynamic: Driven by passion, creativity, and cutting-edge skills",
+    "Custom Solutions: Tailored systems that fit unique client needs"
+  ],
+  "founders": [
+    {
+      "name": "Bilford Bwire",
+      "role": "Lead, AI, Data Science & Cybersecurity"
+    },
+    {
+      "name": "Kevin",
+      "role": "Lead, Web Development, Cloud & Design"
+    }
+  ]
+}

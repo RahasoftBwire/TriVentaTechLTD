@@ -120,22 +120,146 @@
             font-style: italic;
         }
         
-        .main-nav ul {
+        /* Navigation Styles */
+        .main-nav {
             display: flex;
-            list-style: none;
-            gap: 30px;
+            align-items: center;
         }
         
-        .main-nav a {
+        /* Dropdown Navigation - Always Visible */
+        .nav-dropdown-container {
+            position: relative;
+            display: block;
+        }
+        
+        .nav-dropdown-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        
+        .nav-dropdown-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-dropdown-btn svg {
+            transition: transform 0.3s;
+        }
+        
+        .nav-dropdown-btn.active svg {
+            transform: rotate(180deg);
+        }
+        
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 12px;
+            padding: 10px 0;
+            min-width: 220px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            list-style: none;
+            margin-top: 8px;
+        }
+        
+        .nav-dropdown-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .nav-dropdown-menu li {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .nav-dropdown-menu li:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 14px 20px;
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            padding: 10px 0;
+            transition: all 0.3s;
+            font-size: 15px;
         }
         
-        .main-nav a:hover, .main-nav a.active {
+        .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active {
+            background: rgba(255,255,255,0.1);
             color: #667eea;
+        }
+        
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .main-nav ul {
+                gap: 20px;
+            }
+            
+            .main-nav a {
+                font-size: 14px;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .main-nav ul {
+                gap: 20px;
+            }
+            
+            .main-nav a {
+                font-size: 14px;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
         }
         
         .cta-button {
@@ -650,7 +774,24 @@
         }
         
         /* Responsive Design */
-                }
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .main-nav ul {
+                gap: 20px;
+            }
+            
+            .main-nav a {
+                font-size: 14px;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
         
         /* Back to Top Button */
         .back-to-top {
@@ -675,11 +816,11 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
         
-        /* Live Chat Widget Styles - Left Side */
+        /* Live Chat Widget Styles - Right Side */
         .live-chat-widget {
             position: fixed;
             bottom: 30px;
-            left: 30px;
+            right: 30px;
             z-index: 1000;
         }
         
@@ -711,7 +852,7 @@
         .chat-window {
             position: absolute;
             bottom: 80px;
-            left: 0;
+            right: 0;
             width: 350px;
             height: 450px;
             background: white;
@@ -782,6 +923,10 @@
             font-size: 0.8em;
             font-weight: bold;
             flex-shrink: 0;
+            background-image: url('logo-header-hexagon.svg');
+            background-size: 25px 25px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
         
         .message-content {
@@ -852,6 +997,196 @@
             background: #5a67d8;
         }
         
+        /* Training Section Styles */
+        .training-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+        }
+        
+        .training-intro {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .training-intro h3 {
+            font-size: 2.2em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        
+        .training-intro p {
+            font-size: 1.2em;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .training-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+        
+        .training-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .training-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8em;
+            margin-bottom: 20px;
+        }
+        
+        .training-card h4 {
+            font-size: 1.5em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        
+        .training-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .training-card ul li {
+            padding: 8px 0;
+            color: #666;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .training-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .training-card ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .training-duration {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1565c0;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .training-features {
+            margin-bottom: 50px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature-item h5 {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .feature-item p {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .training-cta {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .training-cta h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .training-cta p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .training-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .training-buttons .btn {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .training-buttons .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+        
+        .training-buttons .btn-primary:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+        
+        .training-buttons .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .training-buttons .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        
         .back-to-top:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
@@ -912,6 +1247,29 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .training-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .training-intro h3 {
+                font-size: 1.8em;
+            }
+            
+            .training-cta h3 {
+                font-size: 1.6em;
+            }
+            
+            .training-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -952,16 +1310,26 @@
                 </div>
                 
                 <nav class="main-nav">
-                    <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="why-us.html">Why Us</a></li>
-                        <li><a href="team.html">Team</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                    <!-- Only Dropdown Navigation -->
+                    <div class="nav-dropdown-container">
+                        <button class="nav-dropdown-btn" id="navDropdownBtn">
+                            <span>Menu</span>
+                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="nav-dropdown-menu" id="navDropdownMenu">
+                            <li><a href="index.html" class="active">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="why-us.html">Why Us</a></li>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="enroll.html">Training</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
                 </nav>
                 
                 <a href="contact.html" class="cta-button">Get Started</a>
@@ -974,7 +1342,6 @@
         <div class="hero-particles"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">🚀 Next-Generation Technology</div>
                 <h1 class="hero-title">
                     Engineering <span class="gradient-text">Intelligence</span><br>
                     Powering <span class="gradient-text">Progress</span>
@@ -1131,7 +1498,7 @@
             </div>
             <div class="chat-messages">
                 <div class="bot-message">
-                    <div class="message-avatar">BOT</div>
+                    <div class="message-avatar"></div>
                     <div class="message-content">
                         <p>Hi! I'm here to help. How can we assist you today?</p>
                         <div class="quick-options">
@@ -1210,6 +1577,133 @@
                     <span class="dot" data-slide="2"></span>
                 </div>
                 <button class="testimonial-btn next-btn">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training & Education Section -->
+    <section class="training-section section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Learn <span class="gradient-text">Technology</span> with Experts</h2>
+                <p>Empower yourself with cutting-edge skills through our comprehensive training programs</p>
+            </div>
+            
+            <div class="training-content">
+                <div class="training-intro">
+                    <h3>Transform Your Career with Professional Tech Training</h3>
+                    <p>At TriVenta Tech, we don't just build solutions – we build careers. Our expert-led training programs are designed to equip you with the most in-demand skills in today's technology landscape.</p>
+                </div>
+                
+                <div class="training-grid">
+                    <div class="training-card">
+                        <div class="training-icon">CODE</div>
+                        <h4>Programming & Development</h4>
+                        <ul>
+                            <li>Python Programming</li>
+                            <li>JavaScript & Modern Frameworks</li>
+                            <li>Java & C++ Fundamentals</li>
+                            <li>Mobile App Development</li>
+                            <li>Database Management</li>
+                        </ul>
+                        <div class="training-duration">Duration: 3-6 months</div>
+                    </div>
+                    
+                    <div class="training-card">
+                        <div class="training-icon">WEB</div>
+                        <h4>Web Development</h4>
+                        <ul>
+                            <li>HTML5, CSS3 & Responsive Design</li>
+                            <li>React, Vue.js & Angular</li>
+                            <li>Node.js & Backend Development</li>
+                            <li>E-commerce Solutions</li>
+                            <li>Web Performance Optimization</li>
+                        </ul>
+                        <div class="training-duration">Duration: 4-8 months</div>
+                    </div>
+                    
+                    <div class="training-card">
+                        <div class="training-icon">AI</div>
+                        <h4>AI & Data Science</h4>
+                        <ul>
+                            <li>Machine Learning Fundamentals</li>
+                            <li>Data Analysis & Visualization</li>
+                            <li>Artificial Intelligence Applications</li>
+                            <li>Big Data Technologies</li>
+                            <li>Predictive Analytics</li>
+                        </ul>
+                        <div class="training-duration">Duration: 6-12 months</div>
+                    </div>
+                    
+                    <div class="training-card">
+                        <div class="training-icon">SECURE</div>
+                        <h4>Cybersecurity</h4>
+                        <ul>
+                            <li>Ethical Hacking & Penetration Testing</li>
+                            <li>Network Security</li>
+                            <li>Digital Forensics</li>
+                            <li>Security Risk Assessment</li>
+                            <li>Compliance & Governance</li>
+                        </ul>
+                        <div class="training-duration">Duration: 4-10 months</div>
+                    </div>
+                    
+                    <div class="training-card">
+                        <div class="training-icon">CLOUD</div>
+                        <h4>Cloud Computing</h4>
+                        <ul>
+                            <li>AWS, Azure & Google Cloud</li>
+                            <li>DevOps & CI/CD Pipelines</li>
+                            <li>Container Technologies</li>
+                            <li>Serverless Architecture</li>
+                            <li>Cloud Security</li>
+                        </ul>
+                        <div class="training-duration">Duration: 3-6 months</div>
+                    </div>
+                    
+                    <div class="training-card">
+                        <div class="training-icon">DESIGN</div>
+                        <h4>Digital Design</h4>
+                        <ul>
+                            <li>UI/UX Design Principles</li>
+                            <li>Graphic Design & Branding</li>
+                            <li>Prototyping & Wireframing</li>
+                            <li>Design Systems</li>
+                            <li>User Research & Testing</li>
+                        </ul>
+                        <div class="training-duration">Duration: 2-4 months</div>
+                    </div>
+                </div>
+                
+                <div class="training-features">
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h5>HANDS-ON</h5>
+                            <p>Real-world projects and practical experience</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>EXPERT</h5>
+                            <p>Learn from industry professionals</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>FLEXIBLE</h5>
+                            <p>Online, offline, and hybrid learning options</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>CERTIFIED</h5>
+                            <p>Industry-recognized certifications</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="training-cta">
+                    <h3>Ready to Start Your Tech Journey?</h3>
+                    <p>Join hundreds of students who have transformed their careers with our training programs</p>
+                    <div class="training-buttons">
+                        <a href="enroll.html" class="btn btn-primary">Enroll Now</a>
+                        <a href="contact.html" class="btn btn-secondary">Request Course Info</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1385,7 +1879,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         } else {
             messageDiv.innerHTML = `
-                <div class="message-avatar">🤖</div>
+                <div class="message-avatar"></div>
                 <div class="message-content">
                     <p>${text}</p>
                 </div>
@@ -1440,6 +1934,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Auto-rotate testimonials if they exist
     if (testimonials.length > 0) {
         setInterval(nextSlide, 8000);
+    }
+    
+    // Dropdown Navigation Functionality
+    const navDropdownBtn = document.getElementById('navDropdownBtn');
+    const navDropdownMenu = document.getElementById('navDropdownMenu');
+    
+    if (navDropdownBtn && navDropdownMenu) {
+        navDropdownBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navDropdownBtn.classList.toggle('active');
+            navDropdownMenu.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking on a link
+        const navLinks = navDropdownMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navDropdownBtn.classList.remove('active');
+                navDropdownMenu.classList.remove('active');
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navDropdownBtn.contains(e.target) && !navDropdownMenu.contains(e.target)) {
+                navDropdownBtn.classList.remove('active');
+                navDropdownMenu.classList.remove('active');
+            }
+        });
     }
 });
 </script>

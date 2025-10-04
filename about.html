@@ -146,10 +146,12 @@
         }
         
         .page-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=600&fit=crop') center/cover;
             color: white;
             padding: 80px 0;
             text-align: center;
+            position: relative;
         }
         
         .page-hero h1 {
@@ -217,6 +219,103 @@
         .value-item h4 {
             font-size: 1.4em;
             margin-bottom: 15px;
+        }
+        
+        /* Video Cards Section */
+        .video-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(30, 60, 114, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(30, 60, 114, 0.2);
+        }
+        
+        .video-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: #f0f0f0;
+            position: relative;
+        }
+        
+        .video-wrapper img,
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-card:hover .video-wrapper img,
+        .video-card:hover .video-wrapper video {
+            transform: scale(1.1);
+        }
+        
+        .video-card-content {
+            padding: 20px;
+        }
+        
+        .video-card-content h4 {
+            font-size: 1.3em;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        .video-card-content p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Statistics Section */
+        .stats-section {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=400&fit=crop') center/cover;
+            color: white;
+            padding: 60px 0;
+            margin: 50px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .stat-item p {
+            font-size: 1.2em;
+            color: #f0f0f0;
+            font-weight: 500;
         }
         
         .section-header {
@@ -379,6 +478,24 @@
             .values-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
+            
+            .video-card-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .video-wrapper {
+                height: 180px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .stat-item h3 {
+                font-size: 2.5em;
+            }
         }
         
         @media (max-width: 480px) {
@@ -396,6 +513,31 @@
             
             .page-hero h1 {
                 font-size: 1.7em;
+            }
+            
+            .video-card-content {
+                padding: 15px;
+            }
+            
+            .video-card-content h4 {
+                font-size: 1.1em;
+            }
+            
+            .video-wrapper {
+                height: 160px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stat-item h3 {
+                font-size: 2em;
+            }
+            
+            .stat-item p {
+                font-size: 1em;
             }
         }
     </style>
@@ -499,6 +641,30 @@
             </div>
         </section>
         
+        <!-- Statistics Section with Background Image -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Client Satisfaction</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Support Available</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Core Values Section -->
         <section class="section">
             <div class="container">
@@ -527,6 +693,78 @@
                     <div class="value-item">
                         <h4> Impact</h4>
                         <p>We use technology to solve real-world challenges and create positive change in communities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Journey Section with Videos -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>See Us <span class="gradient-text">In Action</span></h2>
+                    <p>Experience how TriVenta Tech is transforming businesses through innovation and dedication</p>
+                </div>
+                
+                <div class="video-card-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=500&fit=crop" alt="Coding and Development" loading="lazy">
+                        </div>
+                        <div class="video-card-content">
+                            <h4>💻 Innovation Lab</h4>
+                            <p>Our team developing cutting-edge solutions with the latest technologies</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop" alt="AI and Machine Learning" loading="lazy">
+                        </div>
+                        <div class="video-card-content">
+                            <h4>🤖 AI Solutions</h4>
+                            <p>Building intelligent systems that learn and adapt to business needs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=500&fit=crop" alt="Cybersecurity" loading="lazy">
+                        </div>
+                        <div class="video-card-content">
+                            <h4>🔒 Cybersecurity</h4>
+                            <p>Protecting digital assets with world-class security solutions</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop" alt="Global Technology Impact" loading="lazy">
+                        </div>
+                        <div class="video-card-content">
+                            <h4>🌍 Global Impact</h4>
+                            <p>Empowering businesses across Africa and beyond with technology</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=500&fit=crop" alt="Team Collaboration" loading="lazy">
+                        </div>
+                        <div class="video-card-content">
+                            <h4>🤝 Team Collaboration</h4>
+                            <p>Working together to deliver exceptional results for our clients</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=500&fit=crop" alt="Tech Training and Education" loading="lazy">
+                        </div>
+                        <div class="video-card-content">
+                            <h4>🎓 Training Excellence</h4>
+                            <p>Empowering the next generation of tech professionals</p>
+                        </div>
                     </div>
                 </div>
             </div>

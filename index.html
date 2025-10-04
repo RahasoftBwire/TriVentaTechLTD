@@ -298,7 +298,8 @@
         
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop') center/cover;
             color: white;
             padding: 120px 0 80px;
             text-align: center;
@@ -1060,6 +1061,36 @@
             background: #5a67d8;
         }
         
+        /* Statistics Banner */
+        .stats-banner {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&h=400&fit=crop') center/cover;
+            color: white;
+            padding: 60px 0;
+            margin: 50px 0;
+        }
+        
+        .stats-grid-home {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-item-home h3 {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .stat-item-home p {
+            font-size: 1.2em;
+            color: #f0f0f0;
+            font-weight: 500;
+        }
+        
         /* Client Testimonials Section Styles */
         .testimonials-section {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -1715,6 +1746,16 @@
                 gap: 15px;
             }
             
+            /* Stats Banner */
+            .stats-grid-home {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .stat-item-home h3 {
+                font-size: 2.5em;
+            }
+            
             /* Training Section */
             .training-grid {
                 grid-template-columns: 1fr;
@@ -1844,6 +1885,20 @@
             .youtube-logo {
                 width: 32px;
                 height: 32px;
+            }
+            
+            /* Stats Banner */
+            .stats-grid-home {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stat-item-home h3 {
+                font-size: 2em;
+            }
+            
+            .stat-item-home p {
+                font-size: 1em;
             }
         }
     </style>
@@ -2063,6 +2118,30 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid-home">
+                <div class="stat-item-home">
+                    <h3>50+</h3>
+                    <p>Successful Projects</p>
+                </div>
+                <div class="stat-item-home">
+                    <h3>100%</h3>
+                    <p>Client Satisfaction</p>
+                </div>
+                <div class="stat-item-home">
+                    <h3>2+</h3>
+                    <p>Years Excellence</p>
+                </div>
+                <div class="stat-item-home">
+                    <h3>24/7</h3>
+                    <p>Support</p>
                 </div>
             </div>
         </div>

@@ -1298,45 +1298,166 @@
         }
         
         @media (max-width: 768px) {
-            .header-main .container {
-                flex-direction: column;
-                gap: 20px;
+            /* Compact Header for Mobile */
+            .header-top {
+                padding: 6px 0;
+                font-size: 11px;
             }
             
-            .main-nav ul {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
+            .header-top .container {
+                padding: 0 15px;
+            }
+            
+            .contact-info span {
+                margin-right: 10px;
+                font-size: 10px;
+            }
+            
+            .social-links {
+                display: none; /* Hide social links to save space */
+            }
+            
+            .header-main {
+                padding: 10px 0;
+            }
+            
+            .header-main .container {
+                padding: 0 15px;
+                flex-direction: row;
+                gap: 10px;
+            }
+            
+            .logo img {
+                height: 35px;
+            }
+            
+            .logo h1 {
+                font-size: 1.1em;
+            }
+            
+            .logo .tagline {
+                display: none; /* Hide tagline on mobile */
+            }
+            
+            /* Compact Navigation Button */
+            .nav-dropdown-btn {
+                padding: 8px 14px;
+                font-size: 13px;
+                gap: 5px;
+            }
+            
+            .nav-dropdown-btn svg {
+                width: 10px;
+                height: 7px;
+            }
+            
+            /* Dropdown Menu - Limited Height */
+            .nav-dropdown-menu {
+                min-width: 180px;
+                max-height: 60vh;
+                overflow-y: auto;
+                right: 0;
+                padding: 8px 0;
+            }
+            
+            .nav-dropdown-menu a {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
+            /* Compact CTA Button */
+            .cta-button {
+                padding: 7px 15px;
+                font-size: 12px;
+                border-radius: 18px;
+            }
+            
+            /* Compact Hero Section */
+            .hero-section {
+                padding: 50px 0 35px;
+                min-height: 85vh;
+            }
+            
+            .hero-badge {
+                padding: 6px 16px;
+                font-size: 0.75em;
+                margin-bottom: 20px;
             }
             
             .hero-title {
-                font-size: 2.5em;
+                font-size: 1.9em;
+                margin-bottom: 18px;
+                letter-spacing: -1px;
             }
             
             .hero-subtitle {
-                font-size: 1.1em;
+                font-size: 0.95em;
+                margin-bottom: 25px;
+                padding: 0 10px;
             }
             
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 12px;
+                margin-bottom: 30px;
+            }
+            
+            .btn {
+                padding: 11px 22px;
+                font-size: 0.9em;
             }
             
             .hero-stats {
-                gap: 30px;
+                gap: 25px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
+            .stat {
+                min-width: 100px;
+            }
+            
+            .stat-number {
+                font-size: 1.6em;
+            }
+            
+            .stat-label {
+                font-size: 0.85em;
+            }
+            
+            .hero-scroll {
+                display: none;
+            }
+            
+            /* Services Section */
             .services-showcase {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
+            .service-preview {
+                padding: 25px 20px;
+            }
+            
+            .service-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 0.85em;
+            }
+            
+            .service-preview h3 {
+                font-size: 1.2em;
+            }
+            
+            /* Content Split */
             .content-split {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
             
             .content-left h2 {
-                font-size: 2.2em;
+                font-size: 2em;
             }
             
             .highlight-stats {
@@ -1344,26 +1465,29 @@
                 gap: 20px;
             }
             
+            /* CTA Section */
             .cta-content h2 {
-                font-size: 2.2em;
+                font-size: 2em;
             }
             
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
             
+            /* Training Section */
             .training-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
             
             .training-intro h3 {
-                font-size: 1.8em;
+                font-size: 1.7em;
             }
             
             .training-cta h3 {
-                font-size: 1.6em;
+                font-size: 1.5em;
             }
             
             .training-buttons {
@@ -1371,24 +1495,118 @@
                 align-items: center;
             }
             
+            /* Video Section */
             .video-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
             
             .youtube-header {
-                flex-direction: column;
-                gap: 10px;
+                flex-direction: row;
+                gap: 12px;
             }
             
             .youtube-logo {
-                width: 45px;
-                height: 45px;
+                width: 40px;
+                height: 40px;
             }
             
+            .youtube-logo::before {
+                border-left: 10px solid white;
+                border-top: 6px solid transparent;
+                border-bottom: 6px solid transparent;
+            }
+            
+            .section-header h2 {
+                font-size: 1.9em;
+            }
+            
+            .section-header p {
+                font-size: 1em;
+            }
+            
+            /* Sections Padding */
+            .services-preview,
+            .why-choose-preview,
+            .training-section,
+            .video-section {
+                padding: 50px 0;
+            }
+            
+            .cta-section {
+                padding: 60px 0;
+            }
+            
+            /* Feature Grid */
             .feature-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
+            }
+        }
+        
+        /* Extra Small Phones */
+        @media (max-width: 480px) {
+            .header-top {
+                font-size: 10px;
+                padding: 5px 0;
+            }
+            
+            .contact-info span {
+                display: block;
+                margin-bottom: 3px;
+                font-size: 9px;
+            }
+            
+            .header-main {
+                padding: 8px 0;
+            }
+            
+            .logo img {
+                height: 30px;
+            }
+            
+            .logo h1 {
+                font-size: 1em;
+            }
+            
+            .nav-dropdown-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .cta-button {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+            
+            .hero-title {
+                font-size: 1.6em;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9em;
+            }
+            
+            .btn {
+                padding: 10px 18px;
+                font-size: 0.85em;
+            }
+            
+            .stat-number {
+                font-size: 1.4em;
+            }
+            
+            .stat-label {
+                font-size: 0.8em;
+            }
+            
+            .section-header h2 {
+                font-size: 1.6em;
+            }
+            
+            .youtube-logo {
+                width: 35px;
+                height: 35px;
             }
         }
     </style>

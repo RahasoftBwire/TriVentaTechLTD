@@ -15,11 +15,17 @@
             box-sizing: border-box;
         }
         
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
             background: #f8f9fa;
+            overflow-x: hidden;
         }
         
         /* Header Styles */
@@ -438,7 +444,11 @@
         
         @media (max-width: 768px) {
             .main-header {
-                position: relative;
+                position: fixed;
+            }
+            
+            body {
+                padding-top: 70px;
             }
             
             .header-top {
@@ -481,8 +491,24 @@
                 font-size: 2em;
             }
             
+            .container {
+                padding: 0 15px;
+            }
+            
             .contact-grid {
                 gap: 30px;
+                margin: 30px auto;
+                padding: 0 10px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                max-width: 100%;
             }
             
             .contact-info-section {
@@ -511,6 +537,31 @@
             
             .logo h1 {
                 font-size: 0.95em;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .contact-grid {
+                margin: 20px auto;
+                padding: 0 5px;
+            }
+            
+            .contact-form {
+                padding: 20px 15px;
+            }
+            
+            .page-hero {
+                padding: 30px 0;
+            }
+            
+            .page-hero h1 {
+                font-size: 1.5em;
+            }
+            
+            .page-hero p {
+                font-size: 0.9em;
             }
         }
     </style>
@@ -848,7 +899,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 TriVenta Tech Ltd. All rights reserved. | Designed with ❤️ in Kenya</p>
+                <p>&copy; 2025 TriVenta Tech Ltd. All rights reserved. | Designed with love in Kenya</p>
             </div>
         </div>
     </footer>

@@ -519,13 +519,20 @@
         }
         
         .portfolio-image {
-            height: 200px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5em;
-            color: white;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.1);
         }
         
         .portfolio-content {
@@ -756,8 +763,7 @@
             
             /* Mobile-friendly portfolio items */
             .portfolio-image {
-                height: 150px;
-                font-size: 3em;
+                height: 200px;
             }
             
             .portfolio-content {
@@ -884,7 +890,9 @@
             <div class="portfolio-grid">
                 <!-- Project 1: RahaSoft ERP -->
                 <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">�</div>
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop" alt="Business Analytics Dashboard" loading="lazy">
+                    </div>
                     <div class="portfolio-content">
                         <span class="portfolio-category">Enterprise Software</span>
                         <h3>RahaSoft ERP System</h3>
@@ -916,7 +924,9 @@
 
                 <!-- Project 2: St Mary's School Website -->
                 <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">EDU</div>
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=500&fit=crop" alt="School Education Platform" loading="lazy">
+                    </div>
                     <div class="portfolio-content">
                         <span class="portfolio-category">Educational Website</span>
                         <h3>St Mary's Nyakhobi Senior School Website</h3>
@@ -948,7 +958,9 @@
 
                 <!-- Project 3: ChamaInk -->
                 <div class="portfolio-item" data-category="mobile">
-                    <div class="portfolio-image">�</div>
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&h=500&fit=crop" alt="Mobile Finance App" loading="lazy">
+                    </div>
                     <div class="portfolio-content">
                         <span class="portfolio-category">FinTech Mobile App</span>
                         <h3>ChamaInk - Digital Chama Management</h3>
@@ -980,7 +992,9 @@
 
                 <!-- Project 4: kWasTAGE Boda Boda System -->
                 <div class="portfolio-item" data-category="mobile">
-                    <div class="portfolio-image">TRANSPORT</div>
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800&h=500&fit=crop" alt="Transportation Platform" loading="lazy">
+                    </div>
                     <div class="portfolio-content">
                         <span class="portfolio-category">Transportation Platform</span>
                         <h3>KwaStage - Boda Boda Management System</h3>
@@ -1012,7 +1026,9 @@
 
                 <!-- Project 5: BwResQ AI -->
                 <div class="portfolio-item" data-category="ai">
-                    <div class="portfolio-image">AI</div>
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=500&fit=crop" alt="AI Emergency Response" loading="lazy">
+                    </div>
                     <div class="portfolio-content">
                         <span class="portfolio-category">AI & Emergency Response</span>
                         <h3>BwResQ AI - Emergency Response System</h3>
@@ -1044,7 +1060,9 @@
 
                 <!-- Project 6: Cloud Infrastructure -->
                 <div class="portfolio-item" data-category="cloud">
-                    <div class="portfolio-image">CLOUD</div>
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=500&fit=crop" alt="Cloud Computing Infrastructure" loading="lazy">
+                    </div>
                     <div class="portfolio-content">
                         <span class="portfolio-category">Cloud Solutions</span>
                         <h3>Enterprise Cloud Infrastructure</h3>
@@ -1090,7 +1108,9 @@
 
                 <!-- Project 6: Data Analytics -->
                 <div class="portfolio-item" data-category="ai">
-                    <div class="portfolio-image">📊</div>
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&q=80" alt="Business Intelligence Dashboard" loading="lazy">
+                    </div>
                     <div class="portfolio-content">
                         <span class="portfolio-category">AI & Data Science</span>
                         <h3>Business Intelligence Dashboard for AgriTech Kenya</h3>

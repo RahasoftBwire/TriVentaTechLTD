@@ -50,7 +50,7 @@
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
             padding: 0;
-            position: sticky;
+            position: relative; /* Changed from sticky to relative for ALL screens */
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -124,9 +124,10 @@
         .main-nav {
             display: flex;
             align-items: center;
+            gap: 15px; /* Add gap between menu and get started button */
         }
         
-        /* Dropdown Navigation - Always Visible */
+        /* Dropdown Navigation */
         .nav-dropdown-container {
             position: relative;
             display: block;
@@ -1660,9 +1661,8 @@
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
+                    <a href="contact.html" class="cta-button">Get Started</a>
                 </nav>
-                
-                <a href="contact.html" class="cta-button">Get Started</a>
             </div>
         </div>
     </header>

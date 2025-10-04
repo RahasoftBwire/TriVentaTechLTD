@@ -27,10 +27,18 @@
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
             padding: 0;
-            position: relative;
+            position: fixed;
             top: 0;
-            z-index: 1000;
+            width: 100%;z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-header.scrolled {
+            padding: 0;
+        }
+
+        body {
+            padding-top: 80px;
         }
         
         .header-top {
@@ -328,8 +336,16 @@
         
         @media (max-width: 768px) {
             .main-header {
-                position: relative;
+                position: fixed;
             }
+
+        .main-header.scrolled {
+            padding: 0;
+        }
+
+        body {
+            padding-top: 80px;
+        }
             
             .header-top {
                 display: none;
@@ -421,20 +437,6 @@
     </button>
     <!-- Header -->
     <header class="main-header">
-        <div class="header-top">
-            <div class="container">
-                <div class="contact-info">
-                    <span>📧 info@triventatech.com</span>
-                    <span>📍 Nairobi, Kenya</span>
-                </div>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                    <a href="#" aria-label="Twitter">Twitter</a>
-                    <a href="#" aria-label="Instagram">Instagram</a>
-                </div>
-            </div>
-        </div>
-        
         <div class="header-main">
             <div class="container">
                 <div class="logo">

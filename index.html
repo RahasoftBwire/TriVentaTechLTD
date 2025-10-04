@@ -50,10 +50,18 @@
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
             padding: 0;
-            position: relative; /* Changed from sticky to relative for ALL screens */
+            position: fixed; /* Changed from sticky to relative for ALL screens */
             top: 0;
-            z-index: 1000;
+            width: 100%;z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-header.scrolled {
+            padding: 0;
+        }
+
+        body {
+            padding-top: 80px;
         }
         
         .header-top {
@@ -533,6 +541,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             border: 1px solid rgba(0,0,0,0.05);
+            cursor: pointer;
         }
         
         .service-preview:hover {
@@ -1014,6 +1023,85 @@
             background: #5a67d8;
         }
         
+        /* Client Testimonials Section Styles */
+        .testimonials-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .client-info h4 {
+            margin: 0;
+            font-size: 1.3em;
+            color: #1e3c72;
+        }
+        
+        .client-info p {
+            margin: 5px 0 0 0;
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .testimonial-text {
+            color: #444;
+            line-height: 1.8;
+            font-size: 1.05em;
+            font-style: italic;
+            position: relative;
+            padding-left: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .testimonial-card {
+                padding: 20px;
+            }
+        }
+        
         /* YouTube Video Section Styles */
         .video-section {
             background: #fff;
@@ -1131,60 +1219,172 @@
         
         .training-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin-bottom: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .training-card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
-            border-top: 4px solid #667eea;
+            border-top: 3px solid #667eea;
+            cursor: pointer;
+            text-align: center;
         }
         
         .training-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
         
         .training-icon {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 0.8em;
-            margin-bottom: 20px;
+            font-size: 0.75em;
+            margin: 0 auto 15px auto;
         }
         
         .training-card h4 {
-            font-size: 1.5em;
+            font-size: 1.2em;
             color: #1e3c72;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .training-card .short-desc {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .training-card .click-info {
+            font-size: 0.85em;
+            color: #667eea;
+            font-weight: 600;
         }
         
         .training-card ul {
+            display: none;
+        }
+        
+        /* Training Modal Styles */
+        .training-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .training-modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .modal-header .training-icon {
+            margin-bottom: 15px;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            font-size: 2em;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .modal-body h4 {
+            color: #1e3c72;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .modal-body ul {
             list-style: none;
             padding: 0;
             margin-bottom: 20px;
         }
         
-        .training-card ul li {
-            padding: 8px 0;
+        .modal-body ul li {
+            padding: 10px 0;
             color: #666;
             border-bottom: 1px solid #f0f0f0;
             position: relative;
-            padding-left: 20px;
+            padding-left: 25px;
+            font-size: 1.05em;
         }
         
-        .training-card ul li:before {
+        .modal-body ul li:before {
             content: "✓";
             position: absolute;
             left: 0;
@@ -1192,15 +1392,15 @@
             font-weight: bold;
         }
         
-        .training-card ul li:last-child {
+        .modal-body ul li:last-child {
             border-bottom: none;
         }
         
         .training-duration {
             background: linear-gradient(135deg, #e3f2fd, #bbdefb);
             color: #1565c0;
-            padding: 10px 15px;
-            border-radius: 20px;
+            padding: 12px 20px;
+            border-radius: 25px;
             font-size: 0.9em;
             font-weight: 600;
             text-align: center;
@@ -1301,8 +1501,16 @@
         @media (max-width: 768px) {
             /* Remove Sticky Header on Mobile - Let it Scroll Away */
             .main-header {
-                position: relative; /* Changed from sticky to relative */
+                position: fixed; /* Changed from sticky to relative */
             }
+
+        .main-header.scrolled {
+            padding: 0;
+        }
+
+        body {
+            padding-top: 80px;
+        }
             
             /* Hide Header Top Section Completely on Mobile */
             .header-top {
@@ -1620,20 +1828,6 @@
     </button>
     <!-- Header -->
     <header class="main-header">
-        <div class="header-top">
-            <div class="container">
-                <div class="contact-info">
-                    <span>📧 info@triventatech.com</span>
-                    <span>📍 Nairobi, Kenya</span>
-                </div>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                    <a href="#" aria-label="Twitter">Twitter</a>
-                    <a href="#" aria-label="Instagram">Instagram</a>
-                </div>
-            </div>
-        </div>
-        
         <div class="header-main">
             <div class="container">
                 <div class="logo">
@@ -1722,35 +1916,57 @@
             </div>
             
             <div class="services-showcase">
-                <div class="service-preview">
+                <div class="service-preview" onclick="openServiceModal('ai')">
                     <div class="service-icon">AI</div>
                     <h3>AI & Data Science</h3>
                     <p>Intelligent automation and insights</p>
                 </div>
-                <div class="service-preview">
+                <div class="service-preview" onclick="openServiceModal('security')">
                     <div class="service-icon">SEC</div>
                     <h3>Cybersecurity</h3>
                     <p>Robust protection and ethical hacking</p>
                 </div>
-                <div class="service-preview">
+                <div class="service-preview" onclick="openServiceModal('web')">
                     <div class="service-icon">WEB</div>
                     <h3>Web Development</h3>
                     <p>Modern websites and applications</p>
                 </div>
-                <div class="service-preview">
+                <div class="service-preview" onclick="openServiceModal('cloud')">
                     <div class="service-icon">CLOUD</div>
                     <h3>Cloud Solutions</h3>
                     <p>Scalable infrastructure and deployment</p>
                 </div>
-                <div class="service-preview">
+                <div class="service-preview" onclick="openServiceModal('mobile')">
                     <div class="service-icon">MOBILE</div>
                     <h3>Mobile Apps</h3>
                     <p>Native and cross-platform development</p>
                 </div>
-                <div class="service-preview">
+                <div class="service-preview" onclick="openServiceModal('design')">
                     <div class="service-icon">DESIGN</div>
                     <h3>Digital Design</h3>
                     <p>Beautiful and functional user experiences</p>
+                </div>
+            </div>
+            
+            <!-- Service Modal -->
+            <div id="serviceModal" class="training-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="modal-close" onclick="closeServiceModal()">×</button>
+                        <div class="service-icon" id="serviceModalIcon" style="width: 80px; height: 80px; font-size: 1.2em; border-radius: 50%; margin: 0 auto 15px auto;">AI</div>
+                        <h3 id="serviceModalTitle">AI & Data Science</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p id="serviceModalDescription" style="font-size: 1.1em; line-height: 1.8; margin-bottom: 25px;"></p>
+                        <h4>Key Services:</h4>
+                        <ul id="serviceModalFeatures">
+                            <!-- Dynamically populated -->
+                        </ul>
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="services.html" class="btn btn-primary" style="display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-right: 15px;">View All Services</a>
+                            <a href="contact.html" class="btn btn-secondary" style="display: inline-block; background: white; color: #667eea; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; border: 2px solid #667eea;">Get a Quote</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -1849,65 +2065,39 @@
     </div>
 
     <!-- Client Testimonials Section -->
-    <section class="testimonials-section">
+    <section class="testimonials-section section">
         <div class="container">
             <div class="section-header">
                 <h2>What Our Clients Say</h2>
-                <p>Real feedback from businesses that trust TriVenta Tech</p>
+                <p>Trusted partners who have experienced the TriVenta Tech difference</p>
             </div>
             
-            <div class="testimonials-slider">
-                <div class="testimonial active">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"TriVenta Tech completely transformed our business operations. Their AI chatbot reduced our customer service workload by 80%, and their web development team created a platform that increased our online sales by 300%. Outstanding work!"</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">SK</div>
-                            <div class="author-info">
-                                <h4>Sarah Kamau</h4>
-                                <span>CEO, RetailMax Kenya</span>
-                            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">DO</div>
+                        <div class="client-info">
+                            <h4>Daniel Ogutu</h4>
+                            <p>Danjul Investment</p>
                         </div>
+                    </div>
+                    <div class="testimonial-text">
+                        "TriVenta Tech has been instrumental in transforming our investment portfolio with cutting-edge technology solutions. Their expertise in digital transformation and strategic implementation has helped us achieve remarkable growth and efficiency."
                     </div>
                 </div>
                 
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"The cybersecurity audit and implementation by TriVenta gave us complete peace of mind. Their team identified vulnerabilities we didn't know existed and implemented solutions that achieved 99.9% security compliance. Highly recommended!"</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">JM</div>
-                            <div class="author-info">
-                                <h4>James Mwangi</h4>
-                                <span>CTO, TechCorp Ltd</span>
-                            </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">DF</div>
+                        <div class="client-info">
+                            <h4>Dan F Olopi</h4>
+                            <p>Principal, Nyakhobi Senior School</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <p>"Our cloud migration with TriVenta was seamless and saved us 60% on IT costs. The mobile health app they developed now has over 50,000 active users. They truly understand both technology and business needs."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AN</div>
-                            <div class="author-info">
-                                <h4>Dr. Alice Nyong'o</h4>
-                                <span>Founder, WellnessKenya</span>
-                            </div>
-                        </div>
+                    <div class="testimonial-text">
+                        "Partnering with TriVenta Tech has revolutionized our educational institution. Their innovative EdTech solutions have enhanced our learning environment and streamlined our school management systems significantly."
                     </div>
                 </div>
-            </div>
-            
-            <div class="testimonial-controls">
-                <button class="testimonial-btn prev-btn">‹</button>
-                <div class="testimonial-dots">
-                    <span class="dot active" data-slide="0"></span>
-                    <span class="dot" data-slide="1"></span>
-                    <span class="dot" data-slide="2"></span>
-                </div>
-                <button class="testimonial-btn next-btn">›</button>
             </div>
         </div>
     </section>
@@ -1927,50 +2117,48 @@
                 </div>
                 
                 <div class="training-grid">
-                    <div class="training-card">
+                    <div class="training-card" onclick="openTrainingModal('programming')">
                         <div class="training-icon">CODE</div>
                         <h4>Programming & Development</h4>
-                        <ul>
-                            <li>Python Programming</li>
-                            <li>JavaScript & Modern Frameworks</li>
-                            <li>Java & C++ Fundamentals</li>
-                            <li>Mobile App Development</li>
-                            <li>Database Management</li>
-                        </ul>
-                        <div class="training-duration">Duration: 3-6 months</div>
+                        <p class="short-desc">Master coding fundamentals</p>
+                        <p class="click-info">Click for details →</p>
                     </div>
                     
-                    <div class="training-card">
+                    <div class="training-card" onclick="openTrainingModal('web')">
                         <div class="training-icon">WEB</div>
                         <h4>Web Development</h4>
-                        <ul>
-                            <li>HTML5, CSS3 & Responsive Design</li>
-                            <li>React, Vue.js & Angular</li>
-                            <li>Node.js & Backend Development</li>
-                            <li>E-commerce Solutions</li>
-                            <li>Web Performance Optimization</li>
-                        </ul>
-                        <div class="training-duration">Duration: 4-8 months</div>
+                        <p class="short-desc">Build modern websites & apps</p>
+                        <p class="click-info">Click for details →</p>
                     </div>
                     
-                    <div class="training-card">
+                    <div class="training-card" onclick="openTrainingModal('ai')">
                         <div class="training-icon">AI</div>
                         <h4>AI & Data Science</h4>
-                        <ul>
-                            <li>Machine Learning Fundamentals</li>
-                            <li>Data Analysis & Visualization</li>
-                            <li>Artificial Intelligence Applications</li>
-                            <li>Big Data Technologies</li>
-                            <li>Predictive Analytics</li>
-                        </ul>
-                        <div class="training-duration">Duration: 6-12 months</div>
+                        <p class="short-desc">Harness AI & analytics power</p>
+                        <p class="click-info">Click for details →</p>
                     </div>
                     
-                    <div class="training-card">
+                    <div class="training-card" onclick="openTrainingModal('security')">
                         <div class="training-icon">SECURE</div>
                         <h4>Cybersecurity</h4>
-                        <ul>
-                            <li>Ethical Hacking & Penetration Testing</li>
+                        <p class="short-desc">Protect digital assets</p>
+                        <p class="click-info">Click for details →</p>
+                    </div>
+                    
+                    <div class="training-card" onclick="openTrainingModal('cloud')">
+                        <div class="training-icon">CLOUD</div>
+                        <h4>Cloud Computing</h4>
+                        <p class="short-desc">Master cloud platforms</p>
+                        <p class="click-info">Click for details →</p>
+                    </div>
+                    
+                    <div class="training-card" onclick="openTrainingModal('design')">
+                        <div class="training-icon">DESIGN</div>
+                        <h4>Digital Design</h4>
+                        <p class="short-desc">Create stunning visuals</p>
+                        <p class="click-info">Click for details →</p>
+                    </div>
+                </div>
                             <li>Network Security</li>
                             <li>Digital Forensics</li>
                             <li>Security Risk Assessment</li>
@@ -1978,31 +2166,26 @@
                         </ul>
                         <div class="training-duration">Duration: 4-10 months</div>
                     </div>
-                    
-                    <div class="training-card">
-                        <div class="training-icon">CLOUD</div>
-                        <h4>Cloud Computing</h4>
-                        <ul>
-                            <li>AWS, Azure & Google Cloud</li>
-                            <li>DevOps & CI/CD Pipelines</li>
-                            <li>Container Technologies</li>
-                            <li>Serverless Architecture</li>
-                            <li>Cloud Security</li>
-                        </ul>
-                        <div class="training-duration">Duration: 3-6 months</div>
-                    </div>
-                    
-                    <div class="training-card">
-                        <div class="training-icon">DESIGN</div>
-                        <h4>Digital Design</h4>
-                        <ul>
-                            <li>UI/UX Design Principles</li>
-                            <li>Graphic Design & Branding</li>
-                            <li>Prototyping & Wireframing</li>
-                            <li>Design Systems</li>
-                            <li>User Research & Testing</li>
-                        </ul>
-                        <div class="training-duration">Duration: 2-4 months</div>
+                </div>
+                
+                <!-- Training Modal -->
+                <div id="trainingModal" class="training-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="modal-close" onclick="closeTrainingModal()">×</button>
+                            <div class="training-icon" id="modalIcon">CODE</div>
+                            <h3 id="modalTitle">Programming & Development</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>What You'll Learn:</h4>
+                            <ul id="modalCurriculum">
+                                <!-- Dynamically populated -->
+                            </ul>
+                            <div class="training-duration" id="modalDuration">Duration: 3-6 months</div>
+                            <div style="margin-top: 30px; text-align: center;">
+                                <a href="enroll.html" class="btn btn-primary" style="display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold;">Enroll Now</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -2259,6 +2442,260 @@
         }
     });
 })();
+
+// Training Modal Functionality
+const trainingData = {
+    programming: {
+        icon: 'CODE',
+        title: 'Programming & Development',
+        curriculum: [
+            'Python Programming',
+            'JavaScript & Modern Frameworks',
+            'Java & C++ Fundamentals',
+            'Mobile App Development',
+            'Database Management'
+        ],
+        duration: '3-6 months'
+    },
+    web: {
+        icon: 'WEB',
+        title: 'Web Development',
+        curriculum: [
+            'HTML5, CSS3 & Responsive Design',
+            'React, Vue.js & Angular',
+            'Node.js & Backend Development',
+            'E-commerce Solutions',
+            'Web Performance Optimization'
+        ],
+        duration: '4-8 months'
+    },
+    ai: {
+        icon: 'AI',
+        title: 'AI & Data Science',
+        curriculum: [
+            'Machine Learning Fundamentals',
+            'Data Analysis & Visualization',
+            'Artificial Intelligence Applications',
+            'Big Data Technologies',
+            'Predictive Analytics'
+        ],
+        duration: '6-12 months'
+    },
+    security: {
+        icon: 'SECURE',
+        title: 'Cybersecurity',
+        curriculum: [
+            'Ethical Hacking & Penetration Testing',
+            'Network Security',
+            'Digital Forensics',
+            'Security Risk Assessment',
+            'Compliance & Governance'
+        ],
+        duration: '4-10 months'
+    },
+    cloud: {
+        icon: 'CLOUD',
+        title: 'Cloud Computing',
+        curriculum: [
+            'AWS, Azure & Google Cloud',
+            'DevOps & CI/CD Pipelines',
+            'Container Technologies',
+            'Serverless Architecture',
+            'Cloud Security'
+        ],
+        duration: '3-6 months'
+    },
+    design: {
+        icon: 'DESIGN',
+        title: 'Digital Design',
+        curriculum: [
+            'UI/UX Design Principles',
+            'Graphic Design & Branding',
+            'Prototyping & Wireframing',
+            'Design Systems',
+            'User Research & Testing'
+        ],
+        duration: '2-4 months'
+    }
+};
+
+function openTrainingModal(courseType) {
+    const modal = document.getElementById('trainingModal');
+    const data = trainingData[courseType];
+    
+    if (data) {
+        document.getElementById('modalIcon').textContent = data.icon;
+        document.getElementById('modalTitle').textContent = data.title;
+        document.getElementById('modalDuration').textContent = 'Duration: ' + data.duration;
+        
+        const curriculum = document.getElementById('modalCurriculum');
+        curriculum.innerHTML = '';
+        data.curriculum.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            curriculum.appendChild(li);
+        });
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeTrainingModal() {
+    const modal = document.getElementById('trainingModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Service Modal Functionality
+const serviceData = {
+    ai: {
+        icon: 'AI',
+        title: 'AI & Data Science',
+        description: 'Harness the power of artificial intelligence and data science to transform your business. We build intelligent systems that learn, adapt, and deliver actionable insights from your data.',
+        features: [
+            'Machine Learning Model Development',
+            'Predictive Analytics & Forecasting',
+            'Natural Language Processing (NLP)',
+            'Computer Vision Solutions',
+            'Big Data Processing & Analytics',
+            'AI-Powered Chatbots & Virtual Assistants',
+            'Data Visualization & Business Intelligence',
+            'Custom AI Solution Architecture'
+        ]
+    },
+    security: {
+        icon: 'SEC',
+        title: 'Cybersecurity',
+        description: 'Protect your digital assets with comprehensive cybersecurity solutions. Our ethical hacking and security experts ensure your systems are fortified against evolving threats.',
+        features: [
+            'Penetration Testing & Vulnerability Assessment',
+            'Security Audits & Compliance',
+            'Ethical Hacking Services',
+            'Network Security Implementation',
+            'Security Information and Event Management (SIEM)',
+            'Incident Response & Digital Forensics',
+            'Security Awareness Training',
+            'SOC (Security Operations Center) Setup'
+        ]
+    },
+    web: {
+        icon: 'WEB',
+        title: 'Web Development',
+        description: 'Create stunning, high-performance websites and web applications that engage users and drive business growth. From concept to deployment, we deliver exceptional web experiences.',
+        features: [
+            'Custom Website Development',
+            'E-commerce Platforms (Shopify, WooCommerce, Custom)',
+            'Progressive Web Apps (PWA)',
+            'Content Management Systems (WordPress, Custom CMS)',
+            'Web Application Development',
+            'API Development & Integration',
+            'Website Hosting & Maintenance',
+            'Performance Optimization & SEO'
+        ]
+    },
+    cloud: {
+        icon: 'CLOUD',
+        title: 'Cloud Solutions',
+        description: 'Scale your infrastructure effortlessly with cloud computing solutions. We design, deploy, and manage cloud environments that are secure, efficient, and cost-effective.',
+        features: [
+            'Cloud Migration Services (AWS, Azure, Google Cloud)',
+            'Cloud Infrastructure Design & Setup',
+            'DevOps & CI/CD Pipeline Implementation',
+            'Container Orchestration (Docker, Kubernetes)',
+            'Serverless Architecture',
+            'Cloud Security & Compliance',
+            'Cloud Cost Optimization',
+            'Multi-Cloud & Hybrid Cloud Solutions'
+        ]
+    },
+    mobile: {
+        icon: 'MOBILE',
+        title: 'Mobile App Development',
+        description: 'Reach your customers wherever they are with powerful mobile applications. We develop native and cross-platform apps that deliver seamless user experiences.',
+        features: [
+            'Native iOS App Development (Swift)',
+            'Native Android App Development (Kotlin)',
+            'Cross-Platform Development (React Native, Flutter)',
+            'Mobile UI/UX Design',
+            'App Store Optimization (ASO)',
+            'Mobile Backend Development',
+            'App Maintenance & Support',
+            'Push Notifications & Analytics Integration'
+        ]
+    },
+    design: {
+        icon: 'DESIGN',
+        title: 'Digital Design',
+        description: 'Create memorable brand experiences with beautiful, functional design. Our designers blend aesthetics with usability to craft digital products that users love.',
+        features: [
+            'UI/UX Design for Web & Mobile',
+            'Brand Identity & Logo Design',
+            'Graphic Design & Marketing Materials',
+            'Prototyping & Wireframing',
+            'Design Systems & Style Guides',
+            'User Research & Testing',
+            'Motion Graphics & Animation',
+            'Responsive Design & Accessibility'
+        ]
+    }
+};
+
+function openServiceModal(serviceType) {
+    const modal = document.getElementById('serviceModal');
+    const data = serviceData[serviceType];
+    
+    if (data) {
+        const iconElement = document.getElementById('serviceModalIcon');
+        iconElement.textContent = data.icon;
+        iconElement.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
+        iconElement.style.backgroundClip = 'text';
+        iconElement.style.webkitBackgroundClip = 'text';
+        iconElement.style.webkitTextFillColor = 'transparent';
+        iconElement.style.border = '2px solid #667eea';
+        iconElement.style.backgroundColor = 'rgba(102, 126, 234, 0.1)';
+        
+        document.getElementById('serviceModalTitle').textContent = data.title;
+        document.getElementById('serviceModalDescription').textContent = data.description;
+        
+        const features = document.getElementById('serviceModalFeatures');
+        features.innerHTML = '';
+        data.features.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            features.appendChild(li);
+        });
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeServiceModal() {
+    const modal = document.getElementById('serviceModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const trainingModal = document.getElementById('trainingModal');
+    const serviceModal = document.getElementById('serviceModal');
+    if (event.target === trainingModal) {
+        closeTrainingModal();
+    }
+    if (event.target === serviceModal) {
+        closeServiceModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeTrainingModal();
+        closeServiceModal();
+    }
+});
 
 // Back to Top Button Functionality
 document.addEventListener('DOMContentLoaded', function() {

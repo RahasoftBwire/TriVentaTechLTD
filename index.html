@@ -994,6 +994,40 @@
             color: white;
         }
         
+        /* Typing Indicator Animation */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 10px;
+        }
+        
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+        
         .chat-input-area {
             padding: 15px 20px;
             background: white;
@@ -2760,26 +2794,268 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Advanced AI Chatbot - Context-Aware & Natural Language Processing
+    let conversationContext = {
+        previousTopic: null,
+        userName: null,
+        userEmail: null,
+        interestedServices: [],
+        conversationHistory: []
+    };
+
     function handleChatMessage(message) {
         // Add user message
         addMessage(message, 'user');
         
-        // Simulate bot response
+        // Store in conversation history
+        conversationContext.conversationHistory.push({
+            role: 'user',
+            message: message,
+            timestamp: new Date()
+        });
+        
+        // Show typing indicator
+        showTypingIndicator();
+        
+        // Analyze message and generate intelligent response
         setTimeout(() => {
-            let response = "Thank you for your message! Our team will get back to you shortly. For immediate assistance, please call us or send an email to info@triventatech.com";
+            removeTypingIndicator();
+            const response = analyzeAndRespond(message);
+            addMessage(response, 'bot');
             
-            if (message.toLowerCase().includes('website') || message.toLowerCase().includes('web')) {
-                response = "Great! We specialize in custom websites, e-commerce platforms, and web applications. Would you like to schedule a free consultation to discuss your project?";
-            } else if (message.toLowerCase().includes('ai') || message.toLowerCase().includes('artificial')) {
-                response = "Our AI solutions include chatbots, predictive analytics, and machine learning models. We've helped clients achieve up to 80% automation in customer service. Let's discuss your specific needs!";
-            } else if (message.toLowerCase().includes('security') || message.toLowerCase().includes('cyber')) {
-                response = "Cybersecurity is crucial! We offer penetration testing, security audits, and compliance solutions. Our clients achieve 99.9% security scores. Would you like a free security assessment?";
-            } else if (message.toLowerCase().includes('quote') || message.toLowerCase().includes('price')) {
-                response = "I'd be happy to help with pricing! Each project is custom-tailored to your needs. Please visit our contact page or call us for a detailed quote and free consultation.";
+            // Store bot response in history
+            conversationContext.conversationHistory.push({
+                role: 'bot',
+                message: response,
+                timestamp: new Date()
+            });
+        }, 1000 + Math.random() * 1000); // Variable delay for natural feel
+    }
+
+    function analyzeAndRespond(message) {
+        const lowerMessage = message.toLowerCase();
+        const wordCount = message.split(' ').length;
+        
+        // Extract user name if mentioned
+        const nameMatch = message.match(/my name is (\w+)|i'm (\w+)|i am (\w+)/i);
+        if (nameMatch) {
+            conversationContext.userName = nameMatch[1] || nameMatch[2] || nameMatch[3];
+        }
+        
+        // Extract email if provided
+        const emailMatch = message.match(/[\w.-]+@[\w.-]+\.\w+/);
+        if (emailMatch) {
+            conversationContext.userEmail = emailMatch[0];
+        }
+        
+        // Intent Detection & Contextual Response Generation
+        
+        // 1. GREETINGS - Natural conversation starters
+        if (lowerMessage.match(/^(hi|hello|hey|greetings|good morning|good afternoon|good evening)/)) {
+            const greetings = [
+                `Hello! 👋 Welcome to TriVenta Tech! I'm your virtual assistant, here to help you discover how we can transform your business with cutting-edge technology. What brings you here today?`,
+                `Hey there! 😊 Great to have you here at TriVenta Tech. I'm excited to help you explore our services. Are you looking for a specific solution, or would you like me to give you an overview?`,
+                `Hi! Welcome aboard! 🚀 I'm here to assist you with anything from AI solutions to web development. What would you like to know about?`
+            ];
+            return greetings[Math.floor(Math.random() * greetings.length)];
+        }
+        
+        // 2. NAME INTRODUCTION
+        if (nameMatch) {
+            conversationContext.previousTopic = 'introduction';
+            return `Nice to meet you, ${conversationContext.userName}! 😊 It's great to have you here. How can I help you today? Are you interested in our services, training programs, or perhaps you have a specific project in mind?`;
+        }
+        
+        // 3. QUESTIONS ABOUT THE BOT
+        if (lowerMessage.match(/who are you|what are you|your name|are you human|are you a bot|are you real/)) {
+            return `I'm TriVenta's AI Assistant - think of me as your friendly tech guide! 🤖 While I'm powered by advanced AI, I'm here to give you real, helpful information about our services. Behind me is a team of brilliant humans ready to bring your projects to life. What would you like to know about TriVenta Tech?`;
+        }
+        
+        // 4. SERVICES - Web Development
+        if (lowerMessage.match(/website|web dev|web app|ecommerce|e-commerce|online store|web design|frontend|backend/)) {
+            conversationContext.interestedServices.push('web-development');
+            conversationContext.previousTopic = 'web-development';
+            
+            if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
+                return `Great question! 💰 Our web development projects typically range from $500-$10,000+ depending on complexity:\n\n• Basic Website: $500-$1,500\n• Business Website: $1,500-$3,000\n• E-commerce Platform: $3,000-$8,000\n• Custom Web Application: $5,000+\n\nEach project is unique! Would you like a free consultation where we can discuss your specific needs and provide an accurate quote?`;
             }
             
-            addMessage(response, 'bot');
-        }, 1500);
+            return `Excellent choice! 🌐 We create stunning, high-performance websites that drive results. Our web development services include:\n\n✨ Custom Websites & Landing Pages\n🛒 E-commerce Platforms (Shopify, WooCommerce, Custom)\n📱 Progressive Web Apps (PWAs)\n⚡ Fast, SEO-Optimized Sites\n🎨 Modern UI/UX Design\n\nWe've built 50+ websites with 99% client satisfaction! What type of website are you looking to create?`;
+        }
+        
+        // 5. SERVICES - AI & Data Science
+        if (lowerMessage.match(/\bai\b|artificial intelligence|machine learning|data science|chatbot|automation|neural|deep learning|analytics/)) {
+            conversationContext.interestedServices.push('ai-solutions');
+            conversationContext.previousTopic = 'ai-solutions';
+            
+            return `Fantastic! 🤖 AI is transforming businesses worldwide, and we're at the forefront! Our AI & Data Science offerings include:\n\n🧠 Custom AI Models & Machine Learning\n💬 Intelligent Chatbots (like me, but even smarter!)\n📊 Predictive Analytics & Business Intelligence\n🎯 Customer Behavior Analysis\n🔍 Computer Vision & NLP Solutions\n⚙️ Process Automation (save up to 80% time!)\n\nWe've helped clients automate workflows, predict trends, and make data-driven decisions. What AI challenge are you looking to solve?`;
+        }
+        
+        // 6. SERVICES - Cybersecurity
+        if (lowerMessage.match(/security|cyber|hack|protect|vulnerability|penetration test|firewall|breach|encryption/)) {
+            conversationContext.interestedServices.push('cybersecurity');
+            conversationContext.previousTopic = 'cybersecurity';
+            
+            return `Security first! 🔒 In today's digital world, cybersecurity isn't optional - it's essential. Our comprehensive security services include:\n\n🛡️ Penetration Testing & Vulnerability Assessment\n🔍 Security Audits & Risk Analysis\n📋 Compliance Solutions (GDPR, ISO 27001)\n🚨 Incident Response & Forensics\n🔐 Encryption & Data Protection\n🎓 Security Awareness Training\n\nWe've achieved 99.9% security scores for our clients! Would you like a FREE security assessment to identify potential vulnerabilities?`;
+        }
+        
+        // 7. SERVICES - Cloud Solutions
+        if (lowerMessage.match(/cloud|aws|azure|google cloud|gcp|server|hosting|devops|kubernetes|docker/)) {
+            conversationContext.interestedServices.push('cloud-solutions');
+            conversationContext.previousTopic = 'cloud-solutions';
+            
+            return `To the cloud! ☁️ We're cloud experts specializing in scalable, reliable infrastructure:\n\n🌩️ Cloud Migration (AWS, Azure, Google Cloud)\n⚙️ DevOps & CI/CD Pipelines\n📦 Containerization (Docker, Kubernetes)\n🔄 Auto-Scaling & Load Balancing\n💾 Cloud Storage & Backup Solutions\n📈 Performance Optimization\n\nOur cloud solutions reduce costs by 40% on average while improving performance! Which cloud platform are you interested in, or are you looking for guidance on the best fit?`;
+        }
+        
+        // 8. SERVICES - Mobile Apps
+        if (lowerMessage.match(/mobile|app|android|ios|iphone|smartphone|react native|flutter/)) {
+            conversationContext.interestedServices.push('mobile-apps');
+            conversationContext.previousTopic = 'mobile-apps';
+            
+            return `Mobile is the future! 📱 We build beautiful, performant mobile apps that users love:\n\n📲 Native iOS & Android Apps\n🔄 Cross-Platform (React Native, Flutter)\n🎨 Intuitive UI/UX Design\n⚡ High Performance & Smooth Animations\n🔔 Push Notifications & Real-time Features\n🔗 API Integration\n\nWith 2M+ downloads across our apps, we know what works! Are you looking for iOS, Android, or cross-platform development?`;
+        }
+        
+        // 9. TRAINING PROGRAMS
+        if (lowerMessage.match(/training|course|learn|education|teach|class|bootcamp|certification|skill/)) {
+            conversationContext.previousTopic = 'training';
+            
+            return `Transform your career! 🎓 Our expert-led training programs are designed to make you job-ready:\n\n💻 Programming & Development (3-6 months)\n🌐 Web Development (4-8 months)\n🤖 AI & Data Science (6-12 months)\n🔐 Cybersecurity (4-10 months)\n☁️ Cloud Computing (3-6 months)\n🎨 Digital Design (2-4 months)\n\n✅ 100% Hands-On Projects\n✅ Industry Certifications\n✅ Job Placement Support\n✅ Flexible Learning (Online/Offline)\n\nWhich tech skill would you like to master?`;
+        }
+        
+        // 10. PRICING & QUOTES
+        if (lowerMessage.match(/price|cost|quote|budget|how much|pricing|rate|fee|charge|payment/)) {
+            conversationContext.previousTopic = 'pricing';
+            
+            if (conversationContext.interestedServices.length > 0) {
+                return `I appreciate you asking about pricing! 💼 Since you're interested in ${conversationContext.interestedServices.join(', ')}, here's what you should know:\n\nEvery project is unique, and we believe in transparent, fair pricing tailored to YOUR needs and budget. Rather than generic quotes, we offer:\n\n📞 FREE Consultation Call\n📋 Custom Proposal with Detailed Breakdown\n💡 Multiple Package Options\n⏱️ Flexible Payment Plans\n\nWould you like to schedule a free consultation? You can also email us at info@triventatech.com or call us directly!`;
+            }
+            
+            return `Great question! 💰 Our pricing is customized based on your specific needs, project scope, and timeline. Here's our approach:\n\n✅ FREE initial consultation\n✅ Transparent pricing - no hidden fees\n✅ Flexible payment options\n✅ Value-driven - ROI focused\n\nTypical project ranges:\n• Web Development: $500 - $10,000+\n• Mobile Apps: $5,000 - $50,000+\n• AI Solutions: $3,000 - $30,000+\n• Training Programs: $200 - $1,500\n\nWhich service are you interested in? I can provide more specific guidance!`;
+        }
+        
+        // 11. CONTACT & LOCATION
+        if (lowerMessage.match(/contact|email|phone|call|address|location|where|reach|office/)) {
+            conversationContext.previousTopic = 'contact';
+            
+            return `Let's connect! 📞 Here's how you can reach us:\n\n📧 Email: info@triventatech.com\n📧 Support: support@triventatech.com\n📧 Training: training@triventatech.com\n📍 Location: Nairobi, Kenya\n🌐 Website: www.triventatech.com\n\nWe typically respond within 2 hours during business hours! Would you like to schedule a call or meeting? I can help you get started!`;
+        }
+        
+        // 12. PORTFOLIO & EXPERIENCE
+        if (lowerMessage.match(/portfolio|project|work|experience|client|example|case study|previous|past work/)) {
+            conversationContext.previousTopic = 'portfolio';
+            
+            return `We're proud of our track record! 🏆 Here are some highlights:\n\n📊 50+ Successful Projects Completed\n🌍 Clients Across Kenya & Globally\n⭐ 100% Client Satisfaction Rate\n💼 Industries: Finance, Education, E-commerce, Healthcare\n\n🎯 Notable Projects:\n• Investment Portfolio Management System\n• School Management Platform\n• E-commerce Solutions with AI Recommendations\n• Enterprise Cybersecurity Implementation\n\nCheck out our Portfolio page for detailed case studies! Which industry or project type interests you most?`;
+        }
+        
+        // 13. TEAM & COMPANY
+        if (lowerMessage.match(/team|who|founder|about|company|staff|people|bilford|kevin/)) {
+            conversationContext.previousTopic = 'company';
+            
+            return `Meet our brilliant team! 🌟 TriVenta Tech is led by:\n\n👨‍💻 Bilford Bwire - Co-Founder & Lead\nExpert in AI, Data Science & Cybersecurity\n\n👨‍💻 Kevin - Co-Founder & Lead\nSpecialist in Web, Cloud & Design\n\nWe're a young, dynamic team passionate about engineering intelligence and powering progress! Our mission is to bring world-class technology solutions to businesses across Africa and beyond.\n\nWant to learn more about our story? Check out our About page!`;
+        }
+        
+        // 14. TIMELINE & DURATION
+        if (lowerMessage.match(/how long|timeline|duration|time|when|fast|quick|deadline/)) {
+            conversationContext.previousTopic = 'timeline';
+            
+            return `Great question about timing! ⏱️ Here are typical project timelines:\n\n⚡ Quick Projects:\n• Simple Website: 1-2 weeks\n• Landing Page: 3-5 days\n\n📅 Standard Projects:\n• Business Website: 3-6 weeks\n• Mobile App: 2-4 months\n• AI Solution: 1-3 months\n\n🚀 Complex Projects:\n• E-commerce Platform: 2-4 months\n• Enterprise System: 4-12 months\n\nWe also offer rush services for urgent needs! What's your ideal timeline?`;
+        }
+        
+        // 15. COMPARISON & ALTERNATIVES
+        if (lowerMessage.match(/why you|why choose|better than|vs|compared to|difference|alternative/)) {
+            conversationContext.previousTopic = 'why-us';
+            
+            return `Excellent question! 🎯 Here's what makes TriVenta Tech stand out:\n\n✨ All-in-One Solution - From AI to Cybersecurity, everything under one roof\n🌍 Global Standards, Local Presence - International quality with African insight\n⚡ Rapid Innovation - Young, agile team with cutting-edge expertise\n🤝 Client-Focused - Your success is our mission\n💡 Proven Results - 100% satisfaction, 50+ projects completed\n🎓 Training & Support - We don't just build, we empower\n\nWe're not just vendors - we're your long-term technology partners! What specific concerns do you have that I can address?`;
+        }
+        
+        // 16. SUPPORT & MAINTENANCE
+        if (lowerMessage.match(/support|maintenance|help|update|fix|bug|issue|problem|assist/)) {
+            conversationContext.previousTopic = 'support';
+            
+            return `We've got your back! 🛠️ Our support doesn't end at delivery:\n\n✅ 30-Day Post-Launch Support (FREE)\n✅ Monthly Maintenance Packages\n✅ 24/7 Emergency Support Available\n✅ Regular Updates & Security Patches\n✅ Performance Monitoring\n✅ Training for Your Team\n\nWe're committed to your long-term success! Are you looking for support on an existing project or planning for future maintenance?`;
+        }
+        
+        // 17. YES/NO/POSITIVE RESPONSES
+        if (lowerMessage.match(/^(yes|yeah|yep|sure|okay|ok|definitely|absolutely|interested|sounds good)/)) {
+            if (conversationContext.previousTopic === 'web-development') {
+                return `Awesome! 🎉 Let's make your web project a reality! I recommend these next steps:\n\n1️⃣ Tell me about your project (purpose, features, target audience)\n2️⃣ Schedule a FREE consultation: info@triventatech.com\n3️⃣ We'll create a custom proposal\n4️⃣ Start building your dream website!\n\nWhat type of website do you have in mind?`;
+            }
+            
+            return `Fantastic! 🎉 I'm excited to help you move forward! Here's what I recommend:\n\n📞 Schedule a FREE consultation call\n📧 Email us at info@triventatech.com\n💬 Continue chatting with me to refine your needs\n📋 Visit our Contact page for more options\n\nWhat would you like to do next?`;
+        }
+        
+        // 18. NEGATIVE/DECLINE RESPONSES
+        if (lowerMessage.match(/^(no|nope|not really|not interested|maybe later|not now)/)) {
+            return `No problem at all! 😊 I'm here whenever you need me. Feel free to:\n\n📚 Browse our website to learn more\n💭 Think about your needs\n🔖 Bookmark us for later\n📧 Reach out anytime: info@triventatech.com\n\nIs there anything else I can help clarify right now?`;
+        }
+        
+        // 19. THANKS & GRATITUDE
+        if (lowerMessage.match(/thank|thanks|appreciate|grateful/)) {
+            return `You're very welcome! 😊 It's my pleasure to help! If you have any more questions - now or in the future - don't hesitate to reach out. We're here to make technology work for you! 🚀\n\nAnything else on your mind?`;
+        }
+        
+        // 20. GOODBYE
+        if (lowerMessage.match(/bye|goodbye|see you|later|gtg|got to go/)) {
+            return `Take care! 👋 It was great chatting with you${conversationContext.userName ? ', ' + conversationContext.userName : ''}! Feel free to return anytime. We're always here to help.\n\n📧 info@triventatech.com\n🌐 www.triventatech.com\n\nHave an amazing day! 🌟`;
+        }
+        
+        // 21. COMPLEX QUESTIONS - Analyze for multiple intents
+        if (wordCount > 10) {
+            const topics = [];
+            if (lowerMessage.includes('website') || lowerMessage.includes('web')) topics.push('web development');
+            if (lowerMessage.includes('ai') || lowerMessage.includes('machine learning')) topics.push('AI solutions');
+            if (lowerMessage.includes('security') || lowerMessage.includes('cyber')) topics.push('cybersecurity');
+            
+            if (topics.length > 0) {
+                return `I can see you're interested in multiple areas - specifically ${topics.join(' and ')}! 🎯 That's great! We excel at integrated solutions.\n\nTo give you the most accurate information, let's focus on one at a time. Which of these is your top priority right now? Or would you like me to explain how they can work together in a comprehensive solution?`;
+            }
+        }
+        
+        // 22. CONTEXTUAL FOLLOW-UP
+        if (conversationContext.conversationHistory.length > 2 && lowerMessage.split(' ').length < 5) {
+            const lastBotMessage = conversationContext.conversationHistory.slice(-2, -1)[0];
+            if (lastBotMessage && lastBotMessage.role === 'bot') {
+                return `I want to make sure I understand you correctly. Could you provide a bit more detail? For example:\n\n• What specific features are you looking for?\n• What's your timeline?\n• What's your approximate budget?\n• Any particular concerns or requirements?\n\nThe more I know, the better I can help! 😊`;
+            }
+        }
+        
+        // 23. DEFAULT - Intelligent fallback with context awareness
+        const responses = [
+            `That's an interesting question! 🤔 While I want to give you the most accurate information, could you rephrase or provide more details? Here's what I can definitely help with:\n\n• Our Services (Web, AI, Cybersecurity, Cloud, Mobile, Design)\n• Training Programs\n• Pricing & Quotes\n• Contact Information\n• Portfolio & Case Studies\n\nWhat would you like to explore?`,
+            
+            `I appreciate your message! 💭 To provide the best answer, could you tell me more about:\n\n• Your specific goals?\n• Which service interests you most?\n• Your timeline or budget?\n\nOr feel free to ask me about TriVenta Tech's services, training, or how we can help your business!`,
+            
+            `Great question! 🌟 I want to make sure I give you exactly what you need. Here's what I'm an expert on:\n\n✅ Technology Solutions (Web, AI, Security, Cloud)\n✅ Training & Education Programs\n✅ Project Pricing & Timelines\n✅ Our Team & Company Background\n\nWhat aspect interests you most? Or email us at info@triventatech.com for detailed inquiries!`
+        ];
+        
+        return responses[Math.floor(Math.random() * responses.length)];
+    }
+
+    function showTypingIndicator() {
+        const messagesContainer = document.querySelector('.chat-messages');
+        if (!messagesContainer) return;
+        
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'bot-message typing-indicator-msg';
+        typingDiv.innerHTML = `
+            <div class="message-avatar"></div>
+            <div class="message-content">
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        `;
+        messagesContainer.appendChild(typingDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+        const typingIndicator = document.querySelector('.typing-indicator-msg');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
     }
 
     function addMessage(text, sender) {

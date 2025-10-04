@@ -221,12 +221,19 @@
         
         .blog-image {
             height: 250px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4em;
-            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
         }
         
         .blog-content {
@@ -325,12 +332,19 @@
         }
         
         .featured-image {
-            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5em;
-            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .featured-post:hover .featured-image img {
+            transform: scale(1.05);
         }
         
         .featured-content {
@@ -622,7 +636,9 @@
                 <div class="blog-grid">
                     <!-- Featured Post -->
                     <article class="blog-card featured-post" data-category="ai">
-                        <div class="featured-image"></div>
+                        <div class="featured-image">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=500&fit=crop" alt="Artificial Intelligence" loading="lazy">
+                        </div>
                         <div class="featured-content">
                             <div class="featured-badge">Featured</div>
                             <h3>The Future of AI in African Businesses</h3>
@@ -646,7 +662,9 @@
                     
                     <!-- Regular Blog Posts -->
                     <article class="blog-card" data-category="cybersecurity">
-                        <div class="blog-image"></div>
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=500&fit=crop" alt="Cybersecurity" loading="lazy">
+                        </div>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <span class="blog-category">Cybersecurity</span>
@@ -668,7 +686,9 @@
                     </article>
                     
                     <article class="blog-card" data-category="web-dev">
-                        <div class="blog-image"></div>
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=500&fit=crop" alt="Web Development" loading="lazy">
+                        </div>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <span class="blog-category">Web Development</span>
@@ -690,7 +710,9 @@
                     </article>
                     
                     <article class="blog-card" data-category="cloud">
-                        <div class="blog-image"></div>
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=500&fit=crop" alt="Cloud Computing" loading="lazy">
+                        </div>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <span class="blog-category">Cloud Solutions</span>
@@ -712,7 +734,9 @@
                     </article>
                     
                     <article class="blog-card" data-category="trends">
-                        <div class="blog-image"></div>
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=500&fit=crop" alt="Mobile Development" loading="lazy">
+                        </div>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <span class="blog-category">Tech Trends</span>
@@ -734,7 +758,9 @@
                     </article>
                     
                     <article class="blog-card" data-category="ai">
-                        <div class="blog-image"></div>
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop" alt="AI & Machine Learning" loading="lazy">
+                        </div>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <span class="blog-category">AI & Data Science</span>

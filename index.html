@@ -1298,41 +1298,34 @@
         }
         
         @media (max-width: 768px) {
-            /* Compact Header for Mobile */
+            /* Remove Sticky Header on Mobile - Let it Scroll Away */
+            .main-header {
+                position: relative; /* Changed from sticky to relative */
+            }
+            
+            /* Hide Header Top Section Completely on Mobile */
             .header-top {
-                padding: 6px 0;
-                font-size: 11px;
+                display: none; /* Completely hide top bar on mobile */
             }
             
-            .header-top .container {
-                padding: 0 15px;
-            }
-            
-            .contact-info span {
-                margin-right: 10px;
-                font-size: 10px;
-            }
-            
-            .social-links {
-                display: none; /* Hide social links to save space */
-            }
-            
+            /* Compact Header Main for Mobile */
             .header-main {
-                padding: 10px 0;
+                padding: 8px 0;
             }
             
             .header-main .container {
-                padding: 0 15px;
+                padding: 0 12px;
                 flex-direction: row;
-                gap: 10px;
+                gap: 8px;
             }
             
             .logo img {
-                height: 35px;
+                height: 32px;
             }
             
             .logo h1 {
-                font-size: 1.1em;
+                font-size: 1em;
+                margin: 0;
             }
             
             .logo .tagline {
@@ -1341,89 +1334,90 @@
             
             /* Compact Navigation Button */
             .nav-dropdown-btn {
-                padding: 8px 14px;
-                font-size: 13px;
-                gap: 5px;
+                padding: 7px 12px;
+                font-size: 12px;
+                gap: 4px;
             }
             
             .nav-dropdown-btn svg {
-                width: 10px;
-                height: 7px;
+                width: 9px;
+                height: 6px;
             }
             
             /* Dropdown Menu - Limited Height */
             .nav-dropdown-menu {
-                min-width: 180px;
-                max-height: 60vh;
+                min-width: 170px;
+                max-height: 65vh;
                 overflow-y: auto;
                 right: 0;
-                padding: 8px 0;
+                padding: 6px 0;
             }
             
             .nav-dropdown-menu a {
-                padding: 10px 16px;
-                font-size: 13px;
+                padding: 9px 14px;
+                font-size: 12px;
             }
             
             /* Compact CTA Button */
             .cta-button {
-                padding: 7px 15px;
-                font-size: 12px;
-                border-radius: 18px;
+                padding: 6px 13px;
+                font-size: 11px;
+                border-radius: 16px;
             }
             
             /* Compact Hero Section */
             .hero-section {
-                padding: 50px 0 35px;
-                min-height: 85vh;
+                padding: 40px 0 30px; /* Reduced top padding */
+                min-height: 90vh; /* Increased to use more screen */
             }
             
             .hero-badge {
-                padding: 6px 16px;
-                font-size: 0.75em;
-                margin-bottom: 20px;
+                padding: 5px 14px;
+                font-size: 0.7em;
+                margin-bottom: 15px;
             }
             
             .hero-title {
-                font-size: 1.9em;
-                margin-bottom: 18px;
-                letter-spacing: -1px;
+                font-size: 1.7em;
+                margin-bottom: 15px;
+                letter-spacing: -0.5px;
             }
             
             .hero-subtitle {
-                font-size: 0.95em;
-                margin-bottom: 25px;
+                font-size: 0.9em;
+                margin-bottom: 20px;
                 padding: 0 10px;
+                line-height: 1.5;
             }
             
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
-                gap: 12px;
-                margin-bottom: 30px;
+                gap: 10px;
+                margin-bottom: 25px;
             }
             
             .btn {
-                padding: 11px 22px;
-                font-size: 0.9em;
+                padding: 10px 20px;
+                font-size: 0.85em;
             }
             
             .hero-stats {
-                gap: 25px;
+                gap: 20px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
             
             .stat {
-                min-width: 100px;
+                min-width: 90px;
             }
             
             .stat-number {
-                font-size: 1.6em;
+                font-size: 1.5em;
             }
             
             .stat-label {
-                font-size: 0.85em;
+                font-size: 0.8em;
             }
             
             .hero-scroll {
@@ -1546,67 +1540,65 @@
         
         /* Extra Small Phones */
         @media (max-width: 480px) {
-            .header-top {
-                font-size: 10px;
-                padding: 5px 0;
-            }
-            
-            .contact-info span {
-                display: block;
-                margin-bottom: 3px;
-                font-size: 9px;
-            }
-            
+            /* Even More Compact Header */
             .header-main {
-                padding: 8px 0;
+                padding: 6px 0;
+            }
+            
+            .header-main .container {
+                padding: 0 10px;
             }
             
             .logo img {
-                height: 30px;
+                height: 28px;
             }
             
             .logo h1 {
-                font-size: 1em;
+                font-size: 0.95em;
             }
             
             .nav-dropdown-btn {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-            
-            .cta-button {
-                padding: 6px 12px;
+                padding: 6px 10px;
                 font-size: 11px;
             }
             
+            .cta-button {
+                padding: 5px 11px;
+                font-size: 10px;
+            }
+            
+            .hero-section {
+                padding: 35px 0 25px;
+            }
+            
             .hero-title {
-                font-size: 1.6em;
+                font-size: 1.5em;
             }
             
             .hero-subtitle {
-                font-size: 0.9em;
-            }
-            
-            .btn {
-                padding: 10px 18px;
                 font-size: 0.85em;
             }
             
-            .stat-number {
-                font-size: 1.4em;
-            }
-            
-            .stat-label {
+            .btn {
+                padding: 9px 16px;
                 font-size: 0.8em;
             }
             
+            .stat-number {
+                font-size: 1.3em;
+            }
+            
+            .stat-label {
+                font-size: 0.75em;
+            }
+            
             .section-header h2 {
-                font-size: 1.6em;
+                font-size: 1.5em;
             }
             
             .youtube-logo {
-                width: 35px;
-                height: 35px;
+                width: 32px;
+                height: 32px;
             }
         }
     </style>

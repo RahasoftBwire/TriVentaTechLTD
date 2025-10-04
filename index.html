@@ -752,22 +752,53 @@
         
         /* CTA Section */
         .cta-section {
+            position: relative;
             padding: 100px 0;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
             text-align: center;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .cta-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        
+        .cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.85) 0%, rgba(42, 82, 152, 0.85) 100%);
+            z-index: 2;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 3;
         }
         
         .cta-content h2 {
             font-size: 3em;
             margin-bottom: 20px;
             color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .cta-content p {
             font-size: 1.3em;
             margin-bottom: 40px;
-            opacity: 0.9;
+            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         
         .cta-buttons {
@@ -1524,22 +1555,55 @@
         }
         
         .training-cta {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            position: relative;
             color: white;
-            padding: 40px;
+            padding: 80px 40px;
             border-radius: 15px;
             text-align: center;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .training-cta-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        
+        .training-cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85));
+            z-index: 2;
+        }
+        
+        .training-cta-content {
+            position: relative;
+            z-index: 3;
         }
         
         .training-cta h3 {
             font-size: 2em;
             margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .training-cta p {
             font-size: 1.1em;
             margin-bottom: 30px;
-            opacity: 0.9;
+            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         
         .training-buttons {
@@ -1756,6 +1820,11 @@
             }
             
             /* CTA Section */
+            .cta-section {
+                padding: 80px 0;
+                min-height: 400px;
+            }
+            
             .cta-content h2 {
                 font-size: 2em;
             }
@@ -1784,6 +1853,11 @@
             
             .training-intro h3 {
                 font-size: 1.7em;
+            }
+            
+            .training-cta {
+                padding: 60px 30px;
+                min-height: 350px;
             }
             
             .training-cta h3 {
@@ -2368,11 +2442,23 @@
                 </div>
                 
                 <div class="training-cta">
-                    <h3>Ready to Start Your Tech Journey?</h3>
-                    <p>Join hundreds of students who have transformed their careers with our training programs</p>
-                    <div class="training-buttons">
-                        <a href="enroll.html" class="btn btn-primary">Enroll Now</a>
-                        <a href="contact.html" class="btn btn-secondary">Request Course Info</a>
+                    <!-- Background Video -->
+                    <video class="training-cta-video" autoplay muted loop playsinline>
+                        <source src="https://cdn.coverr.co/videos/coverr-students-working-together-in-library-6229/1080p.mp4" type="video/mp4">
+                        <!-- Fallback for browsers that don't support video -->
+                    </video>
+                    
+                    <!-- Overlay -->
+                    <div class="training-cta-overlay"></div>
+                    
+                    <!-- Content -->
+                    <div class="training-cta-content">
+                        <h3>Ready to Start Your Tech Journey?</h3>
+                        <p>Join hundreds of students who have transformed their careers with our training programs</p>
+                        <div class="training-buttons">
+                            <a href="enroll.html" class="btn btn-primary">Enroll Now</a>
+                            <a href="contact.html" class="btn btn-secondary">Request Course Info</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2426,6 +2512,15 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
+        <!-- Background Video -->
+        <video class="cta-video" autoplay muted loop playsinline>
+            <source src="https://cdn.coverr.co/videos/coverr-business-team-meeting-in-modern-office-5007/1080p.mp4" type="video/mp4">
+            <!-- Fallback for browsers that don't support video -->
+        </video>
+        
+        <!-- Overlay -->
+        <div class="cta-overlay"></div>
+        
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Start Your Project?</h2>

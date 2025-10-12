@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Blue Background -->
+  <rect width="200" height="200" fill="#1E88E5"/>
+  
+  <!-- White Geometric Design - Stylized 'T' or Abstract Shape -->
+  <g fill="#FFFFFF">
+    <!-- Main vertical element -->
+    <polygon points="140,40 170,40 170,160 140,160"/>
+    
+    <!-- Top horizontal element -->
+    <polygon points="70,40 170,40 170,70 70,70"/>
+    
+    <!-- Angular accent piece -->
+    <polygon points="70,70 100,70 140,130 110,130"/>
+    
+    <!-- Additional geometric element -->
+    <polygon points="30,110 70,70 70,100 50,120"/>
+  </g>
+</svg>

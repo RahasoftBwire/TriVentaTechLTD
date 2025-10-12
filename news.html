@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest news and updates from TriVenta Tech Ltd - Stay informed about our innovations and achievements.">
+    <link rel="icon" type="image/svg+xml" href="favicon-hexagon.svg">
+    <link rel="stylesheet" href="mobile-nav.css">
+    <title>News - TriVenta Tech Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            padding-top: 80px;
+        }
+        
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .main-nav a:hover {
+            color: #667eea;
+        }
+        
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+        
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.4) 0%, rgba(42, 82, 152, 0.4) 100%),
+                        url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1920&h=600&fit=crop') center/cover;
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        
+        .page-hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        /* Coming Soon Message */
+        .coming-soon {
+            background: white;
+            padding: 80px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .coming-soon-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+        }
+        
+        .coming-soon h2 {
+            font-size: 2.5em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        
+        .coming-soon p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        /* Newsletter Form */
+        .newsletter-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+        
+        .newsletter-box h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .newsletter-box p {
+            color: white;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            background: white;
+            color: #667eea;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Social Links */
+        .social-cta {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .social-cta h3 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2em;
+            }
+            
+            .coming-soon {
+                padding: 50px 25px;
+            }
+            
+            .coming-soon h2 {
+                font-size: 2em;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .social-link {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <img src="logo-ttl-horizontal.svg" alt="TriVenta Tech Ltd - Engineering Intelligence, Powering Progress">
+                </div>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="news.html" class="active">News</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <a href="contact.html" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Latest News</h1>
+            <p>Stay updated with TriVenta Tech Ltd's latest announcements and achievements</p>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="section">
+        <div class="container">
+            <div class="coming-soon">
+                <div class="coming-soon-icon">📰</div>
+                <h2>News Section Coming Soon!</h2>
+                <p>Thank you for your interest in our latest updates! We're currently preparing exciting news and announcements to share with you.</p>
+                <p>In the meantime, stay connected with us through our blog and social media channels. We'll be launching our news section very soon with regular updates about our projects, innovations, and company milestones.</p>
+                
+                <div class="newsletter-box">
+                    <h3>Get Notified</h3>
+                    <p>Subscribe to our newsletter and be the first to know when we publish news and updates!</p>
+                    <form id="newsletterForm" class="newsletter-form contact-form" data-form-type="newsletter">
+                        <input type="email" name="email" placeholder="Enter your email address" required>
+                        <input type="hidden" name="name" value="Newsletter Subscriber">
+                        <input type="hidden" name="subject" value="Newsletter Subscription">
+                        <input type="hidden" name="message" value="I'd like to subscribe to TriVenta Tech newsletter">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                
+                <div class="social-cta">
+                    <h3>Follow Us for Updates</h3>
+                    <div class="social-links">
+                        <a href="blog.html" class="social-link">📝 Read Our Blog</a>
+                        <a href="https://wa.me/254722206805" target="_blank" class="social-link">💬 WhatsApp Us</a>
+                        <a href="contact.html" class="social-link">✉️ Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 TriVenta Tech Ltd. All rights reserved.</p>
+                <p>📧 Email: bilfordderek917@gmail.com | 📱 Phone/WhatsApp: <a href="tel:+254722206805" style="color: white;">0722 206 805</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Navigation Script -->
+    <script src="mobile-nav.js"></script>
+    
+    <!-- Contact Form Handler -->
+    <script src="contact-handler.js"></script>
+</body>
+</html>

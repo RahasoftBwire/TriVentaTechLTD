@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Data Science Quotation - TriVenta Tech Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        
+        .quotation-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .logo-section h1 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .logo-section p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .company-info {
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .quotation-title {
+            text-align: center;
+            margin: 30px 0;
+            color: #333;
+            font-size: 32px;
+        }
+        
+        .details-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .detail-box {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .detail-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .detail-box p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .services-table {
+            width: 100%;
+            margin: 40px 0;
+            border-collapse: collapse;
+        }
+        
+        .services-table thead {
+            background: #667eea;
+            color: white;
+        }
+        
+        .services-table th,
+        .services-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .services-table th {
+            font-weight: 600;
+        }
+        
+        .services-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .amount {
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .totals {
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        .totals-row {
+            display: flex;
+            justify-content: flex-end;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        .totals-label {
+            width: 150px;
+            text-align: right;
+            margin-right: 20px;
+            color: #666;
+        }
+        
+        .totals-amount {
+            width: 150px;
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .grand-total {
+            border-top: 2px solid #667eea;
+            padding-top: 10px;
+            margin-top: 10px;
+            font-size: 20px;
+            color: #667eea;
+        }
+        
+        .notes-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: #e8f4f8;
+            border-left: 4px solid #2196F3;
+            border-radius: 4px;
+        }
+        
+        .notes-section h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .notes-section ul {
+            margin-left: 20px;
+        }
+        
+        .notes-section li {
+            margin: 5px 0;
+        }
+        
+        .terms-section {
+            margin: 30px 0;
+            font-size: 14px;
+        }
+        
+        .terms-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .terms-section ul {
+            margin-left: 20px;
+        }
+        
+        .terms-section li {
+            margin: 8px 0;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .contact-footer {
+            margin-top: 20px;
+        }
+        
+        .contact-footer p {
+            margin: 5px 0;
+        }
+        
+        .validity {
+            color: #d32f2f;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+            
+            .quotation-container {
+                box-shadow: none;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quotation-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-section">
+                <h1>TriVenta Tech Ltd</h1>
+                <p>Engineering Intelligence, Powering Progress</p>
+            </div>
+            <div class="company-info">
+                <p><strong>Phone:</strong> 0722 206 805</p>
+                <p><strong>Email:</strong> bilfordderek917@gmail.com</p>
+                <p><strong>Website:</strong> www.triventatech.com</p>
+            </div>
+        </div>
+        
+        <!-- Title -->
+        <h2 class="quotation-title">QUOTATION</h2>
+        
+        <!-- Details Section -->
+        <div class="details-section">
+            <div class="detail-box">
+                <h3>Quotation To:</h3>
+                <p><strong>[Client Name]</strong></p>
+                <p>[Client Company]</p>
+                <p>[Client Address]</p>
+                <p><strong>Email:</strong> [client@email.com]</p>
+                <p><strong>Phone:</strong> [Client Phone]</p>
+            </div>
+            <div class="detail-box">
+                <h3>Quotation Details:</h3>
+                <p><strong>Quote No:</strong> TTL-AI-[XXX]</p>
+                <p><strong>Date:</strong> [Date]</p>
+                <p><strong>Valid Until:</strong> [30 Days from Date]</p>
+                <p><strong>Project:</strong> AI & Data Science Solution</p>
+            </div>
+        </div>
+        
+        <!-- Services Table -->
+        <table class="services-table">
+            <thead>
+                <tr>
+                    <th style="width: 10%;">Item</th>
+                    <th style="width: 45%;">Description</th>
+                    <th style="width: 15%;">Quantity</th>
+                    <th style="width: 15%;">Unit Price</th>
+                    <th style="width: 15%;">Amount (KES)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <strong>Data Analysis & Consultation</strong><br>
+                        <small>Initial assessment, data audit, and solution architecture design</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">30,000</td>
+                    <td class="amount">30,000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <strong>Machine Learning Model Development</strong><br>
+                        <small>Custom ML model training, testing, and optimization</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">120,000</td>
+                    <td class="amount">120,000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>
+                        <strong>Data Pipeline & ETL Setup</strong><br>
+                        <small>Automated data collection, cleaning, and preprocessing</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">50,000</td>
+                    <td class="amount">50,000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>
+                        <strong>API Development & Integration</strong><br>
+                        <small>RESTful API for model deployment and integration</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">40,000</td>
+                    <td class="amount">40,000</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>
+                        <strong>Dashboard & Visualization</strong><br>
+                        <small>Interactive dashboard for insights and model monitoring</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">35,000</td>
+                    <td class="amount">35,000</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>
+                        <strong>Model Deployment & Cloud Setup</strong><br>
+                        <small>Production deployment, scaling, and monitoring setup</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">45,000</td>
+                    <td class="amount">45,000</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>
+                        <strong>Documentation & Training</strong><br>
+                        <small>Comprehensive documentation and team training sessions</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">20,000</td>
+                    <td class="amount">20,000</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Totals -->
+        <div class="totals">
+            <div class="totals-row">
+                <div class="totals-label">Subtotal:</div>
+                <div class="totals-amount">KES 340,000</div>
+            </div>
+            <div class="totals-row">
+                <div class="totals-label">VAT (16%):</div>
+                <div class="totals-amount">KES 54,400</div>
+            </div>
+            <div class="totals-row grand-total">
+                <div class="totals-label">GRAND TOTAL:</div>
+                <div class="totals-amount">KES 394,400</div>
+            </div>
+        </div>
+        
+        <!-- Notes -->
+        <div class="notes-section">
+            <h3>🤖 Project Deliverables Include:</h3>
+            <ul>
+                <li>Fully trained and tested ML model</li>
+                <li>Complete source code and datasets</li>
+                <li>API documentation and integration guide</li>
+                <li>Interactive visualization dashboard</li>
+                <li>Model performance reports and metrics</li>
+                <li>6 months free support & maintenance</li>
+                <li>Model retraining (up to 2 times) during support period</li>
+                <li>Knowledge transfer sessions with your team</li>
+            </ul>
+        </div>
+        
+        <!-- Terms -->
+        <div class="terms-section">
+            <h3>Terms & Conditions:</h3>
+            <ul>
+                <li><strong>Payment Terms:</strong> 40% deposit, 30% at milestone completion, 30% upon delivery</li>
+                <li><strong>Timeline:</strong> Estimated 8-12 weeks from deposit receipt</li>
+                <li><strong>Data Requirements:</strong> Client to provide historical data (minimum 1000 records)</li>
+                <li><strong>Model Accuracy:</strong> Target accuracy will be defined during consultation phase</li>
+                <li><strong>Cloud Costs:</strong> Cloud hosting fees (AWS/Azure) billed separately at cost</li>
+                <li><strong>Additional Features:</strong> New features quoted separately after MVP</li>
+                <li><strong>Intellectual Property:</strong> Client owns model and code upon final payment</li>
+                <li><strong>Confidentiality:</strong> Full NDA coverage for data and business logic</li>
+            </ul>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p class="validity">⏰ This quotation is valid for 30 days from the date above</p>
+            <div class="contact-footer">
+                <p><strong>Accept this quotation by contacting us:</strong></p>
+                <p>📧 Email: bilfordderek917@gmail.com | 📱 Phone/WhatsApp: 0722 206 805</p>
+                <p style="margin-top: 20px; font-size: 12px; color: #999;">
+                    Thank you for considering TriVenta Tech Ltd for your AI & Data Science needs!
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

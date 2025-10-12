@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Resources - TriVenta Tech Ltd</title>
+    <link rel="icon" type="image/svg+xml" href="logo-ttl-horizontal.svg">
+    <link rel="stylesheet" href="mobile-nav.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 5% 80px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        .downloads-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-intro h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-intro p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .download-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #f0f0f0;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.2);
+            border-color: #667eea;
+        }
+
+        .download-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .download-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .download-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .download-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .download-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 5%;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .main-nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-intro h2 {
+                font-size: 2rem;
+            }
+
+            .downloads-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo-ttl-horizontal.svg" alt="TriVenta Tech Ltd" style="height: 50px; width: auto;">
+                </a>
+            </div>
+            <div class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="downloads.html" class="active">Downloads</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>📥 Download Resources</h1>
+        <p>Sample quotations and project templates to help you understand our services and pricing structure</p>
+    </section>
+
+    <!-- Downloads Section -->
+    <section class="downloads-section">
+        <div class="section-intro">
+            <h2>Sample Quotations</h2>
+            <p>Download our sample quotation templates to see typical project structures, deliverables, and pricing ranges. Each quotation is customizable based on your specific requirements.</p>
+        </div>
+
+        <div class="downloads-grid">
+            <!-- Web Development Quotation -->
+            <div class="download-card">
+                <div class="download-icon">🌐</div>
+                <h3>Web Development</h3>
+                <p>Sample quotation for custom website development including design, CMS, hosting, and SEO optimization.</p>
+                <div class="download-meta">
+                    <span>📄 HTML Document</span>
+                    <span>💰 KES 50K - 150K</span>
+                </div>
+                <a href="downloads/quotation-web-development.html" class="btn-download" target="_blank">View Quotation</a>
+            </div>
+
+            <!-- AI & Data Science Quotation -->
+            <div class="download-card">
+                <div class="download-icon">🤖</div>
+                <h3>AI & Data Science</h3>
+                <p>Sample quotation for machine learning model development, data pipeline setup, and API integration.</p>
+                <div class="download-meta">
+                    <span>📄 HTML Document</span>
+                    <span>💰 KES 200K - 500K</span>
+                </div>
+                <a href="downloads/quotation-ai-data-science.html" class="btn-download" target="_blank">View Quotation</a>
+            </div>
+
+            <!-- Mobile App Quotation -->
+            <div class="download-card">
+                <div class="download-icon">📱</div>
+                <h3>Mobile App Development</h3>
+                <p>Sample quotation for native iOS and Android app development with backend API and app store submission.</p>
+                <div class="download-meta">
+                    <span>📄 HTML Document</span>
+                    <span>💰 KES 300K - 800K</span>
+                </div>
+                <a href="downloads/quotation-mobile-app.html" class="btn-download" target="_blank">View Quotation</a>
+            </div>
+
+            <!-- Cybersecurity Quotation -->
+            <div class="download-card">
+                <div class="download-icon">🔐</div>
+                <h3>Cybersecurity Services</h3>
+                <p>Sample quotation for penetration testing, security assessment, and vulnerability remediation services.</p>
+                <div class="download-meta">
+                    <span>📄 HTML Document</span>
+                    <span>💰 KES 150K - 400K</span>
+                </div>
+                <a href="downloads/quotation-cybersecurity.html" class="btn-download" target="_blank">View Quotation</a>
+            </div>
+        </div>
+
+        <div class="section-intro" style="margin-top: 80px;">
+            <h2>📌 Important Notes</h2>
+            <p style="text-align: left; max-width: 800px; margin: 20px auto;">
+                ✅ <strong>Customizable:</strong> All quotations are templates and will be customized to your specific project requirements<br>
+                ✅ <strong>Free Consultation:</strong> Contact us for a free consultation to discuss your project and get an accurate quote<br>
+                ✅ <strong>Transparent Pricing:</strong> No hidden fees - all costs clearly outlined in the quotation<br>
+                ✅ <strong>Flexible Terms:</strong> Payment plans and project timelines can be adjusted to suit your needs<br>
+                ✅ <strong>Print/Save PDF:</strong> Open any quotation and use your browser's print function (Ctrl+P) to save as PDF
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Get a customized quotation tailored to your specific needs and requirements</p>
+        <div class="cta-buttons">
+            <a href="contact.html" class="btn-primary">Request Custom Quote</a>
+            <a href="https://wa.me/254722206805?text=Hi%20TriVenta%2C%20I'd%20like%20a%20custom%20quotation%20for..." class="btn-secondary">WhatsApp Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+                <a href="careers.html">Careers</a>
+                <a href="news.html">News</a>
+            </div>
+            <p>&copy; 2024 TriVenta Tech Ltd. All rights reserved.</p>
+            <p>📧 bilfordderek917@gmail.com | 📱 0722 206 805</p>
+        </div>
+    </footer>
+
+    <script src="mobile-nav.js"></script>
+</body>
+</html>

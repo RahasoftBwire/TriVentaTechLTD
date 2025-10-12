@@ -2036,6 +2036,7 @@
                             <li><a href="about.html">About</a></li>
                             <li><a href="services.html">Services</a></li>
                             <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="downloads.html">Downloads</a></li>
                             <li><a href="why-us.html">Why Us</a></li>
                             <li><a href="team.html">Team</a></li>
                             <li><a href="blog.html">Blog</a></li>
@@ -2564,6 +2565,7 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="team.html">Our Team</a></li>
                         <li><a href="why-us.html">Why Choose Us</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="careers.html">Careers</a></li>
                         <li><a href="news.html">News</a></li>
@@ -3147,10 +3149,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // 9. TRAINING PROGRAMS
-        if (lowerMessage.match(/training|course|learn|education|teach|class|bootcamp|certification|skill/)) {
+        if (lowerMessage.match(/training|course|learn|education|teach|class|bootcamp|certification|skill|enroll|study/)) {
             conversationContext.previousTopic = 'training';
             
-            return `Transform your career! 🎓 Our expert-led training programs are designed to make you job-ready:\n\n💻 Programming & Development (3-6 months)\n🌐 Web Development (4-8 months)\n🤖 AI & Data Science (6-12 months)\n🔐 Cybersecurity (4-10 months)\n☁️ Cloud Computing (3-6 months)\n🎨 Digital Design (2-4 months)\n\n✅ 100% Hands-On Projects\n✅ Industry Certifications\n✅ Job Placement Support\n✅ Flexible Learning (Online/Offline)\n\nWhich tech skill would you like to master?`;
+            return `Thank you for your interest in our training programs! 🎓\n\n📚 <strong>Education & Training Department - Coming Soon!</strong>\n\nWe're currently developing comprehensive training programs in:\n\n💻 Programming & Development\n🌐 Web Development\n🤖 AI & Data Science\n🔐 Cybersecurity\n☁️ Cloud Computing\n🎨 Digital Design\n\n🚀 <strong>What's Being Prepared:</strong>\n✅ Expert-Led Curriculum\n✅ Hands-On Projects\n✅ Industry Certifications\n✅ Job Placement Support\n✅ Flexible Learning Options\n\n📢 Our training programs will launch soon! Meanwhile:\n• Focus on our <strong>technology solutions</strong> (Web, AI, Mobile Apps, Security)\n• Contact us for <strong>corporate training requests</strong>\n• Join our newsletter on the <a href="news.html">News page</a> for launch updates\n\n📧 Email: bilfordderek917@gmail.com\n📱 WhatsApp: 0722 206 805`;
         }
         
         // 10. PRICING & QUOTES
@@ -3161,7 +3163,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return `I appreciate you asking about pricing! 💼 Since you're interested in ${conversationContext.interestedServices.join(', ')}, here's what you should know:\n\nEvery project is unique, and we believe in transparent, fair pricing tailored to YOUR needs and budget. Rather than generic quotes, we offer:\n\n📞 FREE Consultation Call\n📋 Custom Proposal with Detailed Breakdown\n💡 Multiple Package Options\n⏱️ Flexible Payment Plans\n\nWould you like to schedule a free consultation?\n📱 WhatsApp: 0722 206 805 (https://wa.me/254722206805)\n📧 Email: bilfordderek917@gmail.com`;
             }
             
-            return `Great question! 💰 Our pricing is customized based on your specific needs, project scope, and timeline. Here's our approach:\n\n✅ FREE initial consultation\n✅ Transparent pricing - no hidden fees\n✅ Flexible payment options\n✅ Value-driven - ROI focused\n\nTypical project ranges:\n• Web Development: $500 - $10,000+\n• Mobile Apps: $5,000 - $50,000+\n• AI Solutions: $3,000 - $30,000+\n• Training Programs: $200 - $1,500\n\nWhich service are you interested in? I can provide more specific guidance!`;
+            return `Great question! 💰 Our pricing is customized based on your specific needs, project scope, and timeline. Here's our approach:\n\n✅ FREE initial consultation\n✅ Transparent pricing - no hidden fees\n✅ Flexible payment options\n✅ Value-driven - ROI focused\n\nTypical project ranges:\n• Web Development: KES 50K - 150K+\n• Mobile Apps: KES 300K - 800K+\n• AI Solutions: KES 200K - 500K+\n• Cybersecurity: KES 150K - 400K+\n\n📥 <strong>Download Sample Quotations:</strong>\nView our <a href="downloads.html" style="color: #667eea; font-weight: bold;">Downloads page</a> to see sample quotations with detailed breakdowns!\n\nWhich service are you interested in? I can provide more specific guidance!`;
         }
         
         // 11. CONTACT & LOCATION

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App Development Quotation - TriVenta Tech Ltd</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; padding: 40px; background: #f5f5f5; }
+        .quotation-container { max-width: 900px; margin: 0 auto; background: white; padding: 50px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 3px solid #667eea; }
+        .logo-section h1 { color: #667eea; font-size: 28px; margin-bottom: 5px; }
+        .logo-section p { color: #666; font-size: 14px; }
+        .company-info { text-align: right; font-size: 14px; color: #666; }
+        .quotation-title { text-align: center; margin: 30px 0; color: #333; font-size: 32px; }
+        .details-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0; }
+        .detail-box { padding: 20px; background: #f8f9fa; border-radius: 8px; }
+        .detail-box h3 { color: #667eea; margin-bottom: 10px; font-size: 16px; }
+        .detail-box p { margin: 5px 0; font-size: 14px; }
+        .services-table { width: 100%; margin: 40px 0; border-collapse: collapse; }
+        .services-table thead { background: #667eea; color: white; }
+        .services-table th, .services-table td { padding: 15px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+        .services-table th { font-weight: 600; }
+        .services-table tbody tr:hover { background: #f8f9fa; }
+        .amount { text-align: right; font-weight: 600; }
+        .totals { margin-top: 20px; text-align: right; }
+        .totals-row { display: flex; justify-content: flex-end; margin: 10px 0; font-size: 16px; }
+        .totals-label { width: 150px; text-align: right; margin-right: 20px; color: #666; }
+        .totals-amount { width: 150px; text-align: right; font-weight: 600; }
+        .grand-total { border-top: 2px solid #667eea; padding-top: 10px; margin-top: 10px; font-size: 20px; color: #667eea; }
+        .notes-section { margin: 40px 0; padding: 20px; background: #e8f5e9; border-left: 4px solid #4CAF50; border-radius: 4px; }
+        .notes-section h3 { color: #333; margin-bottom: 10px; }
+        .notes-section ul { margin-left: 20px; }
+        .notes-section li { margin: 5px 0; }
+        .terms-section { margin: 30px 0; font-size: 14px; }
+        .terms-section h3 { color: #667eea; margin-bottom: 15px; }
+        .terms-section ul { margin-left: 20px; }
+        .terms-section li { margin: 8px 0; }
+        .footer { margin-top: 50px; padding-top: 30px; border-top: 2px solid #e0e0e0; text-align: center; color: #666; font-size: 14px; }
+        .contact-footer { margin-top: 20px; }
+        .contact-footer p { margin: 5px 0; }
+        .validity { color: #d32f2f; font-weight: 600; margin-top: 20px; }
+        @media print { body { padding: 0; background: white; } .quotation-container { box-shadow: none; padding: 30px; } }
+    </style>
+</head>
+<body>
+    <div class="quotation-container">
+        <div class="header">
+            <div class="logo-section">
+                <h1>TriVenta Tech Ltd</h1>
+                <p>Engineering Intelligence, Powering Progress</p>
+            </div>
+            <div class="company-info">
+                <p><strong>Phone:</strong> 0722 206 805</p>
+                <p><strong>Email:</strong> bilfordderek917@gmail.com</p>
+                <p><strong>Website:</strong> www.triventatech.com</p>
+            </div>
+        </div>
+        
+        <h2 class="quotation-title">QUOTATION</h2>
+        
+        <div class="details-section">
+            <div class="detail-box">
+                <h3>Quotation To:</h3>
+                <p><strong>[Client Name]</strong></p>
+                <p>[Client Company]</p>
+                <p>[Client Address]</p>
+                <p><strong>Email:</strong> [client@email.com]</p>
+                <p><strong>Phone:</strong> [Client Phone]</p>
+            </div>
+            <div class="detail-box">
+                <h3>Quotation Details:</h3>
+                <p><strong>Quote No:</strong> TTL-MOB-[XXX]</p>
+                <p><strong>Date:</strong> [Date]</p>
+                <p><strong>Valid Until:</strong> [30 Days from Date]</p>
+                <p><strong>Project:</strong> Mobile App Development</p>
+            </div>
+        </div>
+        
+        <table class="services-table">
+            <thead>
+                <tr>
+                    <th style="width: 10%;">Item</th>
+                    <th style="width: 45%;">Description</th>
+                    <th style="width: 15%;">Quantity</th>
+                    <th style="width: 15%;">Unit Price</th>
+                    <th style="width: 15%;">Amount (KES)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <strong>UI/UX Design & Prototyping</strong><br>
+                        <small>Wireframes, mockups, interactive prototype, user flow design</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">40,000</td>
+                    <td class="amount">40,000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <strong>iOS App Development (Swift)</strong><br>
+                        <small>Native iOS application with all core features</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">150,000</td>
+                    <td class="amount">150,000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>
+                        <strong>Android App Development (Kotlin)</strong><br>
+                        <small>Native Android application with all core features</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">150,000</td>
+                    <td class="amount">150,000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>
+                        <strong>Backend API Development</strong><br>
+                        <small>RESTful API, database design, authentication, cloud hosting</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">80,000</td>
+                    <td class="amount">80,000</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>
+                        <strong>Push Notifications & Analytics</strong><br>
+                        <small>Firebase integration, analytics dashboard, push messaging</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">25,000</td>
+                    <td class="amount">25,000</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>
+                        <strong>Testing & Quality Assurance</strong><br>
+                        <small>Comprehensive testing on multiple devices, bug fixing</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">35,000</td>
+                    <td class="amount">35,000</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>
+                        <strong>App Store & Play Store Submission</strong><br>
+                        <small>Account setup, app submission, approval assistance</small>
+                    </td>
+                    <td>1</td>
+                    <td class="amount">20,000</td>
+                    <td class="amount">20,000</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="totals">
+            <div class="totals-row">
+                <div class="totals-label">Subtotal:</div>
+                <div class="totals-amount">KES 500,000</div>
+            </div>
+            <div class="totals-row">
+                <div class="totals-label">VAT (16%):</div>
+                <div class="totals-amount">KES 80,000</div>
+            </div>
+            <div class="totals-row grand-total">
+                <div class="totals-label">GRAND TOTAL:</div>
+                <div class="totals-amount">KES 580,000</div>
+            </div>
+        </div>
+        
+        <div class="notes-section">
+            <h3>📱 Project Deliverables Include:</h3>
+            <ul>
+                <li>Native iOS and Android applications</li>
+                <li>Complete source code for both platforms</li>
+                <li>Backend API with documentation</li>
+                <li>Admin panel for content management</li>
+                <li>Design files and assets</li>
+                <li>6 months free support & maintenance</li>
+                <li>Free updates and bug fixes during support period</li>
+                <li>App Store & Play Store accounts setup assistance</li>
+            </ul>
+        </div>
+        
+        <div class="terms-section">
+            <h3>Terms & Conditions:</h3>
+            <ul>
+                <li><strong>Payment Terms:</strong> 40% deposit, 30% at beta release, 30% upon final delivery</li>
+                <li><strong>Timeline:</strong> Estimated 12-16 weeks from deposit receipt</li>
+                <li><strong>Revisions:</strong> Up to 3 major revision rounds included</li>
+                <li><strong>App Store Fees:</strong> Apple ($99/year) and Google ($25 one-time) not included</li>
+                <li><strong>Cloud Hosting:</strong> First 6 months included, then KES 15,000/year</li>
+                <li><strong>Additional Features:</strong> New features post-launch quoted separately</li>
+                <li><strong>Content:</strong> Client to provide all text, images, and media content</li>
+                <li><strong>Ownership:</strong> Full source code ownership upon final payment</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p class="validity">⏰ This quotation is valid for 30 days from the date above</p>
+            <div class="contact-footer">
+                <p><strong>Accept this quotation by contacting us:</strong></p>
+                <p>📧 Email: bilfordderek917@gmail.com | 📱 Phone/WhatsApp: 0722 206 805</p>
+                <p style="margin-top: 20px; font-size: 12px; color: #999;">
+                    Thank you for considering TriVenta Tech Ltd for your mobile app development needs!
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

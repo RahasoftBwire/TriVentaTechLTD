@@ -18,7 +18,7 @@
     <meta property="og:type" content="website">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon-hexagon.svg">
+    <link rel="icon" type="image/svg+xml" href="logo-ttl-square.svg">
     
     <!-- Mobile Navigation -->
     <link rel="stylesheet" href="mobile-nav.css">
@@ -749,9 +749,41 @@
                 border-radius: 0;
             }
             
+            .header-main {
+                padding: 10px 0;
+            }
+            
             .header-main .container {
-                flex-direction: column;
-                gap: 20px;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                gap: 10px;
+                align-items: center;
+            }
+            
+            .logo {
+                order: 1;
+                flex: 0 0 auto;
+            }
+            
+            .logo img {
+                height: 40px !important;
+            }
+            
+            .main-nav {
+                order: 3;
+                flex: 0 0 auto;
+            }
+            
+            .cta-button {
+                order: 2;
+                flex: 1;
+                text-align: center;
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            
+            body {
+                padding-top: 65px;
             }
             
             .page-header h1 {
@@ -1167,7 +1199,6 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>TriVenta Tech Ltd</h3>
-                    <p>"Engineering Intelligence, Powering Progress."</p>
                     <p>Next-generation technology company delivering intelligent, secure, and scalable digital solutions globally.</p>
                 </div>
                 

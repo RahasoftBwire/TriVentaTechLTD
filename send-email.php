@@ -138,9 +138,96 @@ try {
     
     $mail->send();
     
+    // Send confirmation email to client
+    $clientMail = new PHPMailer(true);
+    
+    // Server settings for client email
+    $clientMail->isSMTP();
+    $clientMail->Host = $smtp_host;
+    $clientMail->SMTPAuth = true;
+    $clientMail->Username = $smtp_username;
+    $clientMail->Password = $smtp_password;
+    $clientMail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $clientMail->Port = $smtp_port;
+    
+    // Recipients
+    $clientMail->setFrom($from_email, $from_name);
+    $clientMail->addAddress($email, $name);
+    $clientMail->addReplyTo($to_email, 'TriVenta Tech Ltd');
+    
+    // Client confirmation email content
+    $clientSubject = "Thank You for Contacting TriVenta Tech Ltd";
+    $clientBody = "
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border: 1px solid #ddd; }
+        .message-box { background: white; padding: 20px; border-left: 4px solid #667eea; margin: 20px 0; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+        .footer { background: #333; color: white; padding: 20px; text-align: center; border-radius: 0 0 10px 10px; font-size: 12px; }
+        .contact-info { margin: 15px 0; }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <div class='header'>
+            <h1>✅ Message Received!</h1>
+            <p>TriVenta Tech Ltd</p>
+        </div>
+        <div class='content'>
+            <p>Dear <strong>$name</strong>,</p>
+            
+            <p>Thank you for reaching out to <strong>TriVenta Tech Ltd</strong>! We have successfully received your message and one of our team members will get back to you as soon as possible.</p>
+            
+            <div class='message-box'>
+                <h3>📋 Your Message Details:</h3>
+                <p><strong>Subject:</strong> $subject</p>
+                <p><strong>Message:</strong><br>$message</p>
+            </div>
+            
+            <p><strong>What happens next?</strong></p>
+            <ul>
+                <li>Our team will review your inquiry within 24 hours</li>
+                <li>We'll respond to you at: <strong>$email</strong></li>
+                <li>For urgent matters, call/WhatsApp: <strong>0722 206 805</strong></li>
+            </ul>
+            
+            <div style='text-align: center; margin: 30px 0;'>
+                <a href='https://wa.me/254722206805' class='cta-button' style='color: white;'>💬 Chat on WhatsApp</a>
+            </div>
+            
+            <div class='contact-info'>
+                <p><strong>Our Contact Information:</strong></p>
+                <p>📧 Email: bilfordderek917@gmail.com</p>
+                <p>📱 Phone/WhatsApp: 0722 206 805</p>
+                <p>📍 Location: Nairobi, Kenya</p>
+            </div>
+            
+            <p>We look forward to serving you!</p>
+            <p><strong>Best Regards,</strong><br>The TriVenta Tech Team</p>
+        </div>
+        <div class='footer'>
+            <p>&copy; " . date('Y') . " TriVenta Tech Ltd. All rights reserved.</p>
+            <p>Engineering Intelligence, Powering Progress</p>
+        </div>
+    </div>
+</body>
+</html>
+    ";
+    
+    // Send client confirmation
+    $clientMail->isHTML(true);
+    $clientMail->Subject = $clientSubject;
+    $clientMail->Body = $clientBody;
+    $clientMail->send();
+    
     echo json_encode([
         'success' => true,
-        'message' => 'Thank you! Your message has been sent successfully. We will get back to you soon.'
+        'message' => 'Thank you! Your message has been sent successfully. Please check your email for confirmation. We will get back to you soon.'
     ]);
     
 } catch (Exception $e) {

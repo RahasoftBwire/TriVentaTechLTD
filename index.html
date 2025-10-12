@@ -2570,7 +2570,11 @@
                 <div class="footer-section">
                     <h3>Contact Info</h3>
                     <p><strong> Location:</strong><br>Nairobi, Kenya</p>
-                    <p><strong> Email:</strong><br><a href="mailto:info@triventatech.com">info@triventatech.com</a></p>
+                    <p><strong>📧 Email:</strong><br><a href="mailto:bilfordderek917@gmail.com">bilfordderek917@gmail.com</a></p>
+                    <p><strong>📱 Phone/WhatsApp:</strong><br>
+                        <a href="tel:+254722206805">0722 206 805</a> | 
+                        <a href="https://wa.me/254722206805" target="_blank" style="color: #25D366;">WhatsApp</a>
+                    </p>
                     <p><strong> Website:</strong><br>www.triventatech.com</p>
                 </div>
             </div>
@@ -3151,7 +3155,7 @@ document.addEventListener('DOMContentLoaded', function() {
             conversationContext.previousTopic = 'pricing';
             
             if (conversationContext.interestedServices.length > 0) {
-                return `I appreciate you asking about pricing! 💼 Since you're interested in ${conversationContext.interestedServices.join(', ')}, here's what you should know:\n\nEvery project is unique, and we believe in transparent, fair pricing tailored to YOUR needs and budget. Rather than generic quotes, we offer:\n\n📞 FREE Consultation Call\n📋 Custom Proposal with Detailed Breakdown\n💡 Multiple Package Options\n⏱️ Flexible Payment Plans\n\nWould you like to schedule a free consultation? You can also email us at info@triventatech.com or call us directly!`;
+                return `I appreciate you asking about pricing! 💼 Since you're interested in ${conversationContext.interestedServices.join(', ')}, here's what you should know:\n\nEvery project is unique, and we believe in transparent, fair pricing tailored to YOUR needs and budget. Rather than generic quotes, we offer:\n\n📞 FREE Consultation Call\n📋 Custom Proposal with Detailed Breakdown\n💡 Multiple Package Options\n⏱️ Flexible Payment Plans\n\nWould you like to schedule a free consultation?\n📱 WhatsApp: 0722 206 805 (https://wa.me/254722206805)\n📧 Email: bilfordderek917@gmail.com`;
             }
             
             return `Great question! 💰 Our pricing is customized based on your specific needs, project scope, and timeline. Here's our approach:\n\n✅ FREE initial consultation\n✅ Transparent pricing - no hidden fees\n✅ Flexible payment options\n✅ Value-driven - ROI focused\n\nTypical project ranges:\n• Web Development: $500 - $10,000+\n• Mobile Apps: $5,000 - $50,000+\n• AI Solutions: $3,000 - $30,000+\n• Training Programs: $200 - $1,500\n\nWhich service are you interested in? I can provide more specific guidance!`;
@@ -3161,7 +3165,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lowerMessage.match(/contact|email|phone|call|address|location|where|reach|office/)) {
             conversationContext.previousTopic = 'contact';
             
-            return `Let's connect! 📞 Here's how you can reach us:\n\n📧 Email: info@triventatech.com\n📧 Support: support@triventatech.com\n📧 Training: training@triventatech.com\n📍 Location: Nairobi, Kenya\n🌐 Website: www.triventatech.com\n\nWe typically respond within 2 hours during business hours! Would you like to schedule a call or meeting? I can help you get started!`;
+            return `Let's connect! 📞 Here's how you can reach us:\n\n📧 Email: bilfordderek917@gmail.com\n� Phone/WhatsApp: 0722 206 805\n📍 Location: Nairobi, Kenya\n\n💬 Click here to WhatsApp us directly: https://wa.me/254722206805\n\nWe typically respond within 2 hours during business hours! Would you like to schedule a call or meeting? I can help you get started!`;
         }
         
         // 12. PORTFOLIO & EXPERIENCE
@@ -3205,7 +3209,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return `Awesome! 🎉 Let's make your web project a reality! I recommend these next steps:\n\n1️⃣ Tell me about your project (purpose, features, target audience)\n2️⃣ Schedule a FREE consultation: info@triventatech.com\n3️⃣ We'll create a custom proposal\n4️⃣ Start building your dream website!\n\nWhat type of website do you have in mind?`;
             }
             
-            return `Fantastic! 🎉 I'm excited to help you move forward! Here's what I recommend:\n\n📞 Schedule a FREE consultation call\n📧 Email us at info@triventatech.com\n💬 Continue chatting with me to refine your needs\n📋 Visit our Contact page for more options\n\nWhat would you like to do next?`;
+            return `Fantastic! 🎉 I'm excited to help you move forward! Here's what I recommend:\n\n� WhatsApp us: 0722 206 805 (https://wa.me/254722206805)\n📧 Email us: bilfordderek917@gmail.com\n💬 Continue chatting with me to refine your needs\n📋 Visit our Contact page for more options\n\nWhat would you like to do next?`;
         }
         
         // 18. NEGATIVE/DECLINE RESPONSES
@@ -3249,7 +3253,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             `I appreciate your message! 💭 To provide the best answer, could you tell me more about:\n\n• Your specific goals?\n• Which service interests you most?\n• Your timeline or budget?\n\nOr feel free to ask me about TriVenta Tech's services, training, or how we can help your business!`,
             
-            `Great question! 🌟 I want to make sure I give you exactly what you need. Here's what I'm an expert on:\n\n✅ Technology Solutions (Web, AI, Security, Cloud)\n✅ Training & Education Programs\n✅ Project Pricing & Timelines\n✅ Our Team & Company Background\n\nWhat aspect interests you most? Or email us at info@triventatech.com for detailed inquiries!`
+            `Great question! 🌟 I want to make sure I give you exactly what you need. Here's what I'm an expert on:\n\n✅ Technology Solutions (Web, AI, Security, Cloud)\n✅ Training & Education Programs\n✅ Project Pricing & Timelines\n✅ Our Team & Company Background\n\nWhat aspect interests you most?\n📧 Email: bilfordderek917@gmail.com\n📱 WhatsApp: 0722 206 805`
         ];
         
         return responses[Math.floor(Math.random() * responses.length)];

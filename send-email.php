@@ -1,15 +1,15 @@
 <?php
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 // Email configuration
-$smtp_host = 'smtp.gmail.com';
-$smtp_port = 587;
-$smtp_username = 'rahasoft.app@gmail.com';
-$smtp_password = 'lcxlgwxwpktzmtgw';
-$from_email = 'rahasoft.app@gmail.com';
+$from_email = 'noreply@triventatech.com';
 $from_name = 'TriVenta Tech Ltd';
 $to_email = 'bilfordderek917@gmail.com';
 
@@ -106,54 +106,17 @@ $emailBody = "
 </html>
 ";
 
-// Send email using PHPMailer
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
-require 'PHPMailer/Exception.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
+// Send email using native PHP mail()
 try {
-    $mail = new PHPMailer(true);
+    // Headers for HTML email
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: $from_name <$from_email>" . "\r\n";
+    $headers .= "Reply-To: $email" . "\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
     
-    // Server settings
-    $mail->isSMTP();
-    $mail->Host = $smtp_host;
-    $mail->SMTPAuth = true;
-    $mail->Username = $smtp_username;
-    $mail->Password = $smtp_password;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = $smtp_port;
-    
-    // Recipients
-    $mail->setFrom($from_email, $from_name);
-    $mail->addAddress($to_email);
-    $mail->addReplyTo($email, $name);
-    
-    // Content
-    $mail->isHTML(true);
-    $mail->Subject = $emailSubject;
-    $mail->Body = $emailBody;
-    
-    $mail->send();
-    
-    // Send confirmation email to client
-    $clientMail = new PHPMailer(true);
-    
-    // Server settings for client email
-    $clientMail->isSMTP();
-    $clientMail->Host = $smtp_host;
-    $clientMail->SMTPAuth = true;
-    $clientMail->Username = $smtp_username;
-    $clientMail->Password = $smtp_password;
-    $clientMail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $clientMail->Port = $smtp_port;
-    
-    // Recipients
-    $clientMail->setFrom($from_email, $from_name);
-    $clientMail->addAddress($email, $name);
-    $clientMail->addReplyTo($to_email, 'TriVenta Tech Ltd');
+    // Send to admin
+    $adminSent = mail($to_email, $emailSubject, $emailBody, $headers);
     
     // Client confirmation email content
     $clientSubject = "Thank You for Contacting TriVenta Tech Ltd";
@@ -220,21 +183,32 @@ try {
     ";
     
     // Send client confirmation
-    $clientMail->isHTML(true);
-    $clientMail->Subject = $clientSubject;
-    $clientMail->Body = $clientBody;
-    $clientMail->send();
+    $clientHeaders = "MIME-Version: 1.0" . "\r\n";
+    $clientHeaders .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $clientHeaders .= "From: $from_name <$from_email>" . "\r\n";
+    $clientHeaders .= "Reply-To: $to_email" . "\r\n";
     
-    echo json_encode([
-        'success' => true,
-        'message' => 'Thank you! Your message has been sent successfully. Please check your email for confirmation. We will get back to you soon.'
-    ]);
+    $clientSent = mail($email, $clientSubject, $clientBody, $clientHeaders);
+    
+    if ($adminSent && $clientSent) {
+        echo json_encode([
+            'success' => true,
+            'message' => 'Thank you! Your message has been sent successfully. Please check your email for confirmation. We will get back to you soon.'
+        ]);
+    } elseif ($adminSent) {
+        echo json_encode([
+            'success' => true,
+            'message' => 'Thank you! Your message has been sent successfully. We will get back to you soon.'
+        ]);
+    } else {
+        throw new Exception('Failed to send email');
+    }
     
 } catch (Exception $e) {
     echo json_encode([
         'success' => false,
         'message' => 'Sorry, there was an error sending your message. Please try again or contact us directly at bilfordderek917@gmail.com',
-        'error' => $mail->ErrorInfo
+        'error' => $e->getMessage()
     ]);
 }
 ?>

@@ -108,7 +108,7 @@
 
         .downloads-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -126,6 +126,36 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(102,126,234,0.2);
             border-color: #667eea;
+        }
+
+        .download-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-download,
+        .btn-pdf {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .btn-pdf {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-pdf:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40,167,69,0.4);
+            background: #218838;
         }
 
         .download-icon {
@@ -272,16 +302,90 @@
                 display: none;
             }
 
+            .hero {
+                padding: 60px 5% 50px;
+            }
+
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
             }
 
             .section-intro h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .downloads-section {
+                padding: 50px 5%;
             }
 
             .downloads-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .download-card {
+                padding: 20px;
+            }
+
+            .download-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+
+            .download-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .download-actions {
+                flex-direction: column;
+            }
+
+            .btn-download,
+            .btn-pdf {
+                width: 100%;
+            }
+
+            .cta-section {
+                padding: 50px 5%;
+            }
+
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                padding: 12px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .download-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .section-intro h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -310,7 +414,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>📥 Download Resources</h1>
+        <h1>Download Resources</h1>
         <p>Sample quotations and project templates to help you understand our services and pricing structure</p>
     </section>
 
@@ -324,61 +428,73 @@
         <div class="downloads-grid">
             <!-- Web Development Quotation -->
             <div class="download-card">
-                <div class="download-icon">🌐</div>
+                <div class="download-icon">●</div>
                 <h3>Web Development</h3>
                 <p>Sample quotation for custom website development including design, CMS, hosting, and SEO optimization.</p>
                 <div class="download-meta">
-                    <span>📄 HTML Document</span>
-                    <span>💰 KES 50K - 150K</span>
+                    <span>Document Type: PDF/HTML</span>
+                    <span>Price Range: KES 50K - 150K</span>
                 </div>
-                <a href="downloads/quotation-web-development.html" class="btn-download" target="_blank">View Quotation</a>
+                <div class="download-actions">
+                    <a href="downloads/quotation-web-development.html" class="btn-download" target="_blank">View Sample</a>
+                    <a href="downloads/quotation-web-development.html" class="btn-pdf" onclick="event.preventDefault(); window.open(this.href); setTimeout(() => window.print(), 500);">Download PDF</a>
+                </div>
             </div>
 
             <!-- AI & Data Science Quotation -->
             <div class="download-card">
-                <div class="download-icon">🤖</div>
+                <div class="download-icon">●</div>
                 <h3>AI & Data Science</h3>
                 <p>Sample quotation for machine learning model development, data pipeline setup, and API integration.</p>
                 <div class="download-meta">
-                    <span>📄 HTML Document</span>
-                    <span>💰 KES 200K - 500K</span>
+                    <span>Document Type: PDF/HTML</span>
+                    <span>Price Range: KES 200K - 500K</span>
                 </div>
-                <a href="downloads/quotation-ai-data-science.html" class="btn-download" target="_blank">View Quotation</a>
+                <div class="download-actions">
+                    <a href="downloads/quotation-ai-data-science.html" class="btn-download" target="_blank">View Sample</a>
+                    <a href="downloads/quotation-ai-data-science.html" class="btn-pdf" onclick="event.preventDefault(); window.open(this.href); setTimeout(() => window.print(), 500);">Download PDF</a>
+                </div>
             </div>
 
             <!-- Mobile App Quotation -->
             <div class="download-card">
-                <div class="download-icon">📱</div>
+                <div class="download-icon">●</div>
                 <h3>Mobile App Development</h3>
                 <p>Sample quotation for native iOS and Android app development with backend API and app store submission.</p>
                 <div class="download-meta">
-                    <span>📄 HTML Document</span>
-                    <span>💰 KES 300K - 800K</span>
+                    <span>Document Type: PDF/HTML</span>
+                    <span>Price Range: KES 300K - 800K</span>
                 </div>
-                <a href="downloads/quotation-mobile-app.html" class="btn-download" target="_blank">View Quotation</a>
+                <div class="download-actions">
+                    <a href="downloads/quotation-mobile-app.html" class="btn-download" target="_blank">View Sample</a>
+                    <a href="downloads/quotation-mobile-app.html" class="btn-pdf" onclick="event.preventDefault(); window.open(this.href); setTimeout(() => window.print(), 500);">Download PDF</a>
+                </div>
             </div>
 
             <!-- Cybersecurity Quotation -->
             <div class="download-card">
-                <div class="download-icon">🔐</div>
+                <div class="download-icon">●</div>
                 <h3>Cybersecurity Services</h3>
                 <p>Sample quotation for penetration testing, security assessment, and vulnerability remediation services.</p>
                 <div class="download-meta">
-                    <span>📄 HTML Document</span>
-                    <span>💰 KES 150K - 400K</span>
+                    <span>Document Type: PDF/HTML</span>
+                    <span>Price Range: KES 150K - 400K</span>
                 </div>
-                <a href="downloads/quotation-cybersecurity.html" class="btn-download" target="_blank">View Quotation</a>
+                <div class="download-actions">
+                    <a href="downloads/quotation-cybersecurity.html" class="btn-download" target="_blank">View Sample</a>
+                    <a href="downloads/quotation-cybersecurity.html" class="btn-pdf" onclick="event.preventDefault(); window.open(this.href); setTimeout(() => window.print(), 500);">Download PDF</a>
+                </div>
             </div>
         </div>
 
         <div class="section-intro" style="margin-top: 80px;">
-            <h2>📌 Important Notes</h2>
-            <p style="text-align: left; max-width: 800px; margin: 20px auto;">
-                ✅ <strong>Customizable:</strong> All quotations are templates and will be customized to your specific project requirements<br>
-                ✅ <strong>Free Consultation:</strong> Contact us for a free consultation to discuss your project and get an accurate quote<br>
-                ✅ <strong>Transparent Pricing:</strong> No hidden fees - all costs clearly outlined in the quotation<br>
-                ✅ <strong>Flexible Terms:</strong> Payment plans and project timelines can be adjusted to suit your needs<br>
-                ✅ <strong>Print/Save PDF:</strong> Open any quotation and use your browser's print function (Ctrl+P) to save as PDF
+            <h2>Important Notes</h2>
+            <p style="text-align: left; max-width: 800px; margin: 20px auto; line-height: 1.8;">
+                <strong>• Customizable:</strong> All quotations are templates and will be customized to your specific project requirements<br>
+                <strong>• Free Consultation:</strong> Contact us for a free consultation to discuss your project and get an accurate quote<br>
+                <strong>• Transparent Pricing:</strong> No hidden fees - all costs clearly outlined in the quotation<br>
+                <strong>• Flexible Terms:</strong> Payment plans and project timelines can be adjusted to suit your needs<br>
+                <strong>• Download PDF:</strong> Click "Download PDF" button to save any quotation as a PDF file on your device
             </p>
         </div>
     </section>
@@ -407,7 +523,7 @@
                 <a href="news.html">News</a>
             </div>
             <p>&copy; 2024 TriVenta Tech Ltd. All rights reserved.</p>
-            <p>📧 bilfordderek917@gmail.com | 📱 0722 206 805</p>
+            <p>Email: bilfordderek917@gmail.com | Phone: 0722 206 805</p>
         </div>
     </footer>
 

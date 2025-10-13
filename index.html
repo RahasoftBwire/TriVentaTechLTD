@@ -1224,6 +1224,239 @@
             }
         }
         
+        /* Promotional Popup Modal */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .popup-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .popup-modal {
+            background: white;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 28px;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        
+        .popup-close:hover {
+            background: rgba(0, 0, 0, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .popup-content {
+            padding: 40px 30px 30px;
+        }
+        
+        .popup-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .popup-header h2 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .popup-subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .popup-body {
+            text-align: center;
+        }
+        
+        .popup-offer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .offer-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .popup-offer h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        .popup-offer p {
+            opacity: 0.95;
+            font-size: 1.05em;
+        }
+        
+        .popup-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 0.95em;
+            color: #333;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .popup-cta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .popup-btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .popup-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        .popup-btn-secondary {
+            background: transparent;
+            color: #667eea;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #667eea;
+            transition: all 0.3s;
+        }
+        
+        .popup-btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .popup-timer {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .popup-modal {
+                width: 95%;
+                max-height: 85vh;
+            }
+            
+            .popup-content {
+                padding: 35px 20px 25px;
+            }
+            
+            .popup-header h2 {
+                font-size: 1.6em;
+            }
+            
+            .popup-offer h3 {
+                font-size: 1.4em;
+            }
+            
+            .popup-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .popup-cta {
+                flex-direction: column;
+            }
+            
+            .popup-btn-primary,
+            .popup-btn-secondary {
+                width: 100%;
+            }
+        }
+
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
@@ -2386,6 +2619,49 @@
     </style>
 </head>
 <body>
+    <!-- Promotional Popup Modal -->
+    <div id="promoPopup" class="popup-overlay">
+        <div class="popup-modal">
+            <button class="popup-close" onclick="closePromoPopup()">&times;</button>
+            <div class="popup-content">
+                <div class="popup-header">
+                    <h2>Welcome to TriVenta Tech!</h2>
+                    <p class="popup-subtitle">Transform Your Business with Cutting-Edge Technology</p>
+                </div>
+                <div class="popup-body">
+                    <div class="popup-offer">
+                        <span class="offer-badge">SPECIAL OFFER</span>
+                        <h3>Get 20% OFF Your First Project</h3>
+                        <p>Professional web development, AI solutions, mobile apps & more</p>
+                    </div>
+                    <div class="popup-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Free Consultation</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Money-Back Guarantee</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>24/7 Support</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>On-Time Delivery</span>
+                        </div>
+                    </div>
+                    <div class="popup-cta">
+                        <a href="contact.html" class="popup-btn-primary">Claim Your Discount</a>
+                        <a href="downloads.html" class="popup-btn-secondary">View Sample Quotations</a>
+                    </div>
+                    <p class="popup-timer">Offer valid until December 31, 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -2485,7 +2761,7 @@
     <section class="promo-banner">
         <div class="container">
             <div class="promo-content">
-                <div class="promo-badge">🎉 LIMITED TIME OFFER</div>
+                <div class="promo-badge">LIMITED TIME OFFER</div>
                 <h2>Get 20% OFF Your First Project!</h2>
                 <p>Start your digital transformation journey with TriVenta Tech. Professional solutions at unbeatable prices.</p>
                 <div class="promo-cta">
@@ -2493,7 +2769,7 @@
                     <a href="downloads.html" class="btn-promo-secondary">View Sample Quotations</a>
                 </div>
                 <div class="promo-timer">
-                    <span>⏰ Offer ends December 31, 2025</span>
+                    <span>Offer expires December 31, 2025</span>
                 </div>
             </div>
         </div>
@@ -2504,28 +2780,28 @@
         <div class="container">
             <div class="trust-badges">
                 <div class="trust-badge">
-                    <div class="badge-icon">✅</div>
+                    <div class="badge-icon">✓</div>
                     <div class="badge-text">
                         <strong>100% Satisfaction</strong>
                         <span>Money-back Guarantee</span>
                     </div>
                 </div>
                 <div class="trust-badge">
-                    <div class="badge-icon">🔒</div>
+                    <div class="badge-icon">●</div>
                     <div class="badge-text">
                         <strong>Secure & Certified</strong>
                         <span>ISO Compliant</span>
                     </div>
                 </div>
                 <div class="trust-badge">
-                    <div class="badge-icon">⚡</div>
+                    <div class="badge-icon">▸</div>
                     <div class="badge-text">
                         <strong>Fast Delivery</strong>
                         <span>On-Time Guarantee</span>
                     </div>
                 </div>
                 <div class="trust-badge">
-                    <div class="badge-icon">💬</div>
+                    <div class="badge-icon">●</div>
                     <div class="badge-text">
                         <strong>24/7 Support</strong>
                         <span>Always Available</span>
@@ -2985,10 +3261,10 @@
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">"TriVenta Tech delivered an exceptional AI solution that increased our efficiency by 40%. Their team's expertise and professionalism are unmatched!"</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">👨‍💼</div>
+                        <div class="author-avatar">JK</div>
                         <div class="author-info">
                             <strong>John Kamau</strong>
                             <span>CEO, TechCorp Kenya</span>
@@ -2996,10 +3272,10 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">"Outstanding mobile app development! They understood our vision perfectly and delivered ahead of schedule. Highly recommend for any serious project."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">👩‍💼</div>
+                        <div class="author-avatar">SW</div>
                         <div class="author-info">
                             <strong>Sarah Wanjiru</strong>
                             <span>Founder, EduTech Solutions</span>
@@ -3007,10 +3283,10 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-rating">★★★★★</div>
                     <p class="testimonial-text">"The cybersecurity audit they conducted saved our company from potential threats. Professional, thorough, and worth every penny!"</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">👨‍💻</div>
+                        <div class="author-avatar">DO</div>
                         <div class="author-info">
                             <strong>David Omondi</strong>
                             <span>CTO, SecureBank Ltd</span>
@@ -3025,13 +3301,13 @@
     <section class="offers-section">
         <div class="container">
             <div class="section-header">
-                <h2>🎁 Current Special Offers</h2>
+                <h2>Current Special Offers</h2>
                 <p>Limited time deals to help you get started</p>
             </div>
             <div class="offers-grid">
                 <div class="offer-card">
                     <div class="offer-badge">POPULAR</div>
-                    <div class="offer-icon">🌐</div>
+                    <div class="offer-icon">●</div>
                     <h3>Startup Package</h3>
                     <p>Complete website + hosting for 1 year</p>
                     <div class="offer-price">
@@ -3039,16 +3315,16 @@
                         <span class="new-price">KES 60,000</span>
                     </div>
                     <ul class="offer-features">
-                        <li>✅ Responsive Design</li>
-                        <li>✅ SEO Optimization</li>
-                        <li>✅ Free SSL Certificate</li>
-                        <li>✅ 3 Months Support</li>
+                        <li>✓ Responsive Design</li>
+                        <li>✓ SEO Optimization</li>
+                        <li>✓ Free SSL Certificate</li>
+                        <li>✓ 3 Months Support</li>
                     </ul>
                     <a href="contact.html?offer=startup" class="btn-offer">Get This Deal →</a>
                 </div>
                 <div class="offer-card featured">
                     <div class="offer-badge">BEST VALUE</div>
-                    <div class="offer-icon">🚀</div>
+                    <div class="offer-icon">▸</div>
                     <h3>Business Pro</h3>
                     <p>Full digital transformation package</p>
                     <div class="offer-price">
@@ -3056,16 +3332,16 @@
                         <span class="new-price">KES 180,000</span>
                     </div>
                     <ul class="offer-features">
-                        <li>✅ Website + Mobile App</li>
-                        <li>✅ Cloud Hosting Setup</li>
-                        <li>✅ AI Integration</li>
-                        <li>✅ 6 Months Support</li>
+                        <li>✓ Website + Mobile App</li>
+                        <li>✓ Cloud Hosting Setup</li>
+                        <li>✓ AI Integration</li>
+                        <li>✓ 6 Months Support</li>
                     </ul>
                     <a href="contact.html?offer=business-pro" class="btn-offer">Get This Deal →</a>
                 </div>
                 <div class="offer-card">
                     <div class="offer-badge">NEW</div>
-                    <div class="offer-icon">🤖</div>
+                    <div class="offer-icon">●</div>
                     <h3>AI Starter</h3>
                     <p>Entry-level AI/ML solution</p>
                     <div class="offer-price">
@@ -3073,16 +3349,16 @@
                         <span class="new-price">KES 120,000</span>
                     </div>
                     <ul class="offer-features">
-                        <li>✅ Custom ML Model</li>
-                        <li>✅ Data Analysis</li>
-                        <li>✅ API Integration</li>
-                        <li>✅ Training Session</li>
+                        <li>✓ Custom ML Model</li>
+                        <li>✓ Data Analysis</li>
+                        <li>✓ API Integration</li>
+                        <li>✓ Training Session</li>
                     </ul>
                     <a href="contact.html?offer=ai-starter" class="btn-offer">Get This Deal →</a>
                 </div>
             </div>
             <div class="offers-footer">
-                <p>💳 Flexible payment plans available | 🔒 Money-back guarantee | ⏰ Offers valid until Dec 31, 2025</p>
+                <p>Flexible payment plans available | Money-back guarantee | Offers valid until Dec 31, 2025</p>
             </div>
         </div>
     </section>
@@ -3123,13 +3399,13 @@
                 
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p><strong> Location:</strong><br>Nairobi, Kenya</p>
-                    <p><strong>📧 Email:</strong><br><a href="mailto:bilfordderek917@gmail.com">bilfordderek917@gmail.com</a></p>
-                    <p><strong>📱 Phone/WhatsApp:</strong><br>
+                    <p><strong>Location:</strong><br>Nairobi, Kenya</p>
+                    <p><strong>Email:</strong><br><a href="mailto:bilfordderek917@gmail.com">bilfordderek917@gmail.com</a></p>
+                    <p><strong>Phone/WhatsApp:</strong><br>
                         <a href="tel:+254722206805">0722 206 805</a> | 
                         <a href="https://wa.me/254722206805" target="_blank" style="color: #25D366;">WhatsApp</a>
                     </p>
-                    <p><strong> Website:</strong><br>www.triventatech.com</p>
+                    <p><strong>Website:</strong><br>www.triventatech.com</p>
                 </div>
             </div>
             
@@ -3507,6 +3783,48 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// Promotional Popup Functionality
+function showPromoPopup() {
+    const popup = document.getElementById('promoPopup');
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closePromoPopup() {
+    const popup = document.getElementById('promoPopup');
+    popup.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+    // Set cookie/localStorage to not show again for 24 hours (optional)
+    localStorage.setItem('promoPopupShown', Date.now());
+}
+
+// Show popup on page load
+window.addEventListener('load', function() {
+    // Check if popup was shown in last 24 hours
+    const lastShown = localStorage.getItem('promoPopupShown');
+    const twentyFourHours = 24 * 60 * 60 * 1000;
+    
+    if (!lastShown || (Date.now() - parseInt(lastShown)) > twentyFourHours) {
+        // Show popup after 1 second delay
+        setTimeout(showPromoPopup, 1000);
+    }
+});
+
+// Close popup when clicking outside
+document.addEventListener('click', function(event) {
+    const popup = document.getElementById('promoPopup');
+    if (event.target === popup) {
+        closePromoPopup();
+    }
+});
+
+// Close popup with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closePromoPopup();
+    }
+});
+
 // Back to Top Button Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const backToTopBtn = document.getElementById('backToTop');
@@ -3635,9 +3953,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // 1. GREETINGS - Natural conversation starters
         if (lowerMessage.match(/^(hi|hello|hey|greetings|good morning|good afternoon|good evening)/)) {
             const greetings = [
-                `Hello! 👋 Welcome to TriVenta Tech! I'm your virtual assistant, here to help you discover how we can transform your business with cutting-edge technology. What brings you here today?`,
-                `Hey there! 😊 Great to have you here at TriVenta Tech. I'm excited to help you explore our services. Are you looking for a specific solution, or would you like me to give you an overview?`,
-                `Hi! Welcome aboard! 🚀 I'm here to assist you with anything from AI solutions to web development. What would you like to know about?`
+                `Hello! Welcome to TriVenta Tech! I'm your virtual assistant, here to help you discover how we can transform your business with cutting-edge technology. What brings you here today?`,
+                `Hey there! Great to have you here at TriVenta Tech. I'm excited to help you explore our services. Are you looking for a specific solution, or would you like me to give you an overview?`,
+                `Hi! Welcome aboard! I'm here to assist you with anything from AI solutions to web development. What would you like to know about?`
             ];
             return greetings[Math.floor(Math.random() * greetings.length)];
         }
@@ -3659,10 +3977,10 @@ document.addEventListener('DOMContentLoaded', function() {
             conversationContext.previousTopic = 'web-development';
             
             if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
-                return `Great question! 💰 Our web development projects typically range from $500-$10,000+ depending on complexity:\n\n• Basic Website: $500-$1,500\n• Business Website: $1,500-$3,000\n• E-commerce Platform: $3,000-$8,000\n• Custom Web Application: $5,000+\n\nEach project is unique! Would you like a free consultation where we can discuss your specific needs and provide an accurate quote?`;
+                return `Great question! Our web development projects typically range from $500-$10,000+ depending on complexity:\n\n• Basic Website: $500-$1,500\n• Business Website: $1,500-$3,000\n• E-commerce Platform: $3,000-$8,000\n• Custom Web Application: $5,000+\n\nEach project is unique! Would you like a free consultation where we can discuss your specific needs and provide an accurate quote?`;
             }
             
-            return `Excellent choice! 🌐 We create stunning, high-performance websites that drive results. Our web development services include:\n\n✨ Custom Websites & Landing Pages\n🛒 E-commerce Platforms (Shopify, WooCommerce, Custom)\n📱 Progressive Web Apps (PWAs)\n⚡ Fast, SEO-Optimized Sites\n🎨 Modern UI/UX Design\n\nWe've built 50+ websites with 99% client satisfaction! What type of website are you looking to create?`;
+            return `Excellent choice! We create stunning, high-performance websites that drive results. Our web development services include:\n\n• Custom Websites & Landing Pages\n• E-commerce Platforms (Shopify, WooCommerce, Custom)\n• Progressive Web Apps (PWAs)\n• Fast, SEO-Optimized Sites\n• Modern UI/UX Design\n\nWe've built 50+ websites with 99% client satisfaction! What type of website are you looking to create?`;
         }
         
         // 5. SERVICES - AI & Data Science
@@ -3670,7 +3988,7 @@ document.addEventListener('DOMContentLoaded', function() {
             conversationContext.interestedServices.push('ai-solutions');
             conversationContext.previousTopic = 'ai-solutions';
             
-            return `Fantastic! 🤖 AI is transforming businesses worldwide, and we're at the forefront! Our AI & Data Science offerings include:\n\n🧠 Custom AI Models & Machine Learning\n💬 Intelligent Chatbots (like me, but even smarter!)\n📊 Predictive Analytics & Business Intelligence\n🎯 Customer Behavior Analysis\n🔍 Computer Vision & NLP Solutions\n⚙️ Process Automation (save up to 80% time!)\n\nWe've helped clients automate workflows, predict trends, and make data-driven decisions. What AI challenge are you looking to solve?`;
+            return `Fantastic! AI is transforming businesses worldwide, and we're at the forefront! Our AI & Data Science offerings include:\n\n• Custom AI Models & Machine Learning\n• Intelligent Chatbots (like me, but even smarter!)\n• Predictive Analytics & Business Intelligence\n• Customer Behavior Analysis\n• Computer Vision & NLP Solutions\n• Process Automation (save up to 80% time!)\n\nWe've helped clients automate workflows, predict trends, and make data-driven decisions. What AI challenge are you looking to solve?`;
         }
         
         // 6. SERVICES - Cybersecurity
@@ -3678,7 +3996,7 @@ document.addEventListener('DOMContentLoaded', function() {
             conversationContext.interestedServices.push('cybersecurity');
             conversationContext.previousTopic = 'cybersecurity';
             
-            return `Security first! 🔒 In today's digital world, cybersecurity isn't optional - it's essential. Our comprehensive security services include:\n\n🛡️ Penetration Testing & Vulnerability Assessment\n🔍 Security Audits & Risk Analysis\n📋 Compliance Solutions (GDPR, ISO 27001)\n🚨 Incident Response & Forensics\n🔐 Encryption & Data Protection\n🎓 Security Awareness Training\n\nWe've achieved 99.9% security scores for our clients! Would you like a FREE security assessment to identify potential vulnerabilities?`;
+            return `Security first! In today's digital world, cybersecurity isn't optional - it's essential. Our comprehensive security services include:\n\n• Penetration Testing & Vulnerability Assessment\n• Security Audits & Risk Analysis\n• Compliance Solutions (GDPR, ISO 27001)\n• Incident Response & Forensics\n• Encryption & Data Protection\n• Security Awareness Training\n\nWe've achieved 99.9% security scores for our clients! Would you like a FREE security assessment to identify potential vulnerabilities?`;
         }
         
         // 7. SERVICES - Cloud Solutions
@@ -3686,7 +4004,7 @@ document.addEventListener('DOMContentLoaded', function() {
             conversationContext.interestedServices.push('cloud-solutions');
             conversationContext.previousTopic = 'cloud-solutions';
             
-            return `To the cloud! ☁️ We're cloud experts specializing in scalable, reliable infrastructure:\n\n🌩️ Cloud Migration (AWS, Azure, Google Cloud)\n⚙️ DevOps & CI/CD Pipelines\n📦 Containerization (Docker, Kubernetes)\n🔄 Auto-Scaling & Load Balancing\n💾 Cloud Storage & Backup Solutions\n📈 Performance Optimization\n\nOur cloud solutions reduce costs by 40% on average while improving performance! Which cloud platform are you interested in, or are you looking for guidance on the best fit?`;
+            return `To the cloud! We're cloud experts specializing in scalable, reliable infrastructure:\n\n• Cloud Migration (AWS, Azure, Google Cloud)\n• DevOps & CI/CD Pipelines\n• Containerization (Docker, Kubernetes)\n• Auto-Scaling & Load Balancing\n• Cloud Storage & Backup Solutions\n• Performance Optimization\n\nOur cloud solutions reduce costs by 40% on average while improving performance! Which cloud platform are you interested in, or are you looking for guidance on the best fit?`;
         }
         
         // 8. SERVICES - Mobile Apps
@@ -3694,14 +4012,14 @@ document.addEventListener('DOMContentLoaded', function() {
             conversationContext.interestedServices.push('mobile-apps');
             conversationContext.previousTopic = 'mobile-apps';
             
-            return `Mobile is the future! 📱 We build beautiful, performant mobile apps that users love:\n\n📲 Native iOS & Android Apps\n🔄 Cross-Platform (React Native, Flutter)\n🎨 Intuitive UI/UX Design\n⚡ High Performance & Smooth Animations\n🔔 Push Notifications & Real-time Features\n🔗 API Integration\n\nWith 2M+ downloads across our apps, we know what works! Are you looking for iOS, Android, or cross-platform development?`;
+            return `Mobile is the future! We build beautiful, performant mobile apps that users love:\n\n• Native iOS & Android Apps\n• Cross-Platform (React Native, Flutter)\n• Intuitive UI/UX Design\n• High Performance & Smooth Animations\n• Push Notifications & Real-time Features\n• API Integration\n\nWith 2M+ downloads across our apps, we know what works! Are you looking for iOS, Android, or cross-platform development?`;
         }
         
         // 9. TRAINING PROGRAMS
         if (lowerMessage.match(/training|course|learn|education|teach|class|bootcamp|certification|skill|enroll|study/)) {
             conversationContext.previousTopic = 'training';
             
-            return `Thank you for your interest in our training programs! 🎓\n\n📚 <strong>Education & Training Department - Coming Soon!</strong>\n\nWe're currently developing comprehensive training programs in:\n\n💻 Programming & Development\n🌐 Web Development\n🤖 AI & Data Science\n🔐 Cybersecurity\n☁️ Cloud Computing\n🎨 Digital Design\n\n🚀 <strong>What's Being Prepared:</strong>\n✅ Expert-Led Curriculum\n✅ Hands-On Projects\n✅ Industry Certifications\n✅ Job Placement Support\n✅ Flexible Learning Options\n\n📢 Our training programs will launch soon! Meanwhile:\n• Focus on our <strong>technology solutions</strong> (Web, AI, Mobile Apps, Security)\n• Contact us for <strong>corporate training requests</strong>\n• Join our newsletter on the <a href="news.html">News page</a> for launch updates\n\n📧 Email: bilfordderek917@gmail.com\n📱 WhatsApp: 0722 206 805`;
+            return `Thank you for your interest in our training programs!\n\n<strong>Education & Training Department - Coming Soon!</strong>\n\nWe're currently developing comprehensive training programs in:\n\n• Programming & Development\n• Web Development\n• AI & Data Science\n• Cybersecurity\n• Cloud Computing\n• Digital Design\n\n<strong>What's Being Prepared:</strong>\n• Expert-Led Curriculum\n• Hands-On Projects\n• Industry Certifications\n• Job Placement Support\n• Flexible Learning Options\n\nOur training programs will launch soon! Meanwhile:\n• Focus on our <strong>technology solutions</strong> (Web, AI, Mobile Apps, Security)\n• Contact us for <strong>corporate training requests</strong>\n• Join our newsletter on the <a href="news.html">News page</a> for launch updates\n\nEmail: bilfordderek917@gmail.com\nWhatsApp: 0722 206 805`;
         }
         
         // 10. PRICING & QUOTES
@@ -3709,10 +4027,10 @@ document.addEventListener('DOMContentLoaded', function() {
             conversationContext.previousTopic = 'pricing';
             
             if (conversationContext.interestedServices.length > 0) {
-                return `I appreciate you asking about pricing! 💼 Since you're interested in ${conversationContext.interestedServices.join(', ')}, here's what you should know:\n\nEvery project is unique, and we believe in transparent, fair pricing tailored to YOUR needs and budget. Rather than generic quotes, we offer:\n\n📞 FREE Consultation Call\n📋 Custom Proposal with Detailed Breakdown\n💡 Multiple Package Options\n⏱️ Flexible Payment Plans\n\nWould you like to schedule a free consultation?\n📱 WhatsApp: 0722 206 805 (https://wa.me/254722206805)\n📧 Email: bilfordderek917@gmail.com`;
+                return `I appreciate you asking about pricing! Since you're interested in ${conversationContext.interestedServices.join(', ')}, here's what you should know:\n\nEvery project is unique, and we believe in transparent, fair pricing tailored to YOUR needs and budget. Rather than generic quotes, we offer:\n\n• FREE Consultation Call\n• Custom Proposal with Detailed Breakdown\n• Multiple Package Options\n• Flexible Payment Plans\n\nWould you like to schedule a free consultation?\nWhatsApp: 0722 206 805 (https://wa.me/254722206805)\nEmail: bilfordderek917@gmail.com`;
             }
             
-            return `Great question! 💰 Our pricing is customized based on your specific needs, project scope, and timeline. Here's our approach:\n\n✅ FREE initial consultation\n✅ Transparent pricing - no hidden fees\n✅ Flexible payment options\n✅ Value-driven - ROI focused\n\nTypical project ranges:\n• Web Development: KES 50K - 150K+\n• Mobile Apps: KES 300K - 800K+\n• AI Solutions: KES 200K - 500K+\n• Cybersecurity: KES 150K - 400K+\n\n📥 <strong>Download Sample Quotations:</strong>\nView our <a href="downloads.html" style="color: #667eea; font-weight: bold;">Downloads page</a> to see sample quotations with detailed breakdowns!\n\nWhich service are you interested in? I can provide more specific guidance!`;
+            return `Great question! Our pricing is customized based on your specific needs, project scope, and timeline. Here's our approach:\n\n• FREE initial consultation\n• Transparent pricing - no hidden fees\n• Flexible payment options\n• Value-driven - ROI focused\n\nTypical project ranges:\n• Web Development: KES 50K - 150K+\n• Mobile Apps: KES 300K - 800K+\n• AI Solutions: KES 200K - 500K+\n• Cybersecurity: KES 150K - 400K+\n\n<strong>Download Sample Quotations:</strong>\nView our <a href="downloads.html" style="color: #667eea; font-weight: bold;">Downloads page</a> to see sample quotations with detailed breakdowns!\n\nWhich service are you interested in? I can provide more specific guidance!`;
         }
         
         // 11. CONTACT & LOCATION
@@ -3726,41 +4044,41 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lowerMessage.match(/portfolio|project|work|experience|client|example|case study|previous|past work/)) {
             conversationContext.previousTopic = 'portfolio';
             
-            return `We're proud of our track record! 🏆 Here are some highlights:\n\n📊 50+ Successful Projects Completed\n🌍 Clients Across Kenya & Globally\n⭐ 100% Client Satisfaction Rate\n💼 Industries: Finance, Education, E-commerce, Healthcare\n\n🎯 Notable Projects:\n• Investment Portfolio Management System\n• School Management Platform\n• E-commerce Solutions with AI Recommendations\n• Enterprise Cybersecurity Implementation\n\nCheck out our Portfolio page for detailed case studies! Which industry or project type interests you most?`;
+            return `We're proud of our track record! Here are some highlights:\n\n• 50+ Successful Projects Completed\n• Clients Across Kenya & Globally\n• 100% Client Satisfaction Rate\n• Industries: Finance, Education, E-commerce, Healthcare\n\nNotable Projects:\n• Investment Portfolio Management System\n• School Management Platform\n• E-commerce Solutions with AI Recommendations\n• Enterprise Cybersecurity Implementation\n\nCheck out our Portfolio page for detailed case studies! Which industry or project type interests you most?`;
         }
         
         // 13. TEAM & COMPANY
         if (lowerMessage.match(/team|who|founder|about|company|staff|people|bilford|kevin/)) {
             conversationContext.previousTopic = 'company';
             
-            return `Meet our brilliant team! 🌟 TriVenta Tech is led by:\n\n👨‍💻 Bilford Bwire - Co-Founder & Lead\nExpert in AI, Data Science & Cybersecurity\n\n👨‍💻 Kevin - Co-Founder & Lead\nSpecialist in Web, Cloud & Design\n\nWe're a young, dynamic team passionate about engineering intelligence and powering progress! Our mission is to bring world-class technology solutions to businesses across Africa and beyond.\n\nWant to learn more about our story? Check out our About page!`;
+            return `Meet our brilliant team! TriVenta Tech is led by:\n\nBilford Bwire - Co-Founder & Lead\nExpert in AI, Data Science & Cybersecurity\n\nKevin - Co-Founder & Lead\nSpecialist in Web, Cloud & Design\n\nWe're a young, dynamic team passionate about engineering intelligence and powering progress! Our mission is to bring world-class technology solutions to businesses across Africa and beyond.\n\nWant to learn more about our story? Check out our About page!`;
         }
         
         // 14. TIMELINE & DURATION
         if (lowerMessage.match(/how long|timeline|duration|time|when|fast|quick|deadline/)) {
             conversationContext.previousTopic = 'timeline';
             
-            return `Great question about timing! ⏱️ Here are typical project timelines:\n\n⚡ Quick Projects:\n• Simple Website: 1-2 weeks\n• Landing Page: 3-5 days\n\n📅 Standard Projects:\n• Business Website: 3-6 weeks\n• Mobile App: 2-4 months\n• AI Solution: 1-3 months\n\n🚀 Complex Projects:\n• E-commerce Platform: 2-4 months\n• Enterprise System: 4-12 months\n\nWe also offer rush services for urgent needs! What's your ideal timeline?`;
+            return `Great question about timing! Here are typical project timelines:\n\nQuick Projects:\n• Simple Website: 1-2 weeks\n• Landing Page: 3-5 days\n\nStandard Projects:\n• Business Website: 3-6 weeks\n• Mobile App: 2-4 months\n• AI Solution: 1-3 months\n\nComplex Projects:\n• E-commerce Platform: 2-4 months\n• Enterprise System: 4-12 months\n\nWe also offer rush services for urgent needs! What's your ideal timeline?`;
         }
         
         // 15. COMPARISON & ALTERNATIVES
         if (lowerMessage.match(/why you|why choose|better than|vs|compared to|difference|alternative/)) {
             conversationContext.previousTopic = 'why-us';
             
-            return `Excellent question! 🎯 Here's what makes TriVenta Tech stand out:\n\n✨ All-in-One Solution - From AI to Cybersecurity, everything under one roof\n🌍 Global Standards, Local Presence - International quality with African insight\n⚡ Rapid Innovation - Young, agile team with cutting-edge expertise\n🤝 Client-Focused - Your success is our mission\n💡 Proven Results - 100% satisfaction, 50+ projects completed\n🎓 Training & Support - We don't just build, we empower\n\nWe're not just vendors - we're your long-term technology partners! What specific concerns do you have that I can address?`;
+            return `Excellent question! Here's what makes TriVenta Tech stand out:\n\n• All-in-One Solution - From AI to Cybersecurity, everything under one roof\n• Global Standards, Local Presence - International quality with African insight\n• Rapid Innovation - Young, agile team with cutting-edge expertise\n• Client-Focused - Your success is our mission\n• Proven Results - 100% satisfaction, 50+ projects completed\n• Training & Support - We don't just build, we empower\n\nWe're not just vendors - we're your long-term technology partners! What specific concerns do you have that I can address?`;
         }
         
         // 16. SUPPORT & MAINTENANCE
         if (lowerMessage.match(/support|maintenance|help|update|fix|bug|issue|problem|assist/)) {
             conversationContext.previousTopic = 'support';
             
-            return `We've got your back! 🛠️ Our support doesn't end at delivery:\n\n✅ 30-Day Post-Launch Support (FREE)\n✅ Monthly Maintenance Packages\n✅ 24/7 Emergency Support Available\n✅ Regular Updates & Security Patches\n✅ Performance Monitoring\n✅ Training for Your Team\n\nWe're committed to your long-term success! Are you looking for support on an existing project or planning for future maintenance?`;
+            return `We've got your back! Our support doesn't end at delivery:\n\n• 30-Day Post-Launch Support (FREE)\n• Monthly Maintenance Packages\n• 24/7 Emergency Support Available\n• Regular Updates & Security Patches\n• Performance Monitoring\n• Training for Your Team\n\nWe're committed to your long-term success! Are you looking for support on an existing project or planning for future maintenance?`;
         }
         
         // 17. YES/NO/POSITIVE RESPONSES
         if (lowerMessage.match(/^(yes|yeah|yep|sure|okay|ok|definitely|absolutely|interested|sounds good)/)) {
             if (conversationContext.previousTopic === 'web-development') {
-                return `Awesome! 🎉 Let's make your web project a reality! I recommend these next steps:\n\n1️⃣ Tell me about your project (purpose, features, target audience)\n2️⃣ Schedule a FREE consultation: info@triventatech.com\n3️⃣ We'll create a custom proposal\n4️⃣ Start building your dream website!\n\nWhat type of website do you have in mind?`;
+                return `Awesome! Let's make your web project a reality! I recommend these next steps:\n\n1. Tell me about your project (purpose, features, target audience)\n2. Schedule a FREE consultation: info@triventatech.com\n3. We'll create a custom proposal\n4. Start building your dream website!\n\nWhat type of website do you have in mind?`;
             }
             
             return `Fantastic! 🎉 I'm excited to help you move forward! Here's what I recommend:\n\n� WhatsApp us: 0722 206 805 (https://wa.me/254722206805)\n📧 Email us: bilfordderek917@gmail.com\n💬 Continue chatting with me to refine your needs\n📋 Visit our Contact page for more options\n\nWhat would you like to do next?`;
@@ -3768,12 +4086,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 18. NEGATIVE/DECLINE RESPONSES
         if (lowerMessage.match(/^(no|nope|not really|not interested|maybe later|not now)/)) {
-            return `No problem at all! 😊 I'm here whenever you need me. Feel free to:\n\n📚 Browse our website to learn more\n💭 Think about your needs\n🔖 Bookmark us for later\n📧 Reach out anytime: info@triventatech.com\n\nIs there anything else I can help clarify right now?`;
+            return `No problem at all! I'm here whenever you need me. Feel free to:\n\n• Browse our website to learn more\n• Think about your needs\n• Bookmark us for later\n• Reach out anytime: info@triventatech.com\n\nIs there anything else I can help clarify right now?`;
         }
         
         // 19. THANKS & GRATITUDE
         if (lowerMessage.match(/thank|thanks|appreciate|grateful/)) {
-            return `You're very welcome! 😊 It's my pleasure to help! If you have any more questions - now or in the future - don't hesitate to reach out. We're here to make technology work for you! 🚀\n\nAnything else on your mind?`;
+            return `You're very welcome! It's my pleasure to help! If you have any more questions - now or in the future - don't hesitate to reach out. We're here to make technology work for you!\n\nAnything else on your mind?`;
         }
         
         // 20. GOODBYE

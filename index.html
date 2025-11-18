@@ -3853,30 +3853,133 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Advanced AI Chatbot - Context-Aware & Natural Language Processing
+    // Advanced AI Chatbot - Enhanced Human-Like Intelligence
     let conversationContext = {
         previousTopic: null,
         userName: null,
         userEmail: null,
         interestedServices: [],
-        conversationHistory: []
+        conversationHistory: [],
+        sentiment: 'neutral', // positive, negative, neutral
+        urgency: 'normal', // high, normal, low
+        lastIntent: null,
+        userData: {
+            budget: null,
+            timeline: null,
+            industry: null
+        }
     };
+
+    // Enhanced NLP - Fuzzy matching and typo tolerance
+    function fuzzyMatch(text, patterns) {
+        const cleaned = text.toLowerCase().replace(/[^a-z0-9\s]/g, '');
+        for (let pattern of patterns) {
+            if (cleaned.includes(pattern) || 
+                levenshteinDistance(cleaned, pattern) < 3 ||
+                text.toLowerCase().includes(pattern)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function levenshteinDistance(a, b) {
+        const matrix = [];
+        for (let i = 0; i <= b.length; i++) {
+            matrix[i] = [i];
+        }
+        for (let j = 0; j <= a.length; j++) {
+            matrix[0][j] = j;
+        }
+        for (let i = 1; i <= b.length; i++) {
+            for (let j = 1; j <= a.length; j++) {
+                if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+                } else {
+                    matrix[i][j] = Math.min(
+                        matrix[i - 1][j - 1] + 1,
+                        matrix[i][j - 1] + 1,
+                        matrix[i - 1][j] + 1
+                    );
+                }
+            }
+        }
+        return matrix[b.length][a.length];
+    }
+
+    // Sentiment analysis
+    function analyzeSentiment(message) {
+        const positive = ['good', 'great', 'excellent', 'awesome', 'love', 'perfect', 'amazing', 'wonderful', 'best', 'fantastic', 'happy', 'pleased', 'satisfied'];
+        const negative = ['bad', 'terrible', 'awful', 'hate', 'worst', 'disappointed', 'frustrated', 'angry', 'poor', 'useless', 'slow', 'expensive'];
+        const urgent = ['urgent', 'asap', 'quickly', 'emergency', 'immediately', 'now', 'fast', 'hurry', 'critical'];
+        
+        const lowerMsg = message.toLowerCase();
+        let posScore = positive.filter(w => lowerMsg.includes(w)).length;
+        let negScore = negative.filter(w => lowerMsg.includes(w)).length;
+        let urgScore = urgent.filter(w => lowerMsg.includes(w)).length;
+        
+        conversationContext.urgency = urgScore > 0 ? 'high' : 'normal';
+        
+        if (posScore > negScore) return 'positive';
+        if (negScore > posScore) return 'negative';
+        return 'neutral';
+    }
+
+    // Extract entities (numbers, dates, emails, etc)
+    function extractEntities(message) {
+        const entities = {};
+        
+        // Budget extraction
+        const budgetMatch = message.match(/(\d+[k|K]?|\$\d+|KES\s*\d+|\d+\s*shillings)/);
+        if (budgetMatch) {
+            entities.budget = budgetMatch[0];
+            conversationContext.userData.budget = budgetMatch[0];
+        }
+        
+        // Timeline extraction
+        const timeMatch = message.match(/(\d+\s*(days?|weeks?|months?|years?))|((within|in|by)\s*\w+)/);
+        if (timeMatch) {
+            entities.timeline = timeMatch[0];
+            conversationContext.userData.timeline = timeMatch[0];
+        }
+        
+        // Phone number
+        const phoneMatch = message.match(/(\+?\d{10,15})/);
+        if (phoneMatch) {
+            entities.phone = phoneMatch[0];
+        }
+        
+        // Website URL
+        const urlMatch = message.match(/(https?:\/\/[^\s]+|www\.[^\s]+)/);
+        if (urlMatch) {
+            entities.url = urlMatch[0];
+        }
+        
+        return entities;
+    }
 
     function handleChatMessage(message) {
         // Add user message
         addMessage(message, 'user');
         
-        // Store in conversation history
+        // Analyze sentiment and extract entities
+        conversationContext.sentiment = analyzeSentiment(message);
+        const entities = extractEntities(message);
+        
+        // Store in conversation history with metadata
         conversationContext.conversationHistory.push({
             role: 'user',
             message: message,
-            timestamp: new Date()
+            timestamp: new Date(),
+            sentiment: conversationContext.sentiment,
+            entities: entities
         });
         
         // Show typing indicator
         showTypingIndicator();
         
-        // Analyze message and generate intelligent response
+        // Analyze message and generate intelligent response with natural delay
+        const typingDelay = Math.min(message.length * 30 + 800, 3000); // More realistic typing speed
         setTimeout(() => {
             removeTypingIndicator();
             const response = analyzeAndRespond(message);
@@ -3888,17 +3991,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: response,
                 timestamp: new Date()
             });
-        }, 1000 + Math.random() * 1000); // Variable delay for natural feel
+        }, typingDelay);
     }
 
     function analyzeAndRespond(message) {
         const lowerMessage = message.toLowerCase();
         const wordCount = message.split(' ').length;
         
+        // Multi-language support - detect and respond appropriately
+        const swahiliGreetings = ['habari', 'mambo', 'sasa', 'vipi', 'shikamoo', 'jambo'];
+        const isSwahili = swahiliGreetings.some(word => lowerMessage.includes(word));
+        
+        if (isSwahili) {
+            return `Habari! Karibu sana TriVenta Tech! 😊 I can help you in English. How can I assist you today?\n\nNasaidia nini leo? (How can I help you today?)\n\n• Web Development\n• AI & Data Science\n• Cybersecurity\n• Mobile Apps\n• Cloud Solutions\n\nJust let me know what you're interested in!`;
+        }
+        
         // Extract user name if mentioned
-        const nameMatch = message.match(/my name is (\w+)|i'm (\w+)|i am (\w+)/i);
+        const nameMatch = message.match(/my name is (\w+)|i'm (\w+)|i am (\w+)|call me (\w+)/i);
         if (nameMatch) {
-            conversationContext.userName = nameMatch[1] || nameMatch[2] || nameMatch[3];
+            conversationContext.userName = nameMatch[1] || nameMatch[2] || nameMatch[3] || nameMatch[4];
         }
         
         // Extract email if provided
@@ -3907,47 +4018,83 @@ document.addEventListener('DOMContentLoaded', function() {
             conversationContext.userEmail = emailMatch[0];
         }
         
+        // Respond to negative sentiment
+        if (conversationContext.sentiment === 'negative') {
+            return `I sense you might be concerned or frustrated. I'm here to help make things better! 💙\n\nLet me understand your situation better:\n• What specific challenges are you facing?\n• Have you had a bad experience elsewhere?\n• What would make this right for you?\n\nWe pride ourselves on client satisfaction and want to ensure you're completely comfortable. You can also speak directly with our team:\n📱 WhatsApp: 0722 206 805\n📧 Email: bilfordderek917@gmail.com`;
+        }
+        
+        // Handle urgency
+        if (conversationContext.urgency === 'high') {
+            return `I understand this is urgent! ⚡ Let me help you quickly.\n\nFor immediate assistance:\n📱 <strong>WhatsApp (fastest):</strong> <a href="https://wa.me/254722206805" target="_blank">0722 206 805</a>\n📧 <strong>Email:</strong> bilfordderek917@gmail.com\n☎️ <strong>Call:</strong> 0722 206 805\n\nIn the meantime, tell me:\n1. What do you need?\n2. What's your deadline?\n3. What's your budget range?\n\nI'll provide immediate guidance and connect you with our team right away!`;
+        }
+        
         // Intent Detection & Contextual Response Generation
         
-        // 1. GREETINGS - Natural conversation starters
-        if (lowerMessage.match(/^(hi|hello|hey|greetings|good morning|good afternoon|good evening)/)) {
+        // 1. GREETINGS - Natural conversation starters with context awareness
+        if (fuzzyMatch(lowerMessage, ['hi', 'hello', 'hey', 'greetings', 'good morning', 'good afternoon', 'good evening', 'helo', 'hallo'])) {
+            if (conversationContext.userName) {
+                return `Welcome back, ${conversationContext.userName}! Great to see you again. How can I continue helping you today?`;
+            }
+            const timeOfDay = new Date().getHours();
+            let greeting = 'Hello';
+            if (timeOfDay < 12) greeting = 'Good morning';
+            else if (timeOfDay < 18) greeting = 'Good afternoon';
+            else greeting = 'Good evening';
+            
             const greetings = [
-                `Hello! Welcome to TriVenta Tech! I'm your virtual assistant, here to help you discover how we can transform your business with cutting-edge technology. What brings you here today?`,
-                `Hey there! Great to have you here at TriVenta Tech. I'm excited to help you explore our services. Are you looking for a specific solution, or would you like me to give you an overview?`,
-                `Hi! Welcome aboard! I'm here to assist you with anything from AI solutions to web development. What would you like to know about?`
+                `${greeting}! 👋 Welcome to TriVenta Tech! I'm your intelligent assistant, ready to help you discover cutting-edge technology solutions. What brings you here today?`,
+                `${greeting}! Great to have you at TriVenta Tech. I'm here to answer any questions and guide you to the perfect solution. What would you like to explore?`,
+                `${greeting}! Welcome! I can help you with web development, AI solutions, cybersecurity, mobile apps, and more. What interests you?`
             ];
             return greetings[Math.floor(Math.random() * greetings.length)];
         }
         
-        // 2. NAME INTRODUCTION
+        // 2. NAME INTRODUCTION - More personalized
         if (nameMatch) {
             conversationContext.previousTopic = 'introduction';
-            return `Nice to meet you, ${conversationContext.userName}! 😊 It's great to have you here. How can I help you today? Are you interested in our services, training programs, or perhaps you have a specific project in mind?`;
+            const responses = [
+                `Wonderful to meet you, ${conversationContext.userName}! 😊 I'm excited to help you today. Tell me, what brings you to TriVenta Tech? Are you looking to build something new, improve existing systems, or explore our training programs?`,
+                `Hi ${conversationContext.userName}! Great to have you here. I'm here to make your tech journey smooth. What would you like to accomplish? Whether it's a website, app, AI solution, or just learning more about us - I'm here to help!`,
+                `Nice to meet you, ${conversationContext.userName}! I love knowing who I'm talking to. Now, how can I make your day better? What project or service interests you?`
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
         }
         
-        // 3. QUESTIONS ABOUT THE BOT
-        if (lowerMessage.match(/who are you|what are you|your name|are you human|are you a bot|are you real/)) {
-            return `I'm TriVenta's AI Assistant - think of me as your friendly tech guide! 🤖 While I'm powered by advanced AI, I'm here to give you real, helpful information about our services. Behind me is a team of brilliant humans ready to bring your projects to life. What would you like to know about TriVenta Tech?`;
+        // 3. QUESTIONS ABOUT THE BOT - More engaging
+        if (fuzzyMatch(lowerMessage, ['who are you', 'what are you', 'your name', 'are you human', 'are you a bot', 'are you real', 'are you ai', 'chatbot'])) {
+            return `Great question! I'm TriVenta's AI-powered assistant - think of me as your tech-savvy friend who never sleeps! 🤖✨\n\nI'm designed to:\n• Understand your needs (even if you're not sure yourself!)\n• Provide instant, accurate information\n• Connect you with the right solutions\n• Make complex tech simple\n\nBehind me is an amazing team of real humans - expert developers, designers, and engineers - ready to bring your vision to life.\n\nSo, what can this AI-human combo help you achieve today?`;
         }
         
-        // 4. SERVICES - Web Development
-        if (lowerMessage.match(/website|web dev|web app|ecommerce|e-commerce|online store|web design|frontend|backend/)) {
+        // 4. HOW CAN YOU HELP - Comprehensive overview
+        if (fuzzyMatch(lowerMessage, ['how can you help', 'what can you do', 'help me', 'assist', 'what do you offer', 'services'])) {
+            return `Excellent question! I can help you with SO much! Here's what I do best:\n\n🌐 <strong>Web Development</strong> - From simple sites to complex web apps\n🤖 <strong>AI & Data Science</strong> - Machine learning, chatbots, analytics\n🔒 <strong>Cybersecurity</strong> - Protect your digital assets\n☁️ <strong>Cloud Solutions</strong> - AWS, Azure, Google Cloud\n📱 <strong>Mobile Apps</strong> - iOS & Android\n🎓 <strong>Training</strong> - Learn tech skills (coming soon!)\n💰 <strong>Pricing & Quotes</strong> - Transparent, customized proposals\n\nI can also:\n• Answer technical questions\n• Explain how things work\n• Help you choose the right solution\n• Connect you with our team\n• Provide sample quotations\n\nWhat interests you most? Or tell me about your project, and I'll guide you to the perfect solution!`;
+        }
+        
+        // 4. SERVICES - Web Development (Enhanced with budget awareness)
+        if (fuzzyMatch(lowerMessage, ['website', 'web dev', 'web app', 'ecommerce', 'e-commerce', 'online store', 'web design', 'frontend', 'backend', 'webpage', 'landing page', 'site'])) {
             conversationContext.interestedServices.push('web-development');
             conversationContext.previousTopic = 'web-development';
+            conversationContext.lastIntent = 'web-dev';
             
-            if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
-                return `Great question! Our web development projects typically range from $500-$10,000+ depending on complexity:\n\n• Basic Website: $500-$1,500\n• Business Website: $1,500-$3,000\n• E-commerce Platform: $3,000-$8,000\n• Custom Web Application: $5,000+\n\nEach project is unique! Would you like a free consultation where we can discuss your specific needs and provide an accurate quote?`;
+            // Check if budget was mentioned
+            if (conversationContext.userData.budget) {
+                return `Perfect! You mentioned ${conversationContext.userData.budget} for your web project. Let me help you maximize that budget!\n\nHere's what we can typically deliver:\n• Under KES 50K: Professional landing page or simple site\n• KES 50K-100K: Full business website with CMS\n• KES 100K-200K: E-commerce or complex web application\n• KES 200K+: Enterprise-level custom solution\n\nYour budget puts you in a great position! What features are most important to you?\n\n<strong>Free Consultation:</strong>\n📱 WhatsApp: <a href="https://wa.me/254722206805" target="_blank">0722 206 805</a>\n📥 <a href="downloads.html">View Sample Quotations</a>`;
             }
             
-            return `Excellent choice! We create stunning, high-performance websites that drive results. Our web development services include:\n\n• Custom Websites & Landing Pages\n• E-commerce Platforms (Shopify, WooCommerce, Custom)\n• Progressive Web Apps (PWAs)\n• Fast, SEO-Optimized Sites\n• Modern UI/UX Design\n\nWe've built 50+ websites with 99% client satisfaction! What type of website are you looking to create?`;
+            if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
+                return `Great question! Web development costs vary based on your needs. Here's our transparent pricing:\n\n💰 <strong>Investment Ranges:</strong>\n• Basic Website: KES 50K - 80K\n• Business Website: KES 80K - 150K\n• E-commerce Platform: KES 150K - 300K\n• Custom Web Application: KES 300K+\n\n✅ <strong>What's Included:</strong>\n• Professional design\n• Mobile responsive\n• SEO optimization\n• Free SSL & hosting setup\n• Content management system\n• 3-6 months support\n\n<strong>Want exact pricing?</strong>\nTell me about your project:\n• What type of website?\n• Key features needed?\n• Any reference sites?\n• Timeline?\n\nOr download our <a href="downloads.html">sample quotation</a> to see detailed breakdowns!`;
+            }
+            
+            return `Excellent choice! Websites are our specialty! 🌐\n\nWe create:\n• <strong>Business Websites</strong> - Professional, conversion-focused\n• <strong>E-commerce Stores</strong> - Full online shopping experience\n• <strong>Web Applications</strong> - Custom functionality & databases\n• <strong>Landing Pages</strong> - High-converting, fast-loading\n• <strong>Progressive Web Apps</strong> - App-like experience\n\n✨ <strong>Our Approach:</strong>\n• Modern, mobile-first design\n• Fast loading (under 3 seconds)\n• SEO-optimized from day one\n• Easy content management\n• Secure & scalable\n\n<strong>50+ websites built, 99% satisfaction rate!</strong>\n\nWhat type of website do you need? Or tell me about your business, and I'll recommend the perfect solution!`;
         }
         
-        // 5. SERVICES - AI & Data Science
-        if (lowerMessage.match(/\bai\b|artificial intelligence|machine learning|data science|chatbot|automation|neural|deep learning|analytics/)) {
+        // 5. SERVICES - AI & Data Science (Enhanced with use-case understanding)
+        if (fuzzyMatch(lowerMessage, ['ai', 'artificial intelligence', 'machine learning', 'data science', 'chatbot', 'automation', 'neural', 'deep learning', 'analytics', 'ml', 'data analysis', 'predict'])) {
             conversationContext.interestedServices.push('ai-solutions');
             conversationContext.previousTopic = 'ai-solutions';
+            conversationContext.lastIntent = 'ai';
             
-            return `Fantastic! AI is transforming businesses worldwide, and we're at the forefront! Our AI & Data Science offerings include:\n\n• Custom AI Models & Machine Learning\n• Intelligent Chatbots (like me, but even smarter!)\n• Predictive Analytics & Business Intelligence\n• Customer Behavior Analysis\n• Computer Vision & NLP Solutions\n• Process Automation (save up to 80% time!)\n\nWe've helped clients automate workflows, predict trends, and make data-driven decisions. What AI challenge are you looking to solve?`;
+            return `Fantastic! AI is revolutionizing business - you're thinking ahead! 🤖🚀\n\n<strong>Our AI & Data Science Solutions:</strong>\n\n🧠 <strong>Machine Learning Models</strong>\n• Predictive analytics (forecast sales, trends)\n• Recommendation systems\n• Image & video recognition\n• Natural language processing\n\n💬 <strong>Intelligent Chatbots</strong>\n• Customer service automation\n• Lead generation\n• 24/7 availability (like me!)\n\n📊 <strong>Data Analytics</strong>\n• Business intelligence dashboards\n• Customer behavior analysis\n• Performance metrics\n\n⚙️ <strong>Process Automation</strong>\n• Save 60-80% time on repetitive tasks\n• Reduce human error\n• Increase efficiency\n\n<strong>Real Results:</strong> Clients have seen 40% efficiency gains!\n\nWhat problem are you trying to solve with AI? Or what process would you like to automate? The more specific you are, the better I can help!`;
         }
         
         // 6. SERVICES - Cybersecurity
@@ -4058,33 +4205,62 @@ document.addEventListener('DOMContentLoaded', function() {
             return `Take care! 👋 It was great chatting with you${conversationContext.userName ? ', ' + conversationContext.userName : ''}! Feel free to return anytime. We're always here to help.\n\n📧 info@triventatech.com\n🌐 www.triventatech.com\n\nHave an amazing day! 🌟`;
         }
         
-        // 21. COMPLEX QUESTIONS - Analyze for multiple intents
+        // 21. COMPLEX QUESTIONS - Intelligent multi-intent detection
         if (wordCount > 10) {
             const topics = [];
-            if (lowerMessage.includes('website') || lowerMessage.includes('web')) topics.push('web development');
-            if (lowerMessage.includes('ai') || lowerMessage.includes('machine learning')) topics.push('AI solutions');
-            if (lowerMessage.includes('security') || lowerMessage.includes('cyber')) topics.push('cybersecurity');
+            if (fuzzyMatch(lowerMessage, ['website', 'web', 'site'])) topics.push('web development');
+            if (fuzzyMatch(lowerMessage, ['ai', 'machine learning', 'ml', 'data'])) topics.push('AI solutions');
+            if (fuzzyMatch(lowerMessage, ['security', 'cyber', 'hack'])) topics.push('cybersecurity');
+            if (fuzzyMatch(lowerMessage, ['mobile', 'app', 'android', 'ios'])) topics.push('mobile apps');
+            if (fuzzyMatch(lowerMessage, ['cloud', 'server', 'hosting'])) topics.push('cloud solutions');
             
-            if (topics.length > 0) {
-                return `I can see you're interested in multiple areas - specifically ${topics.join(' and ')}! 🎯 That's great! We excel at integrated solutions.\n\nTo give you the most accurate information, let's focus on one at a time. Which of these is your top priority right now? Or would you like me to explain how they can work together in a comprehensive solution?`;
+            if (topics.length > 1) {
+                return `I understand you're interested in multiple areas: ${topics.join(', ')}! 🎯\n\nGreat news - we can integrate these into a comprehensive solution! Many of our clients benefit from combined approaches.\n\n<strong>Let's prioritize:</strong>\n1. Which is most urgent for you?\n2. What's your overall budget range?\n3. What's your timeline?\n\nOr would you like me to explain how ${topics[0]} and ${topics[1]} work together? I can show you real examples!`;
+            }
+            
+            if (topics.length === 1) {
+                return `I can see you're interested in ${topics[0]}! Let me ask a few quick questions to give you the perfect solution:\n\n1. What's the main goal or problem you're solving?\n2. Have you done this before, or is this your first time?\n3. What's your timeline?\n4. Rough budget range?\n\nDon't worry if you're not sure about all these - we can figure it out together! 😊`;
             }
         }
         
-        // 22. CONTEXTUAL FOLLOW-UP
-        if (conversationContext.conversationHistory.length > 2 && lowerMessage.split(' ').length < 5) {
-            const lastBotMessage = conversationContext.conversationHistory.slice(-2, -1)[0];
-            if (lastBotMessage && lastBotMessage.role === 'bot') {
-                return `I want to make sure I understand you correctly. Could you provide a bit more detail? For example:\n\n• What specific features are you looking for?\n• What's your timeline?\n• What's your approximate budget?\n• Any particular concerns or requirements?\n\nThe more I know, the better I can help! 😊`;
+        // 22. SHORT VAGUE RESPONSES - Request clarification intelligently
+        if (wordCount < 3 && conversationContext.conversationHistory.length > 2) {
+            const shortResponses = [
+                `I hear you! Could you tell me a bit more? I want to make sure I give you exactly what you need. What specifically are you interested in?`,
+                `Got it! To help you better, could you elaborate a little? For example, are you asking about our services, pricing, or something else?`,
+                `I'm listening! 👂 Could you give me more context? The more details you share, the more precisely I can help you.`
+            ];
+            return shortResponses[Math.floor(Math.random() * shortResponses.length)];
+        }
+        
+        // 23. CONTEXTUAL FOLLOW-UP - Smart continuation
+        if (conversationContext.lastIntent && conversationContext.conversationHistory.length > 2) {
+            if (conversationContext.lastIntent === 'web-dev') {
+                return `Based on our chat about web development, let me help you take the next step:\n\n<strong>Quick Questions:</strong>\n• Do you have content ready (text, images)?\n• Any reference websites you like?\n• Need logo/branding design too?\n• Want to manage it yourself or need us to?\n\n<strong>Next Steps:</strong>\n📱 <a href="https://wa.me/254722206805" target="_blank">WhatsApp for instant quote</a>\n📥 <a href="downloads.html">Download sample quotation</a>\n📧 Email: bilfordderek917@gmail.com\n\nWhat works best for you?`;
+            }
+            
+            if (conversationContext.lastIntent === 'ai') {
+                return `Let's dive deeper into your AI project! To recommend the perfect solution:\n\n• What data do you have available?\n• What decision or prediction do you want to make?\n• How many users will use it?\n• Need it to integrate with existing systems?\n\nAI can be simple or complex - I'll help you find the right fit for your needs and budget! 🤖`;
             }
         }
         
-        // 23. DEFAULT - Intelligent fallback with context awareness
+        // 24. INTELLIGENT DEFAULT - Context-aware, helpful fallback
+        const hasContext = conversationContext.interestedServices.length > 0 || conversationContext.userName;
+        
+        if (hasContext) {
+            const interested = conversationContext.interestedServices.length > 0 
+                ? `I know you're interested in ${conversationContext.interestedServices.join(' and ')}. ` 
+                : '';
+            
+            return `${interested}I want to understand you better! Let me try a different approach:\n\n<strong>Choose what describes you best:</strong>\n1️⃣ "I have a specific project in mind"\n2️⃣ "I'm exploring options"\n3️⃣ "I need help figuring out what I need"\n4️⃣ "I want to see pricing"\n5️⃣ "I want to talk to a human"\n\nJust type the number, or tell me in your own words! There's no wrong answer. 😊\n\nOr contact us directly:\n📱 WhatsApp: <a href="https://wa.me/254722206805" target="_blank">0722 206 805</a>`;
+        }
+        
         const responses = [
-            `That's an interesting question! 🤔 While I want to give you the most accurate information, could you rephrase or provide more details? Here's what I can definitely help with:\n\n• Our Services (Web, AI, Cybersecurity, Cloud, Mobile, Design)\n• Training Programs\n• Pricing & Quotes\n• Contact Information\n• Portfolio & Case Studies\n\nWhat would you like to explore?`,
+            `I'm here to help, but I want to make sure I understand you correctly! 🤔\n\n<strong>Try asking me about:</strong>\n• "I need a website for my business"\n• "How much does AI cost?"\n• "I want to secure my systems"\n• "Show me your portfolio"\n• "Can you train my team?"\n\nOr just tell me about your business or project - I'm a good listener! What would you like to know?`,
             
-            `I appreciate your message! 💭 To provide the best answer, could you tell me more about:\n\n• Your specific goals?\n• Which service interests you most?\n• Your timeline or budget?\n\nOr feel free to ask me about TriVenta Tech's services, training, or how we can help your business!`,
+            `Hmm, I want to give you the perfect answer! Let me help differently:\n\n<strong>Quick Menu:</strong>\n🌐 Web Development\n🤖 AI & Machine Learning\n🔒 Cybersecurity\n📱 Mobile Apps\n☁️ Cloud Solutions\n💰 Get a Quote\n📞 Talk to Team\n\nClick any option above, or describe what you need in your own words!`,
             
-            `Great question! 🌟 I want to make sure I give you exactly what you need. Here's what I'm an expert on:\n\n✅ Technology Solutions (Web, AI, Security, Cloud)\n✅ Training & Education Programs\n✅ Project Pricing & Timelines\n✅ Our Team & Company Background\n\nWhat aspect interests you most?\n📧 Email: bilfordderek917@gmail.com\n📱 WhatsApp: 0722 206 805`
+            `I'm listening! 👂 But I want to make sure I help you properly.\n\n<strong>Tell me:</strong>\n• What brings you here today?\n• What problem are you trying to solve?\n• What are you hoping to build or achieve?\n\nNo tech jargon needed - just explain it like you're talking to a friend! I'll translate it into solutions. 😊\n\n📧 bilfordderek917@gmail.com\n📱 0722 206 805`
         ];
         
         return responses[Math.floor(Math.random() * responses.length)];

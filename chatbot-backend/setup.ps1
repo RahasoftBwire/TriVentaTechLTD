@@ -1,8 +1,8 @@
-# TriVenta Tech AI Chatbot - Quick Setup Script
+# Bwire Global Tech AI Chatbot - Quick Setup Script
 # Run this to set up everything automatically
 
 Write-Host "================================" -ForegroundColor Cyan
-Write-Host "TriVenta Tech AI Chatbot Setup" -ForegroundColor Cyan
+Write-Host "Bwire Global Tech AI Chatbot Setup" -ForegroundColor Cyan
 Write-Host "================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -79,7 +79,7 @@ Write-Host "Creating knowledge base..." -ForegroundColor Yellow
 $knowledgeBase = @"
 {
   "company": {
-    "name": "TriVenta Tech Ltd",
+    "name": "Bwire Global Tech",
     "location": "Nairobi, Kenya",
     "email": "bilfordderek917@gmail.com",
     "phone": "+254722206805",

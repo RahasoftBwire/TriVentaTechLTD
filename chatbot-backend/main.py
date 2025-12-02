@@ -1,5 +1,5 @@
 """
-TriVenta Tech AI Chatbot - Main FastAPI Application
+Bwire Global Tech AI Chatbot - Main FastAPI Application
 Complete backend API with LLM integration, NLP processing, and database management
 """
 

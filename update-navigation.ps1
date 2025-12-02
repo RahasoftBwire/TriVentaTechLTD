@@ -1,5 +1,5 @@
 # PowerShell script to update navigation across all HTML pages
-# TriVenta Tech Ltd - Navigation Consistency Update
+# Bwire Global Tech - Navigation Consistency Update
 
 $pages = @(
     "about.html",
@@ -41,7 +41,7 @@ $dropdownNavigation = @"
                 </nav>
 "@
 
-Write-Host "TriVenta Tech - Navigation Update Script" -ForegroundColor Cyan
+Write-Host "Bwire Global Tech - Navigation Update Script" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 

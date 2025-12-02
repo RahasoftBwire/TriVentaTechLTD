@@ -1,4 +1,4 @@
-// TriVenta Tech Ltd - Contact Form Handler
+// Bwire Global Tech - Contact Form Handler
 // Sends emails to bilfordderek917@gmail.com via SMTP
 
 class ContactFormHandler {
@@ -72,7 +72,7 @@ class ContactFormHandler {
     }
 
     sendViaMailto(data) {
-        const subject = encodeURIComponent(`TriVenta Tech - ${data.subject}`);
+        const subject = encodeURIComponent(`Bwire Global Tech - ${data.subject}`);
         const body = encodeURIComponent(
             `Name: ${data.name}\n` +
             `Email: ${data.email}\n` +

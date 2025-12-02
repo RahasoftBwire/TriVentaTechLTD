@@ -1,5 +1,5 @@
 """
-TriVenta Tech AI Chatbot - NLP Processing Service
+Bwire Global Tech AI Chatbot - NLP Processing Service
 Handles intent classification, sentiment analysis, entity recognition, and context tracking
 """
 

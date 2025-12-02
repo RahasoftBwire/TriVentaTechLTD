@@ -1,5 +1,5 @@
 """
-TriVenta Tech AI Chatbot - Pydantic Schemas
+Bwire Global Tech AI Chatbot - Pydantic Schemas
 Request/Response models for API endpoints
 """
 

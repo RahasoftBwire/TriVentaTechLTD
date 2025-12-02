@@ -1,5 +1,5 @@
 /**
- * TriVenta Tech AI Chatbot - Frontend Integration
+ * Bwire Global Tech AI Chatbot - Frontend Integration
  * Replace the existing chatbot code in index.html with this enhanced version
  * 
  * Features:

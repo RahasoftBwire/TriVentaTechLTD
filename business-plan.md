@@ -1,7 +1,7 @@
-# TriVenta Tech Ltd - Business Plan Outline
+# Bwire Global Tech - Business Plan Outline
 
 ## Executive Summary
-- **Company**: TriVenta Tech Ltd
+- **Company**: Bwire Global Tech
 - **Location**: Nairobi, Kenya
 - **Founding**: Technology company founded by two computer scientists
 - **Mission**: Engineering intelligent and secure digital solutions globally

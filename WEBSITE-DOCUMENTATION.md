@@ -1,8 +1,8 @@
-# TriVenta Tech Ltd - Website Documentation
+# Bwire Global Tech - Website Documentation
 
 **Version:** 1.0  
 **Last Updated:** October 4, 2025  
-**Company:** TriVenta Tech Ltd  
+**Company:** Bwire Global Tech  
 **Tagline:** "Engineering Intelligence, Powering Progress."
 
 ---

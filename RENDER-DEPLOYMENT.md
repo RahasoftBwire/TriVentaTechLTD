@@ -1,4 +1,4 @@
-# Render Deployment Instructions for TriVenta Tech Website
+# Render Deployment Instructions for Bwire Global Tech Website
 
 ## Option 1: Static Site (RECOMMENDED - FREE)
 

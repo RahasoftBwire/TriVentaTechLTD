@@ -10,7 +10,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 // Email configuration
 $from_email = 'noreply@triventatech.com';
-$from_name = 'TriVenta Tech Ltd';
+$from_name = 'Bwire Global Tech';
 $to_email = 'bilfordderek917@gmail.com';
 
 // Get form data
@@ -45,7 +45,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Prepare email content
-$emailSubject = "TriVenta Tech - $subject";
+$emailSubject = "Bwire Global Tech - $subject";
 $emailBody = "
 <!DOCTYPE html>
 <html>
@@ -64,7 +64,7 @@ $emailBody = "
 <body>
     <div class='container'>
         <div class='header'>
-            <h1>TriVenta Tech Ltd</h1>
+            <h1>Bwire Global Tech</h1>
             <p>Engineering Intelligence, Powering Progress</p>
         </div>
         <div class='content'>
@@ -119,7 +119,7 @@ try {
     $adminSent = mail($to_email, $emailSubject, $emailBody, $headers);
     
     // Client confirmation email content
-    $clientSubject = "Thank You for Contacting TriVenta Tech Ltd";
+    $clientSubject = "Thank You for Contacting Bwire Global Tech";
     $clientBody = "
 <!DOCTYPE html>
 <html>
@@ -139,12 +139,12 @@ try {
     <div class='container'>
         <div class='header'>
             <h1>✅ Message Received!</h1>
-            <p>TriVenta Tech Ltd</p>
+            <p>Bwire Global Tech</p>
         </div>
         <div class='content'>
             <p>Dear <strong>$name</strong>,</p>
             
-            <p>Thank you for reaching out to <strong>TriVenta Tech Ltd</strong>! We have successfully received your message and one of our team members will get back to you as soon as possible.</p>
+            <p>Thank you for reaching out to <strong>Bwire Global Tech</strong>! We have successfully received your message and one of our team members will get back to you as soon as possible.</p>
             
             <div class='message-box'>
                 <h3>📋 Your Message Details:</h3>
@@ -171,10 +171,10 @@ try {
             </div>
             
             <p>We look forward to serving you!</p>
-            <p><strong>Best Regards,</strong><br>The TriVenta Tech Team</p>
+            <p><strong>Best Regards,</strong><br>The Bwire Global Tech Team</p>
         </div>
         <div class='footer'>
-            <p>&copy; " . date('Y') . " TriVenta Tech Ltd. All rights reserved.</p>
+            <p>&copy; " . date('Y') . " Bwire Global Tech. All rights reserved.</p>
             <p>Engineering Intelligence, Powering Progress</p>
         </div>
     </div>

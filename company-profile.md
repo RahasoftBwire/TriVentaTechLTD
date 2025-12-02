@@ -1,13 +1,13 @@
 ---
 layout: default
-title: TriVenta Tech Ltd
+title: Bwire Global Tech
 ---
 
-# TriVenta Tech Ltd
+# Bwire Global Tech
 *"Engineering Intelligence, Powering Progress."*
 
 ## About
-Founded in Kenya by two visionary computer scientists, TriVenta Tech Ltd delivers intelligent, secure, and scalable digital solutions globally.
+Founded in Kenya by two visionary computer scientists, Bwire Global Tech delivers intelligent, secure, and scalable digital solutions globally.
 
 ## Mission
 To engineer intelligent and secure digital solutions that drive innovation, foster growth, and create meaningful impact globally.

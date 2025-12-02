@@ -1,5 +1,5 @@
 # Visual Assets Implementation Guide
-## TriVenta Tech Website - Image Enhancement Documentation
+## Bwire Global Tech Website - Image Enhancement Documentation
 
 **Last Updated:** October 4, 2025  
 **Status:** Partial Implementation Complete

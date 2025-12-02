@@ -1,5 +1,5 @@
 """
-TriVenta Tech AI Chatbot - Configuration Manager
+Bwire Global Tech AI Chatbot - Configuration Manager
 Loads environment variables and application settings
 """
 
@@ -44,7 +44,7 @@ class Settings(BaseSettings):
     CORS_ALLOW_CREDENTIALS: bool = True
     
     # Application
-    APP_NAME: str = "TriVenta Tech AI Chatbot"
+    APP_NAME: str = "Bwire Global Tech AI Chatbot"
     APP_VERSION: str = "1.0.0"
     DEBUG: bool = True
     LOG_LEVEL: str = "INFO"
@@ -64,7 +64,7 @@ class Settings(BaseSettings):
     MAX_CONVERSATION_LENGTH: int = 50
     
     # Business Context
-    COMPANY_NAME: str = "TriVenta Tech Ltd"
+    COMPANY_NAME: str = "Bwire Global Tech"
     COMPANY_EMAIL: str = "bilfordderek917@gmail.com"
     COMPANY_PHONE: str = "+254722206805"
     COMPANY_WEBSITE: str = "https://www.triventatech.com"

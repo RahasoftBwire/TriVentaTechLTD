@@ -1,4 +1,4 @@
-# TriVenta Tech AI Chatbot - Quick Start Guide
+# Bwire Global Tech AI Chatbot - Quick Start Guide
 
 ## 🚀 Get Started in 5 Minutes
 

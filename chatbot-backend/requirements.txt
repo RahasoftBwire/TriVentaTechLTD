@@ -1,4 +1,4 @@
-# TriVenta Tech AI Chatbot Backend - Requirements
+# Bwire Global Tech AI Chatbot Backend - Requirements
 # Python 3.10+
 
 # Core Framework

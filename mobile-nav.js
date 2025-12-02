@@ -1,5 +1,5 @@
 /**
- * TriVenta Tech Ltd - Mobile Navigation System
+ * Bwire Global Tech - Mobile Navigation System
  * Universal mobile menu handler for all pages
  */
 

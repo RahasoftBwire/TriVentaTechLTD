@@ -1,4 +1,4 @@
-# TriVenta Tech AI Chatbot Backend
+# Bwire Global Tech AI Chatbot Backend
 
 ## 🚀 Complete Human-Like AI Chatbot System
 
@@ -264,7 +264,7 @@ Modify system prompt in `app/services/llm_service.py`
 
 ### 📄 License
 
-© 2025 TriVenta Tech Ltd. All rights reserved.
+© 2025 Bwire Global Tech. All rights reserved.
 
 ---
 

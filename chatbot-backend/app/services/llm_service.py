@@ -1,5 +1,5 @@
 """
-TriVenta Tech AI Chatbot - LLM Service
+Bwire Global Tech AI Chatbot - LLM Service
 Handles integration with various LLM providers (OpenAI, Anthropic, HuggingFace)
 """
 

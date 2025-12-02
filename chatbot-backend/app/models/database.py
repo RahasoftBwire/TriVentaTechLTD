@@ -1,5 +1,5 @@
 """
-TriVenta Tech AI Chatbot - Database Models
+Bwire Global Tech AI Chatbot - Database Models
 SQLAlchemy models for conversation storage
 """
 

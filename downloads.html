@@ -392,24 +392,39 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html">
-                    <img src="logo-ttl-horizontal.jpg" alt="Bwire Global Tech" style="height: 50px; width: auto;">
-                </a>
+    <header class="main-header">
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <img src="logo-ttl-horizontal.jpg" alt="Bwire Global Tech - Engineering Intelligence, Powering Progress" style="height: 50px; width: auto;">
+                </div>
+                
+                <nav class="main-nav">
+                    <!-- Only Dropdown Navigation -->
+                    <div class="nav-dropdown-container">
+                        <button class="nav-dropdown-btn" id="navDropdownBtn">
+                            <span>Menu</span>
+                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <ul class="nav-dropdown-menu" id="navDropdownMenu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="downloads.html" class="active">Downloads</a></li>
+                            <li><a href="why-us.html">Why Us</a></li>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="enroll.html">Training</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="cta-button">Get Started</a>
+                </nav>
             </div>
-            <div class="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="downloads.html" class="active">Downloads</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->

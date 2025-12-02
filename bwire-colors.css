@@ -76,10 +76,8 @@ button[type="submit"] {
 }
 
 .stat-number {
-    background: var(--gradient-primary) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
+    color: var(--color-red) !important;
+    font-weight: bold !important;
 }
 
 h2::after,
@@ -224,22 +222,29 @@ select:focus {
     transform: scale(1.1) !important;
 }
 
-/* Section backgrounds - alternating colorful themes */
+/* Section backgrounds - subtle alternating themes */
 section:nth-child(even) {
-    background: linear-gradient(135deg, rgba(255,215,61,0.05), rgba(107,207,127,0.05)) !important;
+    background: rgba(248, 249, 250, 0.5) !important;
 }
 
 section:nth-child(odd) {
-    background: linear-gradient(135deg, rgba(78,205,196,0.05), rgba(167,139,250,0.05)) !important;
+    background: rgba(255, 255, 255, 0.5) !important;
 }
 
-/* Headings - colorful text */
-h1, h2, h3 {
-    background: var(--gradient-primary) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
+/* Headings - colorful but readable */
+h1 {
+    color: var(--text-dark) !important;
     font-weight: bold !important;
+}
+
+h2 {
+    color: var(--color-red) !important;
+    font-weight: bold !important;
+}
+
+h3 {
+    color: var(--color-blue) !important;
+    font-weight: 600 !important;
 }
 
 /* Navbar links - colorful on hover */

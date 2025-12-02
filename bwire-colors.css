@@ -1,0 +1,155 @@
+/* 
+   Bwire Global Tech - Color Theme Override
+   Replaces blue theme with green theme to match logo
+*/
+
+:root {
+    --primary-color: #00a86b;
+    --secondary-color: #008c59;
+    --accent-color-1: #00d084;
+    --accent-color-2: #006b4a;
+    --text-dark: #1a1a1a;
+    --text-light: #ffffff;
+}
+
+/* Override all blue gradients with green */
+header, 
+.hero-section,
+.promo-banner,
+.cta-section,
+nav,
+footer,
+.service-card:hover,
+.dropdown-nav {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+}
+
+/* Button colors */
+.btn-primary,
+.cta-button,
+.contact-button,
+button[type="submit"] {
+    background: linear-gradient(135deg, var(--accent-color-1) 0%, var(--primary-color) 100%) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-primary:hover,
+.cta-button:hover {
+    background: var(--secondary-color) !important;
+}
+
+.btn-secondary {
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color) !important;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Icon and accent colors */
+.icon,
+.service-icon,
+.feature-icon,
+.stat-number,
+h2::after,
+.section-title::after {
+    color: var(--accent-color-1) !important;
+    background: var(--accent-color-1) !important;
+}
+
+/* Border and underline colors */
+.service-card,
+.testimonial-card,
+.blog-card {
+    border-left-color: var(--accent-color-1) !important;
+}
+
+/* Link colors */
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--accent-color-1);
+}
+
+/* Badge and tag colors */
+.badge,
+.tag,
+.category {
+    background: var(--primary-color) !important;
+}
+
+/* Progress bars and loading indicators */
+.progress-bar,
+.loading-bar {
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color-1)) !important;
+}
+
+/* Card hover effects */
+.card:hover {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 10px 30px rgba(0, 168, 107, 0.3) !important;
+}
+
+/* Form focus states */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.1) !important;
+}
+
+/* Dropdown menu */
+.nav-dropdown-menu {
+    background: rgba(0, 168, 107, 0.95) !important;
+}
+
+/* Mobile menu overlay */
+.mobile-overlay {
+    background: rgba(0, 140, 89, 0.95) !important;
+}
+
+/* Pricing cards and special sections */
+.pricing-card.featured,
+.highlight-box {
+    border: 3px solid var(--accent-color-1) !important;
+    background: linear-gradient(135deg, rgba(0, 168, 107, 0.1), rgba(0, 208, 132, 0.1)) !important;
+}
+
+/* Stats and counters */
+.stat-card {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+}
+
+/* Timeline and process steps */
+.timeline-item::before,
+.step-number {
+    background: var(--primary-color) !important;
+}
+
+/* Social media icons */
+.social-icon {
+    color: var(--primary-color) !important;
+}
+
+.social-icon:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Scroll indicators */
+.scroll-indicator {
+    border-color: var(--accent-color-1) !important;
+}
+
+/* Video play button */
+.play-button {
+    background: var(--primary-color) !important;
+}
+
+.play-button:hover {
+    background: var(--accent-color-1) !important;
+}

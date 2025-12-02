@@ -4,14 +4,14 @@
 */
 
 :root {
-    --color-red: #FF6B6B;
-    --color-orange: #FFA500;
-    --color-yellow: #FFD93D;
-    --color-green: #6BCF7F;
-    --color-blue: #4ECDC4;
-    --color-purple: #A78BFA;
-    --gradient-primary: linear-gradient(135deg, #FF6B6B 0%, #FFA500 25%, #FFD93D 50%, #6BCF7F 75%, #4ECDC4 100%);
-    --gradient-secondary: linear-gradient(135deg, #4ECDC4 0%, #A78BFA 50%, #FF6B6B 100%);
+    --color-red: #E85D5D;
+    --color-orange: #E89D3F;
+    --color-yellow: #E8C547;
+    --color-green: #5FB572;
+    --color-blue: #45B8B0;
+    --color-purple: #9575CD;
+    --gradient-primary: linear-gradient(135deg, #E85D5D 0%, #E89D3F 25%, #E8C547 50%, #5FB572 75%, #45B8B0 100%);
+    --gradient-secondary: linear-gradient(135deg, #45B8B0 0%, #9575CD 50%, #E85D5D 100%);
     --text-dark: #1a1a1a;
     --text-light: #ffffff;
 }

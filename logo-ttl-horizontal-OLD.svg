@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Hexagon Shape -->
+  <polygon points="100,20 160,50 160,130 100,160 40,130 40,50" 
+           fill="url(#blueGrad)"/>
+  
+  <!-- TTL in Hexagon -->
+  <text x="100" y="115" font-family="Arial, Helvetica, sans-serif" font-size="55" 
+        font-weight="bold" fill="#FFFFFF" text-anchor="middle">TTL</text>
+  
+  <!-- Company Name -->
+  <text x="195" y="80" font-family="Arial, Helvetica, sans-serif" font-size="32" 
+        font-weight="bold" fill="#1e3c72">TriVenta</text>
+  <text x="195" y="115" font-family="Arial, Helvetica, sans-serif" font-size="28" 
+        font-weight="300" fill="#2a5298">Tech Ltd</text>
+  
+  <!-- Tagline -->
+  <text x="195" y="145" font-family="Arial, Helvetica, sans-serif" font-size="11" 
+        fill="#667eea" font-style="italic">"Engineering Intelligence, Powering Progress"</text>
+</svg>
